@@ -3,7 +3,7 @@
 <suite name="Suite">
   <test thread-count="5" name="Test">
      <classes>
-      <class name="com.dinamic.v3.test.AddCategory2"/>
+      <class name="com.dinamic.v3.test.AddCategory"/>
     </classes> 
     <!--  <packages>
         <package name="com.dinamic.v3.test"/>
