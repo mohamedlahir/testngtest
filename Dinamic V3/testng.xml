@@ -2,11 +2,11 @@
 <!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd">
 <suite name="Suite">
   <test thread-count="5" name="Test">
-   <!--  <classes>
+     <classes>
       <class name="com.dinamic.v3.test.AddCategory"/>
-    </classes> -->
-     <packages>
+    </classes> 
+    <!--  <packages>
         <package name="com.dinamic.v3.test"/>
-        </packages>
+        </packages> -->
   </test> <!-- Test -->
 </suite> <!-- Suite -->
