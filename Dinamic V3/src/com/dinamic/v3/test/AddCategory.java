@@ -67,7 +67,8 @@ public class AddCategory {
 		driver.findElement(By.xpath("//a[normalize-space()='Categories']")).click();
 		driver.findElement(By.xpath("//a[@href='/management/menu/categories']")).click();
 		System.out.println();
-		for (int j = 1; j < categoryNames.size(); j++) {
+		for (int j = 1; j < 2; j++) {
+//		for (int j = 1; j < categoryNames.size(); j++) {
 			Thread.sleep(2000);
 			driver.findElement(By.xpath("//a[normalize-space()='ADD CATEGORY']")).click();
 			Thread.sleep(1000);
@@ -86,6 +87,7 @@ public class AddCategory {
 			Thread.sleep(1000);
 			driver.findElement(By.xpath("//span[normalize-space()='DONE']")).click();
 			Thread.sleep(1000);
+			//
 		}
 		driver.quit();
 	}
