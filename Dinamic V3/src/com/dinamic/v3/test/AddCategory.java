@@ -13,10 +13,12 @@ import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.FluentWait;
 import org.openqa.selenium.support.ui.Wait;
+import org.testng.annotations.BeforeTest;
 import org.testng.annotations.Test;
 
 public class AddCategory {
 	//
+	
 	String url = "https://web.dinamic.io/";
 	String email = "ops@thepumphouse.in";
 	String password = "TPH@dinamic02";
@@ -26,7 +28,7 @@ public class AddCategory {
 
 	@Test
 	public void categoryAdding() throws InterruptedException {
-//
+
 		for (int n = 0; n <= 20; n++) {
 			categoryRanks.add(n);
 			categoryNames.add(categoryRanks.get(n) + " Category");
@@ -61,14 +63,13 @@ public class AddCategory {
 		driver.findElement(By.xpath("//button[normalize-space()='6']")).click();
 		driver.findElement(By.xpath("//button[normalize-space()='0']")).click();
 		driver.findElement(By.xpath("//button[normalize-space()='0']")).click();
-//
+
 		driver.findElement(By.xpath("//a[normalize-space()='Staff']")).click();
 
 		driver.findElement(By.xpath("//a[normalize-space()='Categories']")).click();
 		driver.findElement(By.xpath("//a[@href='/management/menu/categories']")).click();
 		System.out.println();
-		for (int j = 1; j < 2; j++) {
-//		for (int j = 1; j < categoryNames.size(); j++) {
+		for (int j = 1; j < categoryNames.size(); j++) {
 			Thread.sleep(2000);
 			driver.findElement(By.xpath("//a[normalize-space()='ADD CATEGORY']")).click();
 			Thread.sleep(1000);
@@ -87,9 +88,7 @@ public class AddCategory {
 			Thread.sleep(1000);
 			driver.findElement(By.xpath("//span[normalize-space()='DONE']")).click();
 			Thread.sleep(1000);
-			//
 		}
 		driver.quit();
 	}
-
 }
