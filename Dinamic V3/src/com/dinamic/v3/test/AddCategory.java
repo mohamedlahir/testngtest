@@ -61,7 +61,7 @@ public class AddCategory {
 		driver.findElement(By.xpath("//button[normalize-space()='6']")).click();
 		driver.findElement(By.xpath("//button[normalize-space()='0']")).click();
 		driver.findElement(By.xpath("//button[normalize-space()='0']")).click();
-
+//
 		driver.findElement(By.xpath("//a[normalize-space()='Staff']")).click();
 
 		driver.findElement(By.xpath("//a[normalize-space()='Categories']")).click();
