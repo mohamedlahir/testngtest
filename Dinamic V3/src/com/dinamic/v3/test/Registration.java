@@ -20,7 +20,7 @@ public class Registration {
 	
 
 	String url = "https://posv3.dinamic.io/register";
-	String email = "taj@taj.ww";
+	String email = "taj@taj.www";
 	String password = "Lahir@123";
 
 	List<String> categoryNames = new ArrayList<>();
