@@ -2,22 +2,22 @@
 <testng-results ignored="0" total="2" passed="2" failed="0" skipped="0">
   <reporter-output>
   </reporter-output>
-  <suite started-at="2022-11-29T10:52:05 IST" name="Suite" finished-at="2022-11-29T10:53:02 IST" duration-ms="57608">
+  <suite started-at="2022-11-29T11:39:22 IST" name="Default suite" finished-at="2022-11-29T11:40:12 IST" duration-ms="50838">
     <groups>
     </groups>
-    <test started-at="2022-11-29T10:52:05 IST" name="Test" finished-at="2022-11-29T10:53:02 IST" duration-ms="57608">
-      <class name="com.dinamic.v3.test.Registration">
-        <test-method signature="registration()[pri:0, instance:com.dinamic.v3.test.Registration@76c3e77a]" started-at="2022-11-29T10:52:05 IST" name="registration" finished-at="2022-11-29T10:52:35 IST" duration-ms="30305" status="PASS">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- registration -->
-      </class> <!-- com.dinamic.v3.test.Registration -->
+    <test started-at="2022-11-29T11:39:22 IST" name="Default test" finished-at="2022-11-29T11:40:12 IST" duration-ms="50838">
       <class name="com.dinamic.v3.test.DeleteCategory">
-        <test-method signature="deletingCategory()[pri:0, instance:com.dinamic.v3.test.DeleteCategory@20ccf40b]" started-at="2022-11-29T10:52:35 IST" name="deletingCategory" finished-at="2022-11-29T10:53:02 IST" duration-ms="27148" status="PASS">
+        <test-method signature="deletingCategory()[pri:0, instance:com.dinamic.v3.test.DeleteCategory@20ccf40b]" started-at="2022-11-29T11:39:50 IST" name="deletingCategory" finished-at="2022-11-29T11:40:12 IST" duration-ms="22657" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- deletingCategory -->
       </class> <!-- com.dinamic.v3.test.DeleteCategory -->
-    </test> <!-- Test -->
-  </suite> <!-- Suite -->
+      <class name="com.dinamic.v3.test.Registration">
+        <test-method signature="registration()[pri:0, instance:com.dinamic.v3.test.Registration@76c3e77a]" started-at="2022-11-29T11:39:22 IST" name="registration" finished-at="2022-11-29T11:39:50 IST" duration-ms="28034" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- registration -->
+      </class> <!-- com.dinamic.v3.test.Registration -->
+    </test> <!-- Default test -->
+  </suite> <!-- Default suite -->
 </testng-results>

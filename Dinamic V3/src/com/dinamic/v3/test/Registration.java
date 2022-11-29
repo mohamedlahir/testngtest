@@ -41,7 +41,7 @@ public class Registration {
 		dropDown.selectByVisibleText(" India (INR) ");
 		driver.findElement(By.id("m_pin")).sendKeys("1234");
 		driver.findElement(By.id("c_pin")).sendKeys("1234");
-		driver.findElement(By.xpath("//button[@class='btn btn-purple btn-block br-4 pd-8']"));
+		driver.findElement(By.xpath("//button[@class='btn btn-purple btn-block br-4 pd-8']")).click();
 	
 		driver.quit();
 	}
