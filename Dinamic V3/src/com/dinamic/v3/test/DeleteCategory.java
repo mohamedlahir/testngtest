@@ -17,29 +17,28 @@ import org.testng.annotations.Test;
 
 public class DeleteCategory {
 
-	String url = "https://web.dinamic.io/";
-	String email = "ops@thepumphouse.in";
-	String password = "TPH@dinamic02";
+	String url = "https://posv3.dinamic.io/";
+	String email = "taj@taj.ww";
+	String password = "Lahir@123";
 
-	List<String> categoryNames = new ArrayList<>();
-	List<Integer> categoryRanks = new ArrayList<>();
-	
+//	List<String> categoryNames = new ArrayList<>();
+//	List<Integer> categoryRanks = new ArrayList<>();
 	@Test
 	public void deletingCategory(){
 		
 		System.setProperty("webdriver.chrome.driver", "C:\\Users\\white\\Downloads\\chromedriver_win32 (4)\\chromedriver.exe");
 		WebDriver driver = new ChromeDriver();
-		driver.get("https://pos.dinamic.io");
+		driver.get(url);
 		driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
 
 		// Action object
 
 		driver.manage().window().maximize();
-		driver.get(url);
-
 		// Fluent wait
 		Wait<WebDriver> wait = new FluentWait<WebDriver>(driver).withTimeout(Duration.ofSeconds(10))
 				.pollingEvery(Duration.ofSeconds(2)).ignoring(NoSuchElementException.class);
+		
+		
 
 		Actions action = new Actions(driver);
 		wait.until(ExpectedConditions.visibilityOfElementLocated(By.id("email")));
@@ -48,7 +47,7 @@ public class DeleteCategory {
 		user.sendKeys(email);
 		driver.findElement(By.id("password")).sendKeys(password);
 		driver.findElement(By.xpath("//div[@class='pos-rel']")).click();
-		driver.findElement(By.xpath("//div[@class='d-flex align-items-center push-48-t push-48-b msvg']")).click();
+//		driver.findElement(By.xpath("//div[@class='d-flex align-items-center push-48-t push-48-b msvg']")).click();
 		driver.quit();
 	}
 	
