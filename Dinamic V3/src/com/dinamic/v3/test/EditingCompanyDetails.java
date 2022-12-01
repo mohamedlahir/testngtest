@@ -56,6 +56,8 @@ public class EditingCompanyDetails {
 		WebElement addressElement = driver.findElement(By.id("raddress"));
 
 		addressElement.click();
+		
+		addressElement.clear();
 
 		addressElement.sendKeys(address);
 
