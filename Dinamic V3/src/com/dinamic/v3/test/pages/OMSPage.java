@@ -1,11 +1,9 @@
 package com.dinamic.v3.test.pages;
 
-import java.util.Arrays;
-import java.util.List;
-
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.interactions.Actions;
 
 public class OMSPage {
 
@@ -16,6 +14,7 @@ public class OMSPage {
 		this.driver = driver;
 
 	}
+//	Actions action = new Actions(driver);
 
 	By emailField = By.id("email");
 	By passwordField = By.id("password");
@@ -49,16 +48,30 @@ public class OMSPage {
 		driver.findElement(pin1).click();
 		driver.findElement(pin2).click();
 		driver.findElement(pin3).click();
-		driver.findElement(pin4).click();	
+		driver.findElement(pin4).click();
+
+		try {
+			Thread.sleep(1000);
+		} catch (InterruptedException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 	}
-	
+
 	public void ordering() {
-		By start = By.xpath("(//button[@class='btn btn-view start-btn w-100 ng-star-inserted'][normalize-space()='start'])[1]");
+		By start = By.xpath(
+				"(//button[@class='btn btn-view start-btn w-100 ng-star-inserted'][normalize-space()='start'])[1]");
 		driver.findElement(start).click();
 		By numberOfPeople = By.id("people_count");
-		driver.findElement(numberOfPeople).sendKeys("7");
-		By startButton = By.cssSelector(".btn.btn-purple.mr-3.d-flex.align-items-center.justify-content-center.ng-star-inserted");
-		driver.findElement(startButton).click();	
+		driver.findElement(numberOfPeople).click();
+		driver.findElement(numberOfPeople).sendKeys("9");
+		WebElement element = driver.findElement(numberOfPeople);
+		By startButton = By.id("people_count");
+		driver.findElement(startButton).click();
 		System.out.println("orderinggg completed");
+	}
+
+	public void orderingItems() {
+
 	}
 }

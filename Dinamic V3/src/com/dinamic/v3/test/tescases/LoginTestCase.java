@@ -2,9 +2,9 @@ package com.dinamic.v3.test.tescases;
 
 import java.time.Duration;
 
-import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.interactions.Actions;
 import org.testng.annotations.AfterTest;
 import org.testng.annotations.BeforeTest;
 import org.testng.annotations.Test;
@@ -15,10 +15,10 @@ public class LoginTestCase {
 	 String  emailAddress = "admin@kfc.in";
 	 String password = "Lahir@123";
 	 String loginPageURL = "https://posv3.dinamic.io/login";
-
+		
 	
     WebDriver driver;
-
+  
 	@BeforeTest
 	public void browserConfiguration() {
 		
@@ -45,6 +45,9 @@ public class LoginTestCase {
 	{
 		OMSPage oPage = new OMSPage(driver);
 		oPage.order();
+		
+		oPage.ordering();
+		
 	}
 
 	@Test(enabled = false)
