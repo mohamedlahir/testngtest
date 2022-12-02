@@ -2,20 +2,20 @@
 <testng-results ignored="1" total="3" passed="1" failed="1" skipped="0">
   <reporter-output>
   </reporter-output>
-  <suite started-at="2022-12-02T16:25:54 IST" name="Default suite" finished-at="2022-12-02T16:26:14 IST" duration-ms="19843">
+  <suite started-at="2022-12-02T16:50:05 IST" name="Default suite" finished-at="2022-12-02T16:50:24 IST" duration-ms="18539">
     <groups>
     </groups>
-    <test started-at="2022-12-02T16:25:54 IST" name="Default test" finished-at="2022-12-02T16:26:14 IST" duration-ms="19843">
+    <test started-at="2022-12-02T16:50:05 IST" name="Default test" finished-at="2022-12-02T16:50:24 IST" duration-ms="18539">
       <class name="com.dinamic.v3.test.tescases.LoginTestCase">
-        <test-method is-config="true" signature="browserConfiguration()[pri:0, instance:com.dinamic.v3.test.tescases.LoginTestCase@4f2b503c]" started-at="2022-12-02T16:25:54 IST" name="browserConfiguration" finished-at="2022-12-02T16:25:59 IST" duration-ms="4953" status="PASS">
+        <test-method is-config="true" signature="browserConfiguration()[pri:0, instance:com.dinamic.v3.test.tescases.LoginTestCase@4f2b503c]" started-at="2022-12-02T16:50:05 IST" name="browserConfiguration" finished-at="2022-12-02T16:50:10 IST" duration-ms="4441" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- browserConfiguration -->
-        <test-method signature="log()[pri:0, instance:com.dinamic.v3.test.tescases.LoginTestCase@4f2b503c]" started-at="2022-12-02T16:25:59 IST" name="log" finished-at="2022-12-02T16:25:59 IST" duration-ms="285" status="PASS">
+        <test-method signature="log()[pri:0, instance:com.dinamic.v3.test.tescases.LoginTestCase@4f2b503c]" started-at="2022-12-02T16:50:10 IST" name="log" finished-at="2022-12-02T16:50:10 IST" duration-ms="299" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- log -->
-        <test-method signature="ordersEntry()[pri:1, instance:com.dinamic.v3.test.tescases.LoginTestCase@4f2b503c]" started-at="2022-12-02T16:25:59 IST" name="ordersEntry" finished-at="2022-12-02T16:26:13 IST" duration-ms="14112" status="FAIL">
+        <test-method signature="ordersEntry()[pri:1, instance:com.dinamic.v3.test.tescases.LoginTestCase@4f2b503c]" started-at="2022-12-02T16:50:10 IST" name="ordersEntry" finished-at="2022-12-02T16:50:23 IST" duration-ms="13257" status="FAIL">
           <exception class="org.openqa.selenium.ElementNotInteractableException">
             <message>
               <![CDATA[element not interactable
@@ -23,10 +23,10 @@
 Build info: version: '4.1.4', revision: '535d840ee2'
 System info: host: 'DESKTOP-E21T489', ip: '172.16.1.31', os.name: 'Windows 10', os.arch: 'amd64', os.version: '10.0', java.version: '17.0.2'
 Driver info: org.openqa.selenium.chrome.ChromeDriver
-Command: [c85ac221063bab4d54b1531eb58819e7, clickElement {id=b60c0ff0-0711-4928-92f0-0ea01a593cfe}]
-Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 108.0.5359.71, chrome: {chromedriverVersion: 107.0.5304.62 (1eec40d3a576..., userDataDir: C:\Users\white\AppData\Loca...}, goog:chromeOptions: {debuggerAddress: localhost:64101}, javascriptEnabled: true, networkConnectionEnabled: false, pageLoadStrategy: normal, platform: WINDOWS, platformName: WINDOWS, proxy: Proxy(), se:cdp: ws://localhost:64101/devtoo..., se:cdpVersion: 108.0.5359.71, setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:extension:credBlob: true, webauthn:extension:largeBlob: true, webauthn:virtualAuthenticators: true}
-Element: [[ChromeDriver: chrome on WINDOWS (c85ac221063bab4d54b1531eb58819e7)] -> id: people_count]
-Session ID: c85ac221063bab4d54b1531eb58819e7]]>
+Command: [e89526d23449d10f496bfa6f269250b4, clickElement {id=da9e6e85-1621-4d44-9d7e-460d5b6c77ca}]
+Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 108.0.5359.71, chrome: {chromedriverVersion: 107.0.5304.62 (1eec40d3a576..., userDataDir: C:\Users\white\AppData\Loca...}, goog:chromeOptions: {debuggerAddress: localhost:65068}, javascriptEnabled: true, networkConnectionEnabled: false, pageLoadStrategy: normal, platform: WINDOWS, platformName: WINDOWS, proxy: Proxy(), se:cdp: ws://localhost:65068/devtoo..., se:cdpVersion: 108.0.5359.71, setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:extension:credBlob: true, webauthn:extension:largeBlob: true, webauthn:virtualAuthenticators: true}
+Element: [[ChromeDriver: chrome on WINDOWS (e89526d23449d10f496bfa6f269250b4)] -> id: people_count]
+Session ID: e89526d23449d10f496bfa6f269250b4]]>
             </message>
             <full-stacktrace>
               <![CDATA[org.openqa.selenium.ElementNotInteractableException: element not interactable
@@ -34,10 +34,10 @@ Session ID: c85ac221063bab4d54b1531eb58819e7]]>
 Build info: version: '4.1.4', revision: '535d840ee2'
 System info: host: 'DESKTOP-E21T489', ip: '172.16.1.31', os.name: 'Windows 10', os.arch: 'amd64', os.version: '10.0', java.version: '17.0.2'
 Driver info: org.openqa.selenium.chrome.ChromeDriver
-Command: [c85ac221063bab4d54b1531eb58819e7, clickElement {id=b60c0ff0-0711-4928-92f0-0ea01a593cfe}]
-Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 108.0.5359.71, chrome: {chromedriverVersion: 107.0.5304.62 (1eec40d3a576..., userDataDir: C:\Users\white\AppData\Loca...}, goog:chromeOptions: {debuggerAddress: localhost:64101}, javascriptEnabled: true, networkConnectionEnabled: false, pageLoadStrategy: normal, platform: WINDOWS, platformName: WINDOWS, proxy: Proxy(), se:cdp: ws://localhost:64101/devtoo..., se:cdpVersion: 108.0.5359.71, setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:extension:credBlob: true, webauthn:extension:largeBlob: true, webauthn:virtualAuthenticators: true}
-Element: [[ChromeDriver: chrome on WINDOWS (c85ac221063bab4d54b1531eb58819e7)] -> id: people_count]
-Session ID: c85ac221063bab4d54b1531eb58819e7
+Command: [e89526d23449d10f496bfa6f269250b4, clickElement {id=da9e6e85-1621-4d44-9d7e-460d5b6c77ca}]
+Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 108.0.5359.71, chrome: {chromedriverVersion: 107.0.5304.62 (1eec40d3a576..., userDataDir: C:\Users\white\AppData\Loca...}, goog:chromeOptions: {debuggerAddress: localhost:65068}, javascriptEnabled: true, networkConnectionEnabled: false, pageLoadStrategy: normal, platform: WINDOWS, platformName: WINDOWS, proxy: Proxy(), se:cdp: ws://localhost:65068/devtoo..., se:cdpVersion: 108.0.5359.71, setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:extension:credBlob: true, webauthn:extension:largeBlob: true, webauthn:virtualAuthenticators: true}
+Element: [[ChromeDriver: chrome on WINDOWS (e89526d23449d10f496bfa6f269250b4)] -> id: people_count]
+Session ID: e89526d23449d10f496bfa6f269250b4
 at java.base/jdk.internal.reflect.NativeConstructorAccessorImpl.newInstance0(Native Method)
 at java.base/jdk.internal.reflect.NativeConstructorAccessorImpl.newInstance(NativeConstructorAccessorImpl.java:77)
 at java.base/jdk.internal.reflect.DelegatingConstructorAccessorImpl.newInstance(DelegatingConstructorAccessorImpl.java:45)
@@ -53,7 +53,7 @@ at org.openqa.selenium.remote.RemoteWebDriver.execute(RemoteWebDriver.java:567)
 at org.openqa.selenium.remote.RemoteWebElement.execute(RemoteWebElement.java:251)
 at org.openqa.selenium.remote.RemoteWebElement.click(RemoteWebElement.java:77)
 at com.dinamic.v3.test.pages.OMSPage.ordering(OMSPage.java:66)
-at com.dinamic.v3.test.tescases.LoginTestCase.ordersEntry(LoginTestCase.java:47)
+at com.dinamic.v3.test.tescases.LoginTestCase.ordersEntry(LoginTestCase.java:49)
 at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
 at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77)
 at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
@@ -88,7 +88,7 @@ at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:77)
           <reporter-output>
           </reporter-output>
         </test-method> <!-- ordersEntry -->
-        <test-method is-config="true" signature="close()[pri:0, instance:com.dinamic.v3.test.tescases.LoginTestCase@4f2b503c]" started-at="2022-12-02T16:26:13 IST" name="close" finished-at="2022-12-02T16:26:14 IST" duration-ms="362" status="PASS">
+        <test-method is-config="true" signature="close()[pri:0, instance:com.dinamic.v3.test.tescases.LoginTestCase@4f2b503c]" started-at="2022-12-02T16:50:23 IST" name="close" finished-at="2022-12-02T16:50:24 IST" duration-ms="419" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- close -->
