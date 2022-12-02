@@ -57,7 +57,7 @@ public class OMSPage {
 		driver.findElement(start).click();
 		By numberOfPeople = By.id("people_count");
 		driver.findElement(numberOfPeople).sendKeys("7");
-		By startButton = By.xpath("//button[@class='btn btn-purple mr-3 d-flex align-items-center justify-content-center ng-star-inserted']//span[@class='material-symbols-outlined pr-2'][normalize-space()='check_circle']");
+		By startButton = By.cssSelector(".btn.btn-purple.mr-3.d-flex.align-items-center.justify-content-center.ng-star-inserted");
 		driver.findElement(startButton).click();	
 		System.out.println("orderinggg completed");
 	}

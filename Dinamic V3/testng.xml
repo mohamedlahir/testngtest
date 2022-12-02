@@ -7,6 +7,7 @@
       <class name="com.dinamic.v3.test.EditingCompanyDetails"/>
        <class name="com.dinamic.v3.test.Registration"/>
        <class name="com.dinamic.v3.test.ServiceCharge"/>
+       <class name="com.dinamic.v3.test.tescases.LoginTestCase"/>
     </classes>
   </test> <!-- Test -->
 </suite> <!-- Suite -->

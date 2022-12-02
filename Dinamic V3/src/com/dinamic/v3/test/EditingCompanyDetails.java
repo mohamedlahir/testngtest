@@ -69,9 +69,9 @@ public class EditingCompanyDetails {
 
 		} else {
 			Assert.assertTrue(false, "Mandatory fields are missing");
-			driver.quit();
+			
 		}
-
+		driver.quit();
 	}
 
 }
