@@ -3,18 +3,6 @@
 <suite name="Failed suite [Default suite]" guice-stage="DEVELOPMENT">
   <test thread-count="5" name="Default test(failed)">
     <classes>
-      <class name="com.dinamic.v3.test.EditingCompanyDetails">
-        <methods>
-          <include name="deletingCategory"/>
-        </methods>
-      </class> <!-- com.dinamic.v3.test.EditingCompanyDetails -->
-      <class name="com.dinamic.v3.test.ServiceCharge">
-        <methods>
-          <include name="seviceChargeAdd"/>
-          <include name="beforTestMethod"/>
-          <include name="enableServiceCharge"/>
-        </methods>
-      </class> <!-- com.dinamic.v3.test.ServiceCharge -->
       <class name="com.dinamic.v3.test.Registration">
         <methods>
           <include name="registration"/>

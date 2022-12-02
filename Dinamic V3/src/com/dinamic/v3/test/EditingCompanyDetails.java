@@ -21,8 +21,6 @@ public class EditingCompanyDetails {
 	String password = "Lahir@123";
 	String address = "No 3, Guindy, Chennai";
 
-//	List<String> categoryNames = new ArrayList<>();
-//	List<Integer> categoryRanks = new ArrayList<>();
 	@Test
 	public void deletingCategory() {
 
@@ -56,7 +54,7 @@ public class EditingCompanyDetails {
 		WebElement addressElement = driver.findElement(By.id("raddress"));
 
 		addressElement.click();
-		
+
 		addressElement.clear();
 
 		addressElement.sendKeys(address);
