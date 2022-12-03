@@ -28,7 +28,7 @@ public class OrdersTestCase {
 		driver.get(loginPageURL);
 		driver.manage().window().maximize();
 	}
-
+//
 	@Test(enabled = true, priority = 0)
 	public void log() {
 		OMSPage oPage = new OMSPage(driver);
