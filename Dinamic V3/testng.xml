@@ -7,7 +7,7 @@
       <class name="com.dinamic.v3.test.EditingCompanyDetails"/>
        <class name="com.dinamic.v3.test.Registration"/> 
        <class name="com.dinamic.v3.test.ServiceCharge"/>-->
-       <class name="com.dinamic.v3.test.tescases.OrdersTestCases"/> 
+       <class name="com.dinamic.v3.test.tescases.OrdersTestCase"/> 
     </classes>
   </test> <!-- Test -->
 </suite> <!-- Suite -->
