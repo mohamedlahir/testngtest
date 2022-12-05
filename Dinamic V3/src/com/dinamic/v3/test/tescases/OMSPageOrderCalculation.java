@@ -9,12 +9,12 @@ public class OMSPageOrderCalculation {
 
 	WebDriver driver;
 
-	@Test
-	public void withoutItemDiscountPrice() {
-		OMSPage omsPage = new OMSPage(driver);
-		omsPage.orderingItems();
-
-	}
+//	@Test
+//	public void withoutItemDiscountPrice() {
+//		OMSPage omsPage = new OMSPage(driver);
+//		omsPage.orderingItems();
+//
+//	}
 
 	public void withItemDiscountPrice() {
 
