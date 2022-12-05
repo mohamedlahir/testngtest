@@ -58,7 +58,8 @@ public class OrdersTestCase {
 	
 	@Test(testName = "ItemDisount")
 	public void withoutItemDiscountPrice() {
-	
+		OMSPage oPage = new OMSPage(driver);
+		
 
 	}
 

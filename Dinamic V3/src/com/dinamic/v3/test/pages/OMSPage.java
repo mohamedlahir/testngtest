@@ -8,8 +8,11 @@ import org.openqa.selenium.WebElement;
 import org.testng.Assert;
 
 public class OMSPage {
-	
+
 	int count = 0;
+	
+	String orderNumberStr;
+	String kotNumber1;
 
 	private WebDriver driver;
 
@@ -81,16 +84,9 @@ public class OMSPage {
 		System.out.println("Floor Name : " + floor);
 		System.out.println("Table Number : " + tableNumber[1]);
 	}
-	
 
-	
-	
-	
-	
 	// Only Ordering Items not settling the bill.
-	
-	
-	
+
 	public void orderingItems() {
 
 		By itemCards = By
@@ -114,9 +110,9 @@ public class OMSPage {
 		By orderedItemsPrice = By.xpath("//div[@class='ft-10 prtxt-right text-right doNotPrint']");
 		List<WebElement> orderItemsPriceList = driver.findElements(orderedItemsPrice);
 //		System.out.println(orderedItems);
-		
+
 		for (int k = 0; k < orderedItems.size(); k++) {
-			String orderd = orderedItems.get(k).getText();//.split("change_history");
+			String orderd = orderedItems.get(k).getText();// .split("change_history");
 //			System.out.println("Ordered Items : " + orderedItems.get(k).getText());
 			count++;
 
@@ -127,7 +123,7 @@ public class OMSPage {
 		By expand = By.xpath("//i[normalize-space()='expand_more']");
 		WebElement expandButton = driver.findElement(expand);
 		expandButton.click();
-		
+
 		try {
 			Thread.sleep(4000);
 		} catch (InterruptedException e) {
@@ -135,22 +131,28 @@ public class OMSPage {
 			e.printStackTrace();
 		}
 		String itemCount;
-		By itemCountElement = By.cssSelector("div[class='mb-2 clearfix ft-11 ng-star-inserted'] div div[class='text-right'] span");
-		
+		By itemCountElement = By
+				.cssSelector("div[class='mb-2 clearfix ft-11 ng-star-inserted'] div div[class='text-right'] span");
+
 		itemCount = driver.findElement(itemCountElement).getText();
-		System.out.println("itemCount"+itemCount);
+		System.out.println("itemCount" + itemCount);
 		int itemCountParsed;
-		 itemCountParsed =Integer.parseInt(itemCount);
-		 System.out.println("itemCountParsed : "+itemCountParsed);
+		itemCountParsed = Integer.parseInt(itemCount);
+		System.out.println("itemCountParsed : " + itemCountParsed);
 		Assert.assertEquals(count, itemCountParsed);
 		By orderNumber = By.cssSelector("span[class='d-flex align-items-center w-100'] span:nth-child(2)");
-		String orderNumberStr = driver.findElement(orderNumber).getText();
-		System.out.println("OrderNumber : "+orderNumberStr);
+		 orderNumberStr = driver.findElement(orderNumber).getText();
+		System.out.println("OrderNumber : " + orderNumberStr);
 		By kOTNumber = By.xpath("//span[@class='ft-8']");
-		String  kotNumber1= driver.findElement(kOTNumber).getText();
-		System.out.println("KOT Number : "+kotNumber1);
+		 kotNumber1 = driver.findElement(kOTNumber).getText();
+		System.out.println("KOT Number : " + kotNumber1);
+
+	}
+	
+	public void orderCalculation() {
 		
-		}
+	
+		
 	}
 
-
+}

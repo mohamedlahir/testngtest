@@ -2,52 +2,52 @@
 <testng-results ignored="2" total="8" passed="6" failed="0" skipped="0">
   <reporter-output>
   </reporter-output>
-  <suite started-at="2022-12-05T11:44:24 IST" name="Default suite" finished-at="2022-12-05T11:45:26 IST" duration-ms="61424">
+  <suite started-at="2022-12-05T11:52:17 IST" name="Default suite" finished-at="2022-12-05T11:53:34 IST" duration-ms="76942">
     <groups>
     </groups>
-    <test started-at="2022-12-05T11:44:24 IST" name="Default test" finished-at="2022-12-05T11:45:26 IST" duration-ms="61424">
-      <class name="com.dinamic.v3.test.EditingCompanyDetails">
-        <test-method signature="deletingCategory()[pri:0, instance:com.dinamic.v3.test.EditingCompanyDetails@7c24b813]" started-at="2022-12-05T11:44:29 IST" name="deletingCategory" finished-at="2022-12-05T11:44:37 IST" duration-ms="8643" status="PASS">
+    <test started-at="2022-12-05T11:52:17 IST" name="Default test" finished-at="2022-12-05T11:53:34 IST" duration-ms="76942">
+      <class name="com.dinamic.v3.test.tescases.EditingCompanyDetails">
+        <test-method signature="deletingCategory()[pri:0, instance:com.dinamic.v3.test.tescases.EditingCompanyDetails@4229bb3f]" started-at="2022-12-05T11:52:22 IST" name="deletingCategory" finished-at="2022-12-05T11:52:30 IST" duration-ms="8501" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- deletingCategory -->
-      </class> <!-- com.dinamic.v3.test.EditingCompanyDetails -->
+      </class> <!-- com.dinamic.v3.test.tescases.EditingCompanyDetails -->
+      <class name="com.dinamic.v3.test.tescases.ServiceCharge">
+        <test-method is-config="true" signature="beforTestMethod()[pri:0, instance:com.dinamic.v3.test.tescases.ServiceCharge@729d991e]" started-at="2022-12-05T11:52:22 IST" name="beforTestMethod" finished-at="2022-12-05T11:52:22 IST" duration-ms="0" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- beforTestMethod -->
+        <test-method signature="enableServiceCharge()[pri:0, instance:com.dinamic.v3.test.tescases.ServiceCharge@729d991e]" started-at="2022-12-05T11:52:30 IST" name="enableServiceCharge" finished-at="2022-12-05T11:52:39 IST" duration-ms="8702" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- enableServiceCharge -->
+        <test-method signature="seviceChargeAdd()[pri:0, instance:com.dinamic.v3.test.tescases.ServiceCharge@729d991e]" started-at="2022-12-05T11:52:39 IST" name="seviceChargeAdd" finished-at="2022-12-05T11:53:04 IST" duration-ms="25122" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- seviceChargeAdd -->
+      </class> <!-- com.dinamic.v3.test.tescases.ServiceCharge -->
       <class name="com.dinamic.v3.test.tescases.OrdersTestCase">
-        <test-method is-config="true" signature="browserConfiguration()[pri:0, instance:com.dinamic.v3.test.tescases.OrdersTestCase@729d991e]" started-at="2022-12-05T11:44:24 IST" name="browserConfiguration" finished-at="2022-12-05T11:44:29 IST" duration-ms="4496" status="PASS">
+        <test-method is-config="true" signature="browserConfiguration()[pri:0, instance:com.dinamic.v3.test.tescases.OrdersTestCase@31fa1761]" started-at="2022-12-05T11:52:17 IST" name="browserConfiguration" finished-at="2022-12-05T11:52:22 IST" duration-ms="5068" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- browserConfiguration -->
-        <test-method signature="log()[pri:0, instance:com.dinamic.v3.test.tescases.OrdersTestCase@729d991e]" started-at="2022-12-05T11:44:37 IST" name="log" finished-at="2022-12-05T11:44:38 IST" duration-ms="290" status="PASS">
+        <test-method signature="log()[pri:0, instance:com.dinamic.v3.test.tescases.OrdersTestCase@31fa1761]" started-at="2022-12-05T11:53:04 IST" name="log" finished-at="2022-12-05T11:53:05 IST" duration-ms="269" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- log -->
-        <test-method signature="withoutItemDiscountPrice()[pri:0, instance:com.dinamic.v3.test.tescases.OrdersTestCase@729d991e]" started-at="2022-12-05T11:44:38 IST" name="withoutItemDiscountPrice" finished-at="2022-12-05T11:44:38 IST" duration-ms="2" status="PASS">
+        <test-method signature="withoutItemDiscountPrice()[pri:0, instance:com.dinamic.v3.test.tescases.OrdersTestCase@31fa1761]" started-at="2022-12-05T11:53:05 IST" name="withoutItemDiscountPrice" finished-at="2022-12-05T11:53:05 IST" duration-ms="3" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- withoutItemDiscountPrice -->
-        <test-method signature="ordersEntry()[pri:1, instance:com.dinamic.v3.test.tescases.OrdersTestCase@729d991e]" started-at="2022-12-05T11:44:38 IST" name="ordersEntry" finished-at="2022-12-05T11:45:03 IST" duration-ms="25317" status="PASS">
+        <test-method signature="ordersEntry()[pri:1, instance:com.dinamic.v3.test.tescases.OrdersTestCase@31fa1761]" started-at="2022-12-05T11:53:05 IST" name="ordersEntry" finished-at="2022-12-05T11:53:31 IST" duration-ms="26748" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- ordersEntry -->
-        <test-method is-config="true" signature="close()[pri:0, instance:com.dinamic.v3.test.tescases.OrdersTestCase@729d991e]" started-at="2022-12-05T11:45:25 IST" name="close" finished-at="2022-12-05T11:45:26 IST" duration-ms="298" status="PASS">
+        <test-method is-config="true" signature="close()[pri:0, instance:com.dinamic.v3.test.tescases.OrdersTestCase@31fa1761]" started-at="2022-12-05T11:53:31 IST" name="close" finished-at="2022-12-05T11:53:34 IST" duration-ms="2441" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- close -->
       </class> <!-- com.dinamic.v3.test.tescases.OrdersTestCase -->
-      <class name="com.dinamic.v3.test.ServiceCharge">
-        <test-method is-config="true" signature="beforTestMethod()[pri:0, instance:com.dinamic.v3.test.ServiceCharge@32502377]" started-at="2022-12-05T11:44:29 IST" name="beforTestMethod" finished-at="2022-12-05T11:44:29 IST" duration-ms="2" status="PASS">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- beforTestMethod -->
-        <test-method signature="enableServiceCharge()[pri:0, instance:com.dinamic.v3.test.ServiceCharge@32502377]" started-at="2022-12-05T11:45:03 IST" name="enableServiceCharge" finished-at="2022-12-05T11:45:14 IST" duration-ms="10574" status="PASS">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- enableServiceCharge -->
-        <test-method signature="seviceChargeAdd()[pri:0, instance:com.dinamic.v3.test.ServiceCharge@32502377]" started-at="2022-12-05T11:45:14 IST" name="seviceChargeAdd" finished-at="2022-12-05T11:45:25 IST" duration-ms="11688" status="PASS">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- seviceChargeAdd -->
-      </class> <!-- com.dinamic.v3.test.ServiceCharge -->
     </test> <!-- Default test -->
   </suite> <!-- Default suite -->
 </testng-results>
