@@ -1,10 +1,17 @@
 package com.dinamic.v3.test.pages;
 
+import java.time.Duration;
 import java.util.List;
 
 import org.openqa.selenium.By;
+import org.openqa.selenium.NoSuchElementException;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.interactions.Actions;
+import org.openqa.selenium.support.ui.ExpectedCondition;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.FluentWait;
+import org.openqa.selenium.support.ui.Wait;
 import org.testng.Assert;
 
 public class OMSPage {
@@ -13,6 +20,11 @@ public class OMSPage {
 
 	String orderNumberStr;
 	String kotNumber1;
+	String orderedItemprice [];
+	int itemTotal;
+	int gSTValue =5;
+	int serviceCharge =10;
+	int itemPriceFinal;
 
 	int itemCountParsed;
 	private WebDriver driver;
@@ -41,11 +53,15 @@ public class OMSPage {
 			.cssSelector("div[class='mb-2 clearfix ft-11 ng-star-inserted'] div div[class='text-right'] span");
 	By orderNumber = By.cssSelector("span[class='d-flex align-items-center w-100'] span:nth-child(2)");
 	By confirmaKOT = By.xpath("//span[normalize-space()='Confirm KOT']");
+	By itemPrice = By.xpath("//div[@class='mb-2 clearfix no-margin ft-11 ng-star-inserted'] //div[@class='text-right'] //span");
+	By grandTotal = By.xpath("//span[@class='order-foot-total ft-15']");
 
+	By priceOutput = By.xpath("//span[@class='order-foot-total ft-15']");
+	
 	public OMSPage(WebDriver driver) {
 
 		this.driver = driver;
-
+		
 	}
 
 	public void enterUsername(String user) {
@@ -163,7 +179,37 @@ public class OMSPage {
 		System.out.println("**********************************************************************");
 		System.out.println("**********************************************************************");
 		System.out.println("**********************************************************************");
-		
+		Wait<WebDriver> wait = new FluentWait<WebDriver>(driver).withTimeout(Duration.ofSeconds(10))
+				.pollingEvery(Duration.ofSeconds(2)).ignoring(NoSuchElementException.class);
+		Actions action = new Actions(driver);
+		wait.until(ExpectedConditions.visibilityOfElementLocated(itemPrice));
+		String totalItemPrice[]= driver.findElement(itemPrice).getText().split(" ");
+		String grandTotal1 = driver.findElement(grandTotal).getText();
+		String numbers= totalItemPrice[1].replaceAll(",", "");
+		Double totalItemAmount = Double.parseDouble(numbers);
+//		itemPriceFinal= Integer.parseInt(numbers);
+		Double itemAmount = totalItemAmount;
+		Double gst = 5.00;
+		Double gstAmount;
+		Double serviceCharge = 10.00;
+		Double serviceTax = 0.00;
+		System.out.println("Total Amount : S" + itemAmount);
+		gstAmount = itemAmount * gst / 100;
+		System.out.println("GST Amount : " + gstAmount);
+		Double amountWithAddedGST = itemAmount + gstAmount;
+		System.out.println("Amount with added GST :" + "(" + gst + ")" + amountWithAddedGST);
+		Double serviceChargeAmount = itemAmount * serviceCharge / 100;
+		System.out.println("Service Charge Amount " + serviceChargeAmount);
+		Double afterAddingdServiceCharge = serviceChargeAmount + itemAmount;
+		Double serviceTaxAmount = serviceChargeAmount * serviceTax / 100;
+		Double totalPrice = itemAmount + gstAmount + serviceChargeAmount + serviceTaxAmount;
+		int price = (int) Math.round(totalPrice);
+		System.out.println("Total Price : " + price);
+		String priceOnScreen[] = driver.findElement(priceOutput).getText().split(" ");
+		System.out.println(priceOnScreen[1].replace(",", ""));
+		String billValue = priceOnScreen[1].replace(",", "");
+		int billAmount = Integer.parseInt(billValue);
+		Assert.assertEquals(price, billAmount);
 		
 
 	}

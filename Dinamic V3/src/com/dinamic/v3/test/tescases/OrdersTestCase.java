@@ -56,10 +56,11 @@ public class OrdersTestCase {
 	}
 	
 	
-	@Test(testName = "ItemDisount")
+	@Test(testName = "No Discount",priority = 2,enabled = true)
 	public void withoutItemDiscountPrice() {
 		OMSPage oPage = new OMSPage(driver);
 		
+		oPage.orderCalculation();
 
 	}
 
