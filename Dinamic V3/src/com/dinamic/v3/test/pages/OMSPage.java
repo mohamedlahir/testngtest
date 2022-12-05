@@ -148,12 +148,12 @@ public class OMSPage {
 		WebElement expandButton = driver.findElement(expand);
 		expandButton.click();
 
-		try {
-			Thread.sleep(4000);
-		} catch (InterruptedException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
+//		try {
+//			Thread.sleep(4000);
+//		} catch (InterruptedException e) {
+//			// TODO Auto-generated catch block
+//			e.printStackTrace();
+//		}
 		String itemCount;
 
 		itemCount = driver.findElement(itemCountElement).getText();
