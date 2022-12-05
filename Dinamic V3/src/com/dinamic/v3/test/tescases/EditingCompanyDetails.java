@@ -1,4 +1,4 @@
-package com.dinamic.v3.test;
+package com.dinamic.v3.test.tescases;
 
 import java.time.Duration;
 

@@ -54,11 +54,6 @@ public class OrdersTestCase {
 		}
 		oPage.orderingItems();
 	}
-
-	@Test(enabled = false)
-	public void logout() {
-
-	}
 	
 	
 	@Test(testName = "ItemDisount")
@@ -66,6 +61,14 @@ public class OrdersTestCase {
 	
 
 	}
+
+	@Test(enabled = false)
+	public void logout() {
+
+	}
+	
+	
+	
 	
 
 	@AfterTest

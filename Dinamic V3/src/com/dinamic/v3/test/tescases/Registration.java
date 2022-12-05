@@ -1,4 +1,4 @@
-package com.dinamic.v3.test;
+package com.dinamic.v3.test.tescases;
 
 import java.time.Duration;
 import java.util.ArrayList;
@@ -26,7 +26,7 @@ public class Registration {
 	List<String> categoryNames = new ArrayList<>();
 	List<Integer> categoryRanks = new ArrayList<>();
 
-	@Test
+	@Test(enabled = false)
 	public void registration() throws InterruptedException {
 
 		System.setProperty("webdriver.chrome.driver",
