@@ -59,6 +59,15 @@ public class OrdersTestCase {
 	public void logout() {
 
 	}
+	
+	
+	@Test(testName = "ItemDisount")
+	public void withoutItemDiscountPrice() {
+		OMSPage omsPage = new OMSPage(driver);
+		omsPage.orderingItems();
+
+	}
+	
 
 	@AfterTest
 	public void close() {

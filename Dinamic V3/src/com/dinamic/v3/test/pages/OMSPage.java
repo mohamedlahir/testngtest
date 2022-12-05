@@ -81,7 +81,16 @@ public class OMSPage {
 		System.out.println("Floor Name : " + floor);
 		System.out.println("Table Number : " + tableNumber[1]);
 	}
+	
 
+	
+	
+	
+	
+	// Only Ordering Items not settling the bill.
+	
+	
+	
 	public void orderingItems() {
 
 		By itemCards = By
@@ -140,6 +149,7 @@ public class OMSPage {
 		By kOTNumber = By.xpath("//span[@class='ft-8']");
 		String  kotNumber1= driver.findElement(kOTNumber).getText();
 		System.out.println("KOT Number : "+kotNumber1);
+		
 		}
 	}
 
