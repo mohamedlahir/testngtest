@@ -84,30 +84,11 @@ public class OMSPage {
 
 	public void orderingItems() {
 
-//		By allCategoryItemsName = By.xpath("//p[@class=\"text-limit mb-0 item-name\"]");
-//
-//		By allCategoryItemsPrice = By.xpath("//p[@class=\"mb-0 item-price\"]");
-//		// span[@class="ng-star-inserted"]
-//
-//		By allCategoryItemsCategory = By.xpath("//span[@class='ng-star-inserted']");
-//
-//		List<WebElement> allCategoryItemsList = driver.findElements(allCategoryItemsName);
-//		List<WebElement> allCategoryItemsPriceList = driver.findElements(allCategoryItemsPrice);
-//		List<WebElement> allCategoryItemsCategoryList = driver.findElements(allCategoryItemsCategory);
-//
-//		for (int i = 0; i < allCategoryItemsList.size(); i++) {
-//			System.out.println("Item Name : " + allCategoryItemsList.get(i).getText());
-//			System.out.println("Item Price : " + allCategoryItemsPriceList.get(i).getText());
-//			System.out.println("Item Category : " + allCategoryItemsCategoryList.get(i).getText());
-//
-//		}
-//		System.out.println("Printing only first 20 items as the page has PAGINATION Concept implemented");
-//		System.out.println("Item Count : " + allCategoryItemsList.size());
 		By itemCards = By
 				.xpath("//div[@class='oms-container-category__container__content__body__card p-2 card-ripple']");
 
 		List<WebElement> allItemsCards = driver.findElements(itemCards);
-		for (int j = 0; j < 5; j++) {
+		for (int j = 0; j < 12; j++) {
 			allItemsCards.get(j).click();
 		}
 
@@ -126,11 +107,11 @@ public class OMSPage {
 //		System.out.println(orderedItems);
 		
 		for (int k = 0; k < orderedItems.size(); k++) {
-			String orderd[] = orderedItems.get(k).getText().split("change_history");
+			String orderd = orderedItems.get(k).getText();//.split("change_history");
 //			System.out.println("Ordered Items : " + orderedItems.get(k).getText());
 			count++;
 
-			System.out.println("Ordered Items : " + orderd[1]);
+			System.out.println("Ordered Items : " + orderd);
 			System.out.println("Rs : " + orderItemsPriceList.get(k).getText());
 		}
 		System.err.println("Number of items orderd : " + count);
@@ -153,7 +134,12 @@ public class OMSPage {
 		 itemCountParsed =Integer.parseInt(itemCount);
 		 System.out.println("itemCountParsed : "+itemCountParsed);
 		Assert.assertEquals(count, itemCountParsed);
-		
+		By orderNumber = By.cssSelector("span[class='d-flex align-items-center w-100'] span:nth-child(2)");
+		String orderNumberStr = driver.findElement(orderNumber).getText();
+		System.out.println("OrderNumber : "+orderNumberStr);
+		By kOTNumber = By.xpath("//span[@class='ft-8']");
+		String  kotNumber1= driver.findElement(kOTNumber).getText();
+		System.out.println("KOT Number : "+kotNumber1);
 		}
 	}
 
