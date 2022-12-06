@@ -2,7 +2,6 @@ package com.dinamic.v3.test.tescases;
 
 import java.time.Duration;
 
-import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.testng.annotations.AfterTest;
@@ -44,14 +43,6 @@ public class OrdersTestCase {
 		oPage.order();
 
 		oPage.ordering();
-//		JavascriptExecutor js = (JavascriptExecutor) driver;
-//		js.executeScript("window.scrollBy(0,350)", "1000");
-//		try {
-//			Thread.sleep(2000);
-//		} catch (InterruptedException e) {
-//			// TODO Auto-generated catch block
-//			e.printStackTrace();
-//		}
 		oPage.orderingItems();
 	}
 	
@@ -62,6 +53,12 @@ public class OrdersTestCase {
 		
 		oPage.orderCalculation();
 
+	}
+	
+	@Test(testName = "Hello",priority = 3,enabled = true)
+	public void withItemDiscount() {
+		OMSPage oPage = new OMSPage(driver);
+		oPage.orderCalculationwithItemDiscount();
 	}
 
 	@Test(enabled = false)

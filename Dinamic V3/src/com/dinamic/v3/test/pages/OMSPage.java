@@ -8,7 +8,6 @@ import org.openqa.selenium.NoSuchElementException;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.interactions.Actions;
-import org.openqa.selenium.support.ui.ExpectedCondition;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.FluentWait;
 import org.openqa.selenium.support.ui.Wait;
@@ -20,10 +19,10 @@ public class OMSPage {
 
 	String orderNumberStr;
 	String kotNumber1;
-	String orderedItemprice [];
+	String orderedItemprice[];
 	int itemTotal;
-	int gSTValue =5;
-	int serviceCharge =10;
+	int gSTValue = 5;
+	int serviceCharge = 10;
 	int itemPriceFinal;
 
 	int itemCountParsed;
@@ -53,15 +52,22 @@ public class OMSPage {
 			.cssSelector("div[class='mb-2 clearfix ft-11 ng-star-inserted'] div div[class='text-right'] span");
 	By orderNumber = By.cssSelector("span[class='d-flex align-items-center w-100'] span:nth-child(2)");
 	By confirmaKOT = By.xpath("//span[normalize-space()='Confirm KOT']");
-	By itemPrice = By.xpath("//div[@class='mb-2 clearfix no-margin ft-11 ng-star-inserted'] //div[@class='text-right'] //span");
+	By itemPrice = By
+			.xpath("//div[@class='mb-2 clearfix no-margin ft-11 ng-star-inserted'] //div[@class='text-right'] //span");
 	By grandTotal = By.xpath("//span[@class='order-foot-total ft-15']");
 
 	By priceOutput = By.xpath("//span[@class='order-foot-total ft-15']");
-	
+
+	By addDiscount = By.xpath(
+			"(//button[@type='button'][normalize-space()='Add Discount'])[1]");
+	By ownersFriend = By.xpath("//li[1]//div[1]//h6[1]");
+
+	By discountConfirmation = By.xpath("//button[normalize-space()='Confirm']");
+
 	public OMSPage(WebDriver driver) {
 
 		this.driver = driver;
-		
+
 	}
 
 	public void enterUsername(String user) {
@@ -183,9 +189,9 @@ public class OMSPage {
 				.pollingEvery(Duration.ofSeconds(2)).ignoring(NoSuchElementException.class);
 		Actions action = new Actions(driver);
 		wait.until(ExpectedConditions.visibilityOfElementLocated(itemPrice));
-		String totalItemPrice[]= driver.findElement(itemPrice).getText().split(" ");
+		String totalItemPrice[] = driver.findElement(itemPrice).getText().split(" ");
 		String grandTotal1 = driver.findElement(grandTotal).getText();
-		String numbers= totalItemPrice[1].replaceAll(",", "");
+		String numbers = totalItemPrice[1].replaceAll(",", "");
 		Double totalItemAmount = Double.parseDouble(numbers);
 //		itemPriceFinal= Integer.parseInt(numbers);
 		Double itemAmount = totalItemAmount;
@@ -206,11 +212,39 @@ public class OMSPage {
 		int price = (int) Math.round(totalPrice);
 		System.out.println("Total Price : " + price);
 		String priceOnScreen[] = driver.findElement(priceOutput).getText().split(" ");
-		System.out.println(priceOnScreen[1].replace(",", ""));
 		String billValue = priceOnScreen[1].replace(",", "");
 		int billAmount = Integer.parseInt(billValue);
 		Assert.assertEquals(price, billAmount);
+
+	}
+
+	public void orderCalculationwithItemDiscount() {
+		Wait<WebDriver> wait = new FluentWait<WebDriver>(driver).withTimeout(Duration.ofSeconds(10))
+				.pollingEvery(Duration.ofSeconds(2)).ignoring(NoSuchElementException.class);
+		Actions action = new Actions(driver);
 		
+		int size1 = driver.findElements(orderedItem).size();
+		for (int k = 0; k < size1; k++) {
+			List<WebElement> ordered = driver.findElements(orderedItem);
+			System.out.println(ordered.get(k));
+			ordered.get(k).click();
+			wait.until(ExpectedConditions.visibilityOfElementLocated(addDiscount));
+			WebElement addDiscount1 = driver.findElement(addDiscount);
+
+			addDiscount1.click();
+			try {
+				Thread.sleep(2000);
+			} catch (InterruptedException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+//			wait.until(ExpectedConditions.visibilityOfElementLocated(ownersFriend));
+			WebElement ownersFriendDiscount = driver.findElement(ownersFriend);
+			ownersFriendDiscount.click();
+			wait.until(ExpectedConditions.visibilityOfElementLocated(discountConfirmation));
+			WebElement confirmation = driver.findElement(discountConfirmation);
+			confirmation.click();
+		}
 
 	}
 
