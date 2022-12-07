@@ -47,28 +47,26 @@ public class OrdersTestCase {
 	}
 	
 	
-	@Test(testName = "No Discount",priority = 2,enabled = true)
+	@Test(testName = "No Discount",priority = 2,enabled = false)
 	public void withoutItemDiscountPrice() {
 		OMSPage oPage = new OMSPage(driver);
 		oPage.orderCalculation();
 
 	}
 	
-	@Test(testName = "with item discount",priority = 3,enabled = true)
+	@Test(testName = "with item discount",priority = 3,enabled = false)
 	public void withItemDiscount() {
 		OMSPage oPage = new OMSPage(driver);
 		oPage.orderCalculationwithItemDiscount();
 	}
 
-	@Test(enabled = false)
+	@Test(testName = "logout",priority = 4,enabled = false)
 	public void logout() {
+		OMSPage oPage = new OMSPage(driver);
+		oPage.logout();
 
 	}
 	
-	
-	
-	
-
 	@AfterTest
 	public void close() {
 		driver.quit();

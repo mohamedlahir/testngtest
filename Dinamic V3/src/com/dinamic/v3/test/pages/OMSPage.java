@@ -69,7 +69,10 @@ public class OMSPage {
 	By discountedAmount = By.xpath("//div[@class='ft-10 prtxt-right text-right doNotPrint']");
 
 	By discountItemPrice = By.xpath("//div[@class='ft-10 prtxt-right text-right doNotPrint']");
+	
+	By logout =By.id("navbarDropdownMenuLink_2");
 
+	By logout2 = By.xpath("(//a[normalize-space()='Logout'])[1]");
 	double calculatedAmount;
 
 	public OMSPage(WebDriver driver) {
@@ -282,5 +285,16 @@ public class OMSPage {
 		String billValue = priceOnScreen[1].replace(",", "");
 		int billAmount = Integer.parseInt(billValue);
 		Assert.assertEquals(billAmount, price);		
+	}
+	public void logout() {
+		Wait<WebDriver> wait = new FluentWait<WebDriver>(driver).withTimeout(Duration.ofSeconds(10))
+				.pollingEvery(Duration.ofSeconds(2)).ignoring(NoSuchElementException.class);
+		Actions action = new Actions(driver);
+		WebElement logoutButton = driver.findElement(logout);
+		action.click(logoutButton).build().perform();
+		
+		WebElement logoutButton2 = driver.findElement(logout2);
+		wait.until(ExpectedConditions.elementToBeClickable(logout2));
+		action.click(logoutButton2).build().perform();
 	}
 }

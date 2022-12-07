@@ -5,8 +5,8 @@
     <classes>
       <class name="com.dinamic.v3.test.tescases.OrdersTestCase">
         <methods>
-          <include name="withItemDiscount"/>
           <include name="browserConfiguration"/>
+          <include name="ordersEntry"/>
           <include name="close"/>
         </methods>
       </class> <!-- com.dinamic.v3.test.tescases.OrdersTestCase -->
