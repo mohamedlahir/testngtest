@@ -21,7 +21,7 @@ public class EditingCompanyDetails {
 	String password = "Lahir@123";
 	String address = "No 3, Guindy, Chennai";
 
-	@Test
+	@Test(enabled = false)
 	public void deletingCategory() {
 
 		System.setProperty("webdriver.chrome.driver",

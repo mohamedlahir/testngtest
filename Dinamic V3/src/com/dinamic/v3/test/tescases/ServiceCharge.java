@@ -24,12 +24,9 @@ public class ServiceCharge {
 
 	String serviceCharge = "10";
 	
-	@BeforeTest
-	public void beforTestMethod() {
-		
-	}
+	
 
-	@Test
+	@Test(enabled=false)
 	public void enableServiceCharge() {
 		// a[normalize-space()='SERVICE CHARGE']
 
@@ -74,7 +71,7 @@ public class ServiceCharge {
 		driver.quit();
 	}
 	
-	@Test
+	@Test(enabled=false)
 	public void seviceChargeAdd() {
 		System.setProperty("webdriver.chrome.driver",
 				"C:\\Users\\white\\Downloads\\chromedriver_win32 (4)\\chromedriver.exe");

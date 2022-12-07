@@ -1,6 +1,7 @@
 package com.dinamic.v3.test.pages;
 
 import java.time.Duration;
+import java.util.ArrayList;
 import java.util.List;
 
 import org.openqa.selenium.By;
@@ -16,19 +17,20 @@ import org.testng.Assert;
 public class OMSPage {
 
 	int count = 0;
-
+	List a = new ArrayList();
 	String orderNumberStr;
 	String kotNumber1;
 	String orderedItemprice[];
 	int itemTotal;
 	int gSTValue = 5;
-	int serviceCharge = 10;
-	int itemPriceFinal;
 
+	int itemPriceFinal;
+	double init = 0;
+	Double gst = 5.00;
 	int itemCountParsed;
 	private WebDriver driver;
 	double itemOwnerDiscount = 20.00;
-
+	Double serviceCharge = 10.00;
 	By start = By
 			.xpath("(//button[@class='btn btn-view start-btn w-100 ng-star-inserted'][normalize-space()='start'])[1]");
 	By kOTNumber = By.xpath("//span[@class='ft-8']");
@@ -64,8 +66,11 @@ public class OMSPage {
 
 	By discountConfirmation = By.xpath("//button[normalize-space()='Confirm']");
 
-	By discountedAmount = By.cssSelector(
-			"body > app-root:nth-child(1) > app-half-layout-navbar:nth-child(2) > main:nth-child(1) > div:nth-child(2) > section:nth-child(1) > div:nth-child(1) > div:nth-child(2) > app-order-summary:nth-child(1) > div:nth-child(1) > div:nth-child(1) > div:nth-child(4) > div:nth-child(1) > div:nth-child(1) > ul:nth-child(3) > li:nth-child(1) > div:nth-child(3) > div:nth-child(1) > div:nth-child(4) > span:nth-child(1)");
+	By discountedAmount = By.xpath("//div[@class='ft-10 prtxt-right text-right doNotPrint']");
+
+	By discountItemPrice = By.xpath("//div[@class='ft-10 prtxt-right text-right doNotPrint']");
+
+	double calculatedAmount;
 
 	public OMSPage(WebDriver driver) {
 
@@ -130,11 +135,12 @@ public class OMSPage {
 		Wait<WebDriver> wait = new FluentWait<WebDriver>(driver).withTimeout(Duration.ofSeconds(10))
 				.pollingEvery(Duration.ofSeconds(2)).ignoring(NoSuchElementException.class);
 		List<WebElement> allItemsCards = driver.findElements(itemCards);
-		for (int j = 0; j < 12; j++) {
+		for (int j = 0; j < 5; j++) {
 			allItemsCards.get(j).click();
 		}
 
 		driver.findElement(confirmaKOT).click();
+
 		wait.until(ExpectedConditions.visibilityOfElementLocated(orderedItem));
 
 		List<WebElement> orderedItems = driver.findElements(orderedItem);
@@ -174,11 +180,13 @@ public class OMSPage {
 
 	public void orderCalculation() {
 
-		
 		System.out.println(" ");
-		System.out.println("************************** Without any discount ********************************************");
-		System.out.println("************************** Without any discount ********************************************");
-		System.out.println("************************** Without any discount ********************************************");
+		System.out.println(
+				"************************** Without any discount ********************************************");
+		System.out.println(
+				"************************** Without any discount ********************************************");
+		System.out.println(
+				"************************** Without any discount ********************************************");
 		Wait<WebDriver> wait = new FluentWait<WebDriver>(driver).withTimeout(Duration.ofSeconds(10))
 				.pollingEvery(Duration.ofSeconds(2)).ignoring(NoSuchElementException.class);
 		Actions action = new Actions(driver);
@@ -189,9 +197,9 @@ public class OMSPage {
 		Double totalItemAmount = Double.parseDouble(numbers);
 //		itemPriceFinal= Integer.parseInt(numbers);
 		Double itemAmount = totalItemAmount;
-		Double gst = 5.00;
+		
 		Double gstAmount;
-		Double serviceCharge = 10.00;
+		
 		Double serviceTax = 0.00;
 		System.out.println("Total Amount : S" + itemAmount);
 		gstAmount = itemAmount * gst / 100;
@@ -213,38 +221,66 @@ public class OMSPage {
 	}
 
 	public void orderCalculationwithItemDiscount() {
-System.out.println("*******************************************************  Calculation with Item discount *********************************************");
+		System.out.println(
+				"*******************************************************  Calculation with Item discount *********************************************");
 		Wait<WebDriver> wait = new FluentWait<WebDriver>(driver).withTimeout(Duration.ofSeconds(10))
 				.pollingEvery(Duration.ofSeconds(2)).ignoring(NoSuchElementException.class);
 		Actions action = new Actions(driver);
 
-		int size1 = driver.findElements(orderedItem).size();
-		for (int k = 0; k < size1; k++) {
-			List<WebElement> ordered = driver.findElements(orderedItem);
-
-			ordered.get(k).click();
+		WebElement downArrow = driver.findElement(expand);
+		downArrow.click();
+		int size = driver.findElements(By.xpath("//div[@class='oms-main__items__box mtt-1 ng-star-inserted']")).size();
+		for (int k = 0; k < size; k++) {
+			List<WebElement> ordered1 = driver
+					.findElements(By.xpath("//div[@class='oms-main__items__box mtt-1 ng-star-inserted']"));
+			ordered1.get(k).click();
 			wait.until(ExpectedConditions.visibilityOfElementLocated(addDiscount));
 			WebElement addDiscount1 = driver.findElement(addDiscount);
-
 			addDiscount1.click();
 			try {
 				Thread.sleep(2000);
 			} catch (InterruptedException e) {
-				// TODO Auto-generated catch block
 				e.printStackTrace();
 			}
-//			wait.until(ExpectedConditions.visibilityOfElementLocated(ownersFriend));
 			WebElement ownersFriendDiscount = driver.findElement(ownersFriend);
 			ownersFriendDiscount.click();
-			wait.until(ExpectedConditions.visibilityOfElementLocated(discountConfirmation));
+			wait.until(ExpectedConditions.visibilityOfAllElementsLocatedBy(discountConfirmation));
 			WebElement confirmation = driver.findElement(discountConfirmation);
 			confirmation.click();
-			System.out.println("Applied 20% item Discount on : " + ordered.get(k).getText());
-			List<WebElement> button = driver.findElements(discountedAmount);
-			System.out.println("Discounted Amount : " + button.get(k).getText());
-
+		}
+		try {
+			Thread.sleep(2000);
+		} catch (InterruptedException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
 		}
 
-	}
+		List<WebElement> itemPriceAfterDiscount = driver.findElements(discountItemPrice);
+		for (int i = 0; i < itemPriceAfterDiscount.size(); i++) {
 
+			a.add(itemPriceAfterDiscount.get(i).getText());
+			System.out.println("Price After Discount : "+ a.get(i));
+		}
+		for (int n = 0; n < a.size(); n++) {
+			String amount = a.get(n).toString();
+
+			double amountParsed = Double.parseDouble(amount);
+			init = init + amountParsed;
+		}
+
+		System.err.println("Total item amount after discount on all items : " + init);
+		
+		double taxAmount = init*gst/100;
+		System.out.println("CGST : "+taxAmount/2);
+		System.out.println("SGST : "+taxAmount/2);
+		System.out.println("Total Tax Amount on foods  after Discount : "+taxAmount);
+		double  serviceChargeAmount = init*serviceCharge/100;
+		System.out.println("Service Charge Amount : "+ serviceChargeAmount);
+		double grandTotalAfterDiscount = init+taxAmount+serviceChargeAmount;
+		int price = (int) Math.round(grandTotalAfterDiscount);
+		String priceOnScreen[] = driver.findElement(priceOutput).getText().split(" ");
+		String billValue = priceOnScreen[1].replace(",", "");
+		int billAmount = Integer.parseInt(billValue);
+		Assert.assertEquals(billAmount, price);		
+	}
 }
