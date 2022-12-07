@@ -174,10 +174,11 @@ public class OMSPage {
 
 	public void orderCalculation() {
 
+		
 		System.out.println(" ");
-		System.out.println("**********************************************************************");
-		System.out.println("**********************************************************************");
-		System.out.println("**********************************************************************");
+		System.out.println("************************** Without any discount ********************************************");
+		System.out.println("************************** Without any discount ********************************************");
+		System.out.println("************************** Without any discount ********************************************");
 		Wait<WebDriver> wait = new FluentWait<WebDriver>(driver).withTimeout(Duration.ofSeconds(10))
 				.pollingEvery(Duration.ofSeconds(2)).ignoring(NoSuchElementException.class);
 		Actions action = new Actions(driver);
@@ -212,7 +213,7 @@ public class OMSPage {
 	}
 
 	public void orderCalculationwithItemDiscount() {
-
+System.out.println("*******************************************************  Calculation with Item discount *********************************************");
 		Wait<WebDriver> wait = new FluentWait<WebDriver>(driver).withTimeout(Duration.ofSeconds(10))
 				.pollingEvery(Duration.ofSeconds(2)).ignoring(NoSuchElementException.class);
 		Actions action = new Actions(driver);
