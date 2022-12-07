@@ -27,6 +27,7 @@ public class OMSPage {
 
 	int itemCountParsed;
 	private WebDriver driver;
+	double itemOwnerDiscount = 20.00;
 
 	By start = By
 			.xpath("(//button[@class='btn btn-view start-btn w-100 ng-star-inserted'][normalize-space()='start'])[1]");
@@ -48,8 +49,8 @@ public class OMSPage {
 	By orderedItem = By.xpath("//div[@class='d-flex align-items-center']");
 	By orderedItemsPrice = By.xpath("//div[@class='ft-10 prtxt-right text-right doNotPrint']");
 	By expand = By.xpath("//i[normalize-space()='expand_more']");
-	By itemCountElement = By
-			.cssSelector("div[class='mb-2 clearfix ft-11 ng-star-inserted'] div div[class='text-right'] span");
+	By itemCountElement = By.cssSelector(
+			"body > app-root:nth-child(1) > app-half-layout-navbar:nth-child(2) > main:nth-child(1) > div:nth-child(2) > section:nth-child(1) > div:nth-child(1) > div:nth-child(2) > app-order-summary:nth-child(1) > div:nth-child(1) > div:nth-child(1) > div:nth-child(4) > div:nth-child(2) > div:nth-child(3) > div:nth-child(1) > div:nth-child(1) > div:nth-child(2) > div:nth-child(2) > div:nth-child(1) > span:nth-child(1)");
 	By orderNumber = By.cssSelector("span[class='d-flex align-items-center w-100'] span:nth-child(2)");
 	By confirmaKOT = By.xpath("//span[normalize-space()='Confirm KOT']");
 	By itemPrice = By
@@ -58,11 +59,13 @@ public class OMSPage {
 
 	By priceOutput = By.xpath("//span[@class='order-foot-total ft-15']");
 
-	By addDiscount = By.xpath(
-			"(//button[@type='button'][normalize-space()='Add Discount'])[1]");
+	By addDiscount = By.xpath("(//button[@type='button'][normalize-space()='Add Discount'])[1]");
 	By ownersFriend = By.xpath("//li[1]//div[1]//h6[1]");
 
 	By discountConfirmation = By.xpath("//button[normalize-space()='Confirm']");
+
+	By discountedAmount = By.cssSelector(
+			"body > app-root:nth-child(1) > app-half-layout-navbar:nth-child(2) > main:nth-child(1) > div:nth-child(2) > section:nth-child(1) > div:nth-child(1) > div:nth-child(2) > app-order-summary:nth-child(1) > div:nth-child(1) > div:nth-child(1) > div:nth-child(4) > div:nth-child(1) > div:nth-child(1) > ul:nth-child(3) > li:nth-child(1) > div:nth-child(3) > div:nth-child(1) > div:nth-child(4) > span:nth-child(1)");
 
 	public OMSPage(WebDriver driver) {
 
@@ -105,6 +108,8 @@ public class OMSPage {
 
 	public void ordering() {
 
+		Wait<WebDriver> wait = new FluentWait<WebDriver>(driver).withTimeout(Duration.ofSeconds(10))
+				.pollingEvery(Duration.ofSeconds(2)).ignoring(NoSuchElementException.class);
 		driver.findElement(start).click();
 		System.out.println("Start Button is clicked");
 
@@ -122,28 +127,21 @@ public class OMSPage {
 	// Only Ordering Items not settling the bill.
 
 	public void orderingItems() {
-
+		Wait<WebDriver> wait = new FluentWait<WebDriver>(driver).withTimeout(Duration.ofSeconds(10))
+				.pollingEvery(Duration.ofSeconds(2)).ignoring(NoSuchElementException.class);
 		List<WebElement> allItemsCards = driver.findElements(itemCards);
 		for (int j = 0; j < 12; j++) {
 			allItemsCards.get(j).click();
 		}
 
 		driver.findElement(confirmaKOT).click();
-		try {
-			Thread.sleep(10000);
-		} catch (InterruptedException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
+		wait.until(ExpectedConditions.visibilityOfElementLocated(orderedItem));
 
 		List<WebElement> orderedItems = driver.findElements(orderedItem);
 
 		List<WebElement> orderItemsPriceList = driver.findElements(orderedItemsPrice);
-//		System.out.println(orderedItems);
-
 		for (int k = 0; k < orderedItems.size(); k++) {
 			String orderd = orderedItems.get(k).getText();// .split("change_history");
-//			System.out.println("Ordered Items : " + orderedItems.get(k).getText());
 			count++;
 
 			System.out.println("Ordered Items : " + orderd);
@@ -154,14 +152,9 @@ public class OMSPage {
 		WebElement expandButton = driver.findElement(expand);
 		expandButton.click();
 
-//		try {
-//			Thread.sleep(4000);
-//		} catch (InterruptedException e) {
-//			// TODO Auto-generated catch block
-//			e.printStackTrace();
-//		}
 		String itemCount;
 
+		wait.until(ExpectedConditions.visibilityOfElementLocated(itemCountElement));
 		itemCount = driver.findElement(itemCountElement).getText();
 		System.out.println("itemCount" + itemCount);
 		int itemCountParsed;
@@ -219,14 +212,15 @@ public class OMSPage {
 	}
 
 	public void orderCalculationwithItemDiscount() {
+
 		Wait<WebDriver> wait = new FluentWait<WebDriver>(driver).withTimeout(Duration.ofSeconds(10))
 				.pollingEvery(Duration.ofSeconds(2)).ignoring(NoSuchElementException.class);
 		Actions action = new Actions(driver);
-		
+
 		int size1 = driver.findElements(orderedItem).size();
 		for (int k = 0; k < size1; k++) {
 			List<WebElement> ordered = driver.findElements(orderedItem);
-			System.out.println(ordered.get(k));
+
 			ordered.get(k).click();
 			wait.until(ExpectedConditions.visibilityOfElementLocated(addDiscount));
 			WebElement addDiscount1 = driver.findElement(addDiscount);
@@ -244,6 +238,10 @@ public class OMSPage {
 			wait.until(ExpectedConditions.visibilityOfElementLocated(discountConfirmation));
 			WebElement confirmation = driver.findElement(discountConfirmation);
 			confirmation.click();
+			System.out.println("Applied 20% item Discount on : " + ordered.get(k).getText());
+			List<WebElement> button = driver.findElements(discountedAmount);
+			System.out.println("Discounted Amount : " + button.get(k).getText());
+
 		}
 
 	}

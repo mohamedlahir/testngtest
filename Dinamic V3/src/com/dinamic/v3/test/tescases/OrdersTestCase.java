@@ -50,15 +50,14 @@ public class OrdersTestCase {
 	@Test(testName = "No Discount",priority = 2,enabled = true)
 	public void withoutItemDiscountPrice() {
 		OMSPage oPage = new OMSPage(driver);
-		
 		oPage.orderCalculation();
 
 	}
 	
-	@Test(testName = "Hello",priority = 3,enabled = true)
+	@Test(testName = "with item discount",priority = 3,enabled = true)
 	public void withItemDiscount() {
 		OMSPage oPage = new OMSPage(driver);
-		oPage.orderCalculationwithItemDiscount();
+		
 	}
 
 	@Test(enabled = false)
