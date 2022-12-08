@@ -53,8 +53,8 @@ public class OMSPage {
 	By orderNumber = By.cssSelector("span[class='d-flex align-items-center w-100'] span:nth-child(2)");
 	By confirmaKOT = By.xpath("//span[normalize-space()='Confirm KOT']");
 
-	By itemPrice = By
-			.cssSelector("/html[1]/body[1]/app-root[1]/app-half-layout-navbar[1]/main[1]/div[1]/section[1]/div[1]/div[2]/app-order-summary[1]/div[1]/div[1]/div[4]/div[2]/div[2]/div[1]/div[1]/div[4]/div[2]/div[1]/span[1]");
+	By itemPrice = By.cssSelector(
+			"/html[1]/body[1]/app-root[1]/app-half-layout-navbar[1]/main[1]/div[1]/section[1]/div[1]/div[2]/app-order-summary[1]/div[1]/div[1]/div[4]/div[2]/div[2]/div[1]/div[1]/div[4]/div[2]/div[1]/span[1]");
 	By grandTotal = By.xpath("//span[@class='order-foot-total ft-15']");
 
 	By priceOutput = By.xpath("//span[@class='order-foot-total ft-15']");
@@ -113,7 +113,7 @@ public class OMSPage {
 
 		Wait<WebDriver> wait = new FluentWait<WebDriver>(driver).withTimeout(Duration.ofSeconds(10))
 				.pollingEvery(Duration.ofSeconds(2)).ignoring(NoSuchElementException.class);
-		
+
 		wait.until(ExpectedConditions.visibilityOfAllElementsLocatedBy(start));
 //		try {
 //			Thread.sleep(3000);
@@ -130,9 +130,9 @@ public class OMSPage {
 		driver.findElement(startButton).click();
 
 		String floor = driver.findElement(floorName).getText();
-		String tableNumber[] = driver.findElement(tableName).getText().split("chevron_right");
+//		String tableNumber[] = driver.findElement(tableName).getText().split("chevron_right");
 		System.out.println("Floor Name : " + floor);
-		System.out.println("Table Number : " + tableNumber[1]);
+//		System.out.println("Table Number : " + tableNumber[1]);
 	}
 
 	// Only Ordering Items not settling the bill.
@@ -199,16 +199,9 @@ public class OMSPage {
 		Wait<WebDriver> wait = new FluentWait<WebDriver>(driver).withTimeout(Duration.ofSeconds(10))
 				.pollingEvery(Duration.ofSeconds(2)).ignoring(NoSuchElementException.class);
 		Actions action = new Actions(driver);
-		driver.navigate().refresh();
 //		driver.findElement(expand).click();
-	
+
 		wait.until(ExpectedConditions.visibilityOfElementLocated(itemPrice));
-		try {
-			Thread.sleep(5000);
-		} catch (InterruptedException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
 		String totalItemPrice[] = driver.findElement(itemPrice).getText().split(" ");
 		String grandTotal1 = driver.findElement(grandTotal).getText();
 		String numbers = totalItemPrice[1].replaceAll(",", "");
@@ -270,11 +263,14 @@ public class OMSPage {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
+
 		List<WebElement> itemPriceAfterDiscount = driver.findElements(discountItemPrice);
+
 		for (int i = 0; i < itemPriceAfterDiscount.size(); i++) {
 			a.add(itemPriceAfterDiscount.get(i).getText());
 			System.out.println("Price After Discount : " + a.get(i));
 		}
+
 		for (int n = 0; n < a.size(); n++) {
 			String amount = a.get(n).toString();
 			double amountParsed = Double.parseDouble(amount);
@@ -296,19 +292,13 @@ public class OMSPage {
 	}
 
 	public void logout() {
-		Wait<WebDriver> wait = new FluentWait<WebDriver>(driver).withTimeout(Duration.ofSeconds(10)).pollingEvery(Duration.ofSeconds(2)).ignoring(NoSuchElementException.class);
-		
+		Wait<WebDriver> wait = new FluentWait<WebDriver>(driver).withTimeout(Duration.ofSeconds(10))
+				.pollingEvery(Duration.ofSeconds(2)).ignoring(NoSuchElementException.class);
 		Actions action = new Actions(driver);
-		
 		WebElement logoutButton = driver.findElement(logout);
-		
 		action.click(logoutButton).build().perform();
-		
 		WebElement logoutButton2 = driver.findElement(logout2);
-		
 		wait.until(ExpectedConditions.elementToBeClickable(logout2));
-		
 		action.click(logoutButton2).build().perform();
-	
 	}
 }

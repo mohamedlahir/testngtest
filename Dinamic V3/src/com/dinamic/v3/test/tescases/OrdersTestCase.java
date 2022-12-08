@@ -56,7 +56,7 @@ public class OrdersTestCase {
 		oPage.orderCalculation();
 	}
 	
-	@Test(testName = "with item discount",priority = 3,enabled = true)
+	@Test(testName = "with item discount",priority = 3,enabled = false)
 	public void withItemDiscount() {
 		OMSPage oPage = new OMSPage(driver);
 		oPage.orderCalculationwithItemDiscount();
