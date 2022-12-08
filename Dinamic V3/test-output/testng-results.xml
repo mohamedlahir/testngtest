@@ -2,20 +2,20 @@
 <testng-results ignored="1" total="5" passed="2" failed="2" skipped="0">
   <reporter-output>
   </reporter-output>
-  <suite started-at="2022-12-08T16:35:13 IST" name="Default suite" finished-at="2022-12-08T16:36:14 IST" duration-ms="61657">
+  <suite started-at="2022-12-08T16:58:34 IST" name="Default suite" finished-at="2022-12-08T16:59:30 IST" duration-ms="56062">
     <groups>
     </groups>
-    <test started-at="2022-12-08T16:35:13 IST" name="Default test" finished-at="2022-12-08T16:36:14 IST" duration-ms="61657">
+    <test started-at="2022-12-08T16:58:34 IST" name="Default test" finished-at="2022-12-08T16:59:30 IST" duration-ms="56062">
       <class name="com.dinamic.v3.test.tescases.OrdersTestCase">
-        <test-method is-config="true" signature="browserConfiguration()[pri:0, instance:com.dinamic.v3.test.tescases.OrdersTestCase@209da20d]" started-at="2022-12-08T16:35:13 IST" name="browserConfiguration" finished-at="2022-12-08T16:35:17 IST" duration-ms="4393" status="PASS">
+        <test-method is-config="true" signature="browserConfiguration()[pri:0, instance:com.dinamic.v3.test.tescases.OrdersTestCase@1b2abca6]" started-at="2022-12-08T16:58:34 IST" name="browserConfiguration" finished-at="2022-12-08T16:58:40 IST" duration-ms="5891" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- browserConfiguration -->
-        <test-method signature="log()[pri:0, instance:com.dinamic.v3.test.tescases.OrdersTestCase@209da20d]" started-at="2022-12-08T16:35:17 IST" name="log" finished-at="2022-12-08T16:35:18 IST" duration-ms="378" status="PASS">
+        <test-method signature="log()[pri:0, instance:com.dinamic.v3.test.tescases.OrdersTestCase@1b2abca6]" started-at="2022-12-08T16:58:40 IST" name="log" finished-at="2022-12-08T16:58:41 IST" duration-ms="412" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- log -->
-        <test-method signature="ordersEntry()[pri:1, instance:com.dinamic.v3.test.tescases.OrdersTestCase@209da20d]" started-at="2022-12-08T16:35:18 IST" name="ordersEntry" finished-at="2022-12-08T16:35:33 IST" duration-ms="15747" status="FAIL">
+        <test-method signature="ordersEntry()[pri:1, instance:com.dinamic.v3.test.tescases.OrdersTestCase@1b2abca6]" started-at="2022-12-08T16:58:41 IST" name="ordersEntry" finished-at="2022-12-08T16:58:58 IST" duration-ms="17515" status="FAIL">
           <exception class="org.openqa.selenium.NoSuchElementException">
             <message>
               <![CDATA[no such element: Unable to locate element: {"method":"xpath","selector":"//a[@class='d-flex align-items-center ng-star-inserted']"}
@@ -24,9 +24,9 @@ For documentation on this error, please visit: https://selenium.dev/exceptions/#
 Build info: version: '4.1.4', revision: '535d840ee2'
 System info: host: 'DESKTOP-E21T489', ip: '172.16.1.31', os.name: 'Windows 10', os.arch: 'amd64', os.version: '10.0', java.version: '17.0.2'
 Driver info: org.openqa.selenium.chrome.ChromeDriver
-Command: [358d0185499529031a6b380f2518257a, findElement {using=xpath, value=//a[@class='d-flex align-items-center ng-star-inserted']}]
-Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 108.0.5359.71, chrome: {chromedriverVersion: 107.0.5304.62 (1eec40d3a576..., userDataDir: C:\Users\white\AppData\Loca...}, goog:chromeOptions: {debuggerAddress: localhost:63706}, javascriptEnabled: true, networkConnectionEnabled: false, pageLoadStrategy: normal, platform: WINDOWS, platformName: WINDOWS, proxy: Proxy(), se:cdp: ws://localhost:63706/devtoo..., se:cdpVersion: 108.0.5359.71, setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:extension:credBlob: true, webauthn:extension:largeBlob: true, webauthn:virtualAuthenticators: true}
-Session ID: 358d0185499529031a6b380f2518257a]]>
+Command: [3591bd1cdc4c9e4985a029a715d62670, findElement {using=xpath, value=//a[@class='d-flex align-items-center ng-star-inserted']}]
+Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 108.0.5359.71, chrome: {chromedriverVersion: 107.0.5304.62 (1eec40d3a576..., userDataDir: C:\Users\white\AppData\Loca...}, goog:chromeOptions: {debuggerAddress: localhost:64529}, javascriptEnabled: true, networkConnectionEnabled: false, pageLoadStrategy: normal, platform: WINDOWS, platformName: WINDOWS, proxy: Proxy(), se:cdp: ws://localhost:64529/devtoo..., se:cdpVersion: 108.0.5359.71, setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:extension:credBlob: true, webauthn:extension:largeBlob: true, webauthn:virtualAuthenticators: true}
+Session ID: 3591bd1cdc4c9e4985a029a715d62670]]>
             </message>
             <full-stacktrace>
               <![CDATA[org.openqa.selenium.NoSuchElementException: no such element: Unable to locate element: {"method":"xpath","selector":"//a[@class='d-flex align-items-center ng-star-inserted']"}
@@ -35,9 +35,9 @@ For documentation on this error, please visit: https://selenium.dev/exceptions/#
 Build info: version: '4.1.4', revision: '535d840ee2'
 System info: host: 'DESKTOP-E21T489', ip: '172.16.1.31', os.name: 'Windows 10', os.arch: 'amd64', os.version: '10.0', java.version: '17.0.2'
 Driver info: org.openqa.selenium.chrome.ChromeDriver
-Command: [358d0185499529031a6b380f2518257a, findElement {using=xpath, value=//a[@class='d-flex align-items-center ng-star-inserted']}]
-Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 108.0.5359.71, chrome: {chromedriverVersion: 107.0.5304.62 (1eec40d3a576..., userDataDir: C:\Users\white\AppData\Loca...}, goog:chromeOptions: {debuggerAddress: localhost:63706}, javascriptEnabled: true, networkConnectionEnabled: false, pageLoadStrategy: normal, platform: WINDOWS, platformName: WINDOWS, proxy: Proxy(), se:cdp: ws://localhost:63706/devtoo..., se:cdpVersion: 108.0.5359.71, setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:extension:credBlob: true, webauthn:extension:largeBlob: true, webauthn:virtualAuthenticators: true}
-Session ID: 358d0185499529031a6b380f2518257a
+Command: [3591bd1cdc4c9e4985a029a715d62670, findElement {using=xpath, value=//a[@class='d-flex align-items-center ng-star-inserted']}]
+Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 108.0.5359.71, chrome: {chromedriverVersion: 107.0.5304.62 (1eec40d3a576..., userDataDir: C:\Users\white\AppData\Loca...}, goog:chromeOptions: {debuggerAddress: localhost:64529}, javascriptEnabled: true, networkConnectionEnabled: false, pageLoadStrategy: normal, platform: WINDOWS, platformName: WINDOWS, proxy: Proxy(), se:cdp: ws://localhost:64529/devtoo..., se:cdpVersion: 108.0.5359.71, setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:extension:credBlob: true, webauthn:extension:largeBlob: true, webauthn:virtualAuthenticators: true}
+Session ID: 3591bd1cdc4c9e4985a029a715d62670
 at java.base/jdk.internal.reflect.NativeConstructorAccessorImpl.newInstance0(Native Method)
 at java.base/jdk.internal.reflect.NativeConstructorAccessorImpl.newInstance(NativeConstructorAccessorImpl.java:77)
 at java.base/jdk.internal.reflect.DelegatingConstructorAccessorImpl.newInstance(DelegatingConstructorAccessorImpl.java:45)
@@ -90,22 +90,22 @@ at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:77)
           <reporter-output>
           </reporter-output>
         </test-method> <!-- ordersEntry -->
-        <test-method signature="withoutItemDiscountPrice()[pri:2, instance:com.dinamic.v3.test.tescases.OrdersTestCase@209da20d]" started-at="2022-12-08T16:35:33 IST" name="withoutItemDiscountPrice" finished-at="2022-12-08T16:35:51 IST" duration-ms="18204" status="FAIL">
+        <test-method signature="withoutItemDiscountPrice()[pri:2, instance:com.dinamic.v3.test.tescases.OrdersTestCase@1b2abca6]" started-at="2022-12-08T16:58:58 IST" name="withoutItemDiscountPrice" finished-at="2022-12-08T16:59:18 IST" duration-ms="19540" status="FAIL">
           <exception class="org.openqa.selenium.TimeoutException">
             <message>
-              <![CDATA[Expected condition failed: waiting for visibility of element located by By.xpath: //div[@class='mb-2 clearfix no-margin ft-11 ng-star-inserted'] //div[@class='text-right'] //span (tried for 10 second(s) with 2000 milliseconds interval)
+              <![CDATA[Expected condition failed: waiting for visibility of element located by By.cssSelector: /html[1]/body[1]/app-root[1]/app-half-layout-navbar[1]/main[1]/div[1]/section[1]/div[1]/div[2]/app-order-summary[1]/div[1]/div[1]/div[4]/div[2]/div[2]/div[1]/div[1]/div[4]/div[2]/div[1]/span[1] (tried for 10 second(s) with 2000 milliseconds interval)
 Build info: version: '4.1.4', revision: '535d840ee2'
 System info: host: 'DESKTOP-E21T489', ip: '172.16.1.31', os.name: 'Windows 10', os.arch: 'amd64', os.version: '10.0', java.version: '17.0.2'
 Driver info: driver.version: unknown]]>
             </message>
             <full-stacktrace>
-              <![CDATA[org.openqa.selenium.TimeoutException: Expected condition failed: waiting for visibility of element located by By.xpath: //div[@class='mb-2 clearfix no-margin ft-11 ng-star-inserted'] //div[@class='text-right'] //span (tried for 10 second(s) with 2000 milliseconds interval)
+              <![CDATA[org.openqa.selenium.TimeoutException: Expected condition failed: waiting for visibility of element located by By.cssSelector: /html[1]/body[1]/app-root[1]/app-half-layout-navbar[1]/main[1]/div[1]/section[1]/div[1]/div[2]/app-order-summary[1]/div[1]/div[1]/div[4]/div[2]/div[2]/div[1]/div[1]/div[4]/div[2]/div[1]/span[1] (tried for 10 second(s) with 2000 milliseconds interval)
 Build info: version: '4.1.4', revision: '535d840ee2'
 System info: host: 'DESKTOP-E21T489', ip: '172.16.1.31', os.name: 'Windows 10', os.arch: 'amd64', os.version: '10.0', java.version: '17.0.2'
 Driver info: driver.version: unknown
 at org.openqa.selenium.support.ui.FluentWait.timeoutException(FluentWait.java:263)
 at org.openqa.selenium.support.ui.FluentWait.until(FluentWait.java:231)
-at com.dinamic.v3.test.pages.OMSPage.orderCalculation(OMSPage.java:203)
+at com.dinamic.v3.test.pages.OMSPage.orderCalculation(OMSPage.java:205)
 at com.dinamic.v3.test.tescases.OrdersTestCase.withoutItemDiscountPrice(OrdersTestCase.java:56)
 at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
 at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77)
@@ -141,11 +141,11 @@ at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:77)
           <reporter-output>
           </reporter-output>
         </test-method> <!-- withoutItemDiscountPrice -->
-        <test-method signature="withItemDiscount()[pri:3, instance:com.dinamic.v3.test.tescases.OrdersTestCase@209da20d]" started-at="2022-12-08T16:35:51 IST" name="withItemDiscount" finished-at="2022-12-08T16:36:14 IST" duration-ms="22524" status="PASS">
+        <test-method signature="withItemDiscount()[pri:3, instance:com.dinamic.v3.test.tescases.OrdersTestCase@1b2abca6]" started-at="2022-12-08T16:59:18 IST" name="withItemDiscount" finished-at="2022-12-08T16:59:30 IST" duration-ms="12300" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- withItemDiscount -->
-        <test-method is-config="true" signature="close()[pri:0, instance:com.dinamic.v3.test.tescases.OrdersTestCase@209da20d]" started-at="2022-12-08T16:36:14 IST" name="close" finished-at="2022-12-08T16:36:14 IST" duration-ms="304" status="PASS">
+        <test-method is-config="true" signature="close()[pri:0, instance:com.dinamic.v3.test.tescases.OrdersTestCase@1b2abca6]" started-at="2022-12-08T16:59:30 IST" name="close" finished-at="2022-12-08T16:59:30 IST" duration-ms="299" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- close -->

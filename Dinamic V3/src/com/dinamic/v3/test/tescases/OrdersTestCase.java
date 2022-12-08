@@ -52,7 +52,7 @@ public class OrdersTestCase {
 		OMSPage oPage = new OMSPage(driver);
 		
 		oPage.orderingItems();
-		System.out.println("Called");
+
 		oPage.orderCalculation();
 	}
 	

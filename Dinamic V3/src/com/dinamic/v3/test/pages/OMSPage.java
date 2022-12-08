@@ -54,7 +54,7 @@ public class OMSPage {
 	By confirmaKOT = By.xpath("//span[normalize-space()='Confirm KOT']");
 
 	By itemPrice = By
-			.xpath("//div[@class='mb-2 clearfix no-margin ft-11 ng-star-inserted'] //div[@class='text-right'] //span");
+			.cssSelector("/html[1]/body[1]/app-root[1]/app-half-layout-navbar[1]/main[1]/div[1]/section[1]/div[1]/div[2]/app-order-summary[1]/div[1]/div[1]/div[4]/div[2]/div[2]/div[1]/div[1]/div[4]/div[2]/div[1]/span[1]");
 	By grandTotal = By.xpath("//span[@class='order-foot-total ft-15']");
 
 	By priceOutput = By.xpath("//span[@class='order-foot-total ft-15']");
@@ -138,7 +138,7 @@ public class OMSPage {
 	// Only Ordering Items not settling the bill.
 
 	public void orderingItems() {
-		Wait<WebDriver> wait = new FluentWait<WebDriver>(driver).withTimeout(Duration.ofSeconds(10))
+		Wait<WebDriver> wait = new FluentWait<WebDriver>(driver).withTimeout(Duration.ofSeconds(60))
 				.pollingEvery(Duration.ofSeconds(2)).ignoring(NoSuchElementException.class);
 		List<WebElement> allItemsCards = driver.findElements(itemCards);
 		Actions action = new Actions(driver);
@@ -199,8 +199,16 @@ public class OMSPage {
 		Wait<WebDriver> wait = new FluentWait<WebDriver>(driver).withTimeout(Duration.ofSeconds(10))
 				.pollingEvery(Duration.ofSeconds(2)).ignoring(NoSuchElementException.class);
 		Actions action = new Actions(driver);
-		driver.findElement(expand).click();
+		driver.navigate().refresh();
+//		driver.findElement(expand).click();
+	
 		wait.until(ExpectedConditions.visibilityOfElementLocated(itemPrice));
+		try {
+			Thread.sleep(5000);
+		} catch (InterruptedException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 		String totalItemPrice[] = driver.findElement(itemPrice).getText().split(" ");
 		String grandTotal1 = driver.findElement(grandTotal).getText();
 		String numbers = totalItemPrice[1].replaceAll(",", "");
