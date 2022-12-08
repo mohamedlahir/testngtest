@@ -23,7 +23,7 @@ public class OMSPage {
 	String orderedItemprice[];
 	int itemTotal;
 	int gSTValue = 5;
-
+//
 	int itemPriceFinal;
 	double init = 0;
 	Double gst = 5.00;
