@@ -23,7 +23,6 @@ public class OMSPage {
 	String orderedItemprice[];
 	int itemTotal;
 	int gSTValue = 5;
-//
 	int itemPriceFinal;
 	double init = 0;
 	Double gst = 5.00;
@@ -31,15 +30,13 @@ public class OMSPage {
 	private WebDriver driver;
 	double itemOwnerDiscount = 20.00;
 	Double serviceCharge = 10.00;
-	By start = By
-			.xpath("(//button[@class='btn btn-view start-btn w-100 ng-star-inserted'][normalize-space()='start'])[1]");
+	By start = By.xpath("(//button[@data-toggle='modal'][normalize-space()='start'])[1]");
 	By kOTNumber = By.xpath("//span[@class='ft-8']");
 	By pin1 = By.xpath("//button[normalize-space()='1']");
 	By pin2 = By.xpath("//button[normalize-space()='2']");
 	By pin3 = By.xpath("//button[normalize-space()='3']");
 	By pin4 = By.xpath("//button[normalize-space()='4']");
 	By numberOfPeople = By.xpath("(//input[@id='people_count'])[3]");
-
 	By emailField = By.id("email");
 	By passwordField = By.id("password");
 	By loginButton = By.xpath("//div[@class='pos-rel']");
@@ -55,6 +52,7 @@ public class OMSPage {
 			"body > app-root:nth-child(1) > app-half-layout-navbar:nth-child(2) > main:nth-child(1) > div:nth-child(2) > section:nth-child(1) > div:nth-child(1) > div:nth-child(2) > app-order-summary:nth-child(1) > div:nth-child(1) > div:nth-child(1) > div:nth-child(4) > div:nth-child(2) > div:nth-child(3) > div:nth-child(1) > div:nth-child(1) > div:nth-child(2) > div:nth-child(2) > div:nth-child(1) > span:nth-child(1)");
 	By orderNumber = By.cssSelector("span[class='d-flex align-items-center w-100'] span:nth-child(2)");
 	By confirmaKOT = By.xpath("//span[normalize-space()='Confirm KOT']");
+
 	By itemPrice = By
 			.xpath("//div[@class='mb-2 clearfix no-margin ft-11 ng-star-inserted'] //div[@class='text-right'] //span");
 	By grandTotal = By.xpath("//span[@class='order-foot-total ft-15']");
@@ -69,8 +67,8 @@ public class OMSPage {
 	By discountedAmount = By.xpath("//div[@class='ft-10 prtxt-right text-right doNotPrint']");
 
 	By discountItemPrice = By.xpath("//div[@class='ft-10 prtxt-right text-right doNotPrint']");
-	
-	By logout =By.id("navbarDropdownMenuLink_2");
+
+	By logout = By.id("navbarDropdownMenuLink_2");
 
 	By logout2 = By.xpath("(//a[normalize-space()='Logout'])[1]");
 	double calculatedAmount;
@@ -91,10 +89,7 @@ public class OMSPage {
 	}
 
 	public void clicklogin() {
-
 		driver.findElement(loginButton).click();
-		System.out.println("pro");
-
 	}
 
 	public void order() {
@@ -118,6 +113,14 @@ public class OMSPage {
 
 		Wait<WebDriver> wait = new FluentWait<WebDriver>(driver).withTimeout(Duration.ofSeconds(10))
 				.pollingEvery(Duration.ofSeconds(2)).ignoring(NoSuchElementException.class);
+		
+		wait.until(ExpectedConditions.visibilityOfAllElementsLocatedBy(start));
+//		try {
+//			Thread.sleep(3000);
+//		} catch (InterruptedException e) {
+//			// TODO Auto-generated catch block
+//			e.printStackTrace();
+//		}
 		driver.findElement(start).click();
 		System.out.println("Start Button is clicked");
 
@@ -138,8 +141,12 @@ public class OMSPage {
 		Wait<WebDriver> wait = new FluentWait<WebDriver>(driver).withTimeout(Duration.ofSeconds(10))
 				.pollingEvery(Duration.ofSeconds(2)).ignoring(NoSuchElementException.class);
 		List<WebElement> allItemsCards = driver.findElements(itemCards);
+		Actions action = new Actions(driver);
+
 		for (int j = 0; j < 5; j++) {
-			allItemsCards.get(j).click();
+			wait.until(ExpectedConditions.visibilityOfAllElementsLocatedBy(itemCards));
+			action.click(allItemsCards.get(j)).build().perform();
+//			allItemsCards.get(j).click();
 		}
 
 		driver.findElement(confirmaKOT).click();
@@ -182,7 +189,6 @@ public class OMSPage {
 	}
 
 	public void orderCalculation() {
-
 		System.out.println(" ");
 		System.out.println(
 				"************************** Without any discount ********************************************");
@@ -193,6 +199,7 @@ public class OMSPage {
 		Wait<WebDriver> wait = new FluentWait<WebDriver>(driver).withTimeout(Duration.ofSeconds(10))
 				.pollingEvery(Duration.ofSeconds(2)).ignoring(NoSuchElementException.class);
 		Actions action = new Actions(driver);
+		driver.findElement(expand).click();
 		wait.until(ExpectedConditions.visibilityOfElementLocated(itemPrice));
 		String totalItemPrice[] = driver.findElement(itemPrice).getText().split(" ");
 		String grandTotal1 = driver.findElement(grandTotal).getText();
@@ -200,11 +207,9 @@ public class OMSPage {
 		Double totalItemAmount = Double.parseDouble(numbers);
 //		itemPriceFinal= Integer.parseInt(numbers);
 		Double itemAmount = totalItemAmount;
-		
 		Double gstAmount;
-		
 		Double serviceTax = 0.00;
-		System.out.println("Total Amount : S" + itemAmount);
+		System.out.println("Total Amount : " + itemAmount);
 		gstAmount = itemAmount * gst / 100;
 		System.out.println("GST Amount : " + gstAmount);
 		Double amountWithAddedGST = itemAmount + gstAmount;
@@ -257,44 +262,45 @@ public class OMSPage {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-
 		List<WebElement> itemPriceAfterDiscount = driver.findElements(discountItemPrice);
 		for (int i = 0; i < itemPriceAfterDiscount.size(); i++) {
-
 			a.add(itemPriceAfterDiscount.get(i).getText());
-			System.out.println("Price After Discount : "+ a.get(i));
+			System.out.println("Price After Discount : " + a.get(i));
 		}
 		for (int n = 0; n < a.size(); n++) {
 			String amount = a.get(n).toString();
-
 			double amountParsed = Double.parseDouble(amount);
 			init = init + amountParsed;
 		}
-
 		System.err.println("Total item amount after discount on all items : " + init);
-		
-		double taxAmount = init*gst/100;
-		System.out.println("CGST : "+taxAmount/2);
-		System.out.println("SGST : "+taxAmount/2);
-		System.out.println("Total Tax Amount on foods  after Discount : "+taxAmount);
-		double  serviceChargeAmount = init*serviceCharge/100;
-		System.out.println("Service Charge Amount : "+ serviceChargeAmount);
-		double grandTotalAfterDiscount = init+taxAmount+serviceChargeAmount;
+		double taxAmount = init * gst / 100;
+		System.out.println("CGST : " + taxAmount / 2);
+		System.out.println("SGST : " + taxAmount / 2);
+		System.out.println("Total Tax Amount on foods  after Discount : " + taxAmount);
+		double serviceChargeAmount = init * serviceCharge / 100;
+		System.out.println("Service Charge Amount : " + serviceChargeAmount);
+		double grandTotalAfterDiscount = init + taxAmount + serviceChargeAmount;
 		int price = (int) Math.round(grandTotalAfterDiscount);
 		String priceOnScreen[] = driver.findElement(priceOutput).getText().split(" ");
 		String billValue = priceOnScreen[1].replace(",", "");
 		int billAmount = Integer.parseInt(billValue);
-		Assert.assertEquals(billAmount, price);		
+		Assert.assertEquals(billAmount, price);
 	}
+
 	public void logout() {
-		Wait<WebDriver> wait = new FluentWait<WebDriver>(driver).withTimeout(Duration.ofSeconds(10))
-				.pollingEvery(Duration.ofSeconds(2)).ignoring(NoSuchElementException.class);
+		Wait<WebDriver> wait = new FluentWait<WebDriver>(driver).withTimeout(Duration.ofSeconds(10)).pollingEvery(Duration.ofSeconds(2)).ignoring(NoSuchElementException.class);
+		
 		Actions action = new Actions(driver);
+		
 		WebElement logoutButton = driver.findElement(logout);
+		
 		action.click(logoutButton).build().perform();
 		
 		WebElement logoutButton2 = driver.findElement(logout2);
+		
 		wait.until(ExpectedConditions.elementToBeClickable(logout2));
+		
 		action.click(logoutButton2).build().perform();
+	
 	}
 }

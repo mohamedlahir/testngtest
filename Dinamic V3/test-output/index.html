@@ -26,7 +26,7 @@
       <span class="top-banner-title-font">Test results</span>
       <button id="button" class="button">Switch Retro Theme</button> <!-- button -->
       <br/>
-      <span class="top-banner-font-1">1 suite, 1 failed test</span>
+      <span class="top-banner-font-1">1 suite, 2 failed tests</span>
     </div> <!-- top-banner-root -->
     <div class="navigator-root">
       <div class="navigator-suite-header">
@@ -51,7 +51,7 @@
               <ul>
                 <li>
                   <a href="#" panel-name="test-xml-Default_suite" class="navigator-link ">
-                    <span>C:\Users\white\AppData\Local\Temp\testng-eclipse--748117415\testng-customsuite.xml</span>
+                    <span>C:\Users\white\AppData\Local\Temp\testng-eclipse--2022397541\testng-customsuite.xml</span>
                   </a> <!-- navigator-link  -->
                 </li>
                 <li>
@@ -93,7 +93,7 @@
               <div class="suite-section-content">
                 <ul>
                   <li>
-                    <span class="method-stats">3 methods, 1 failed,   2 passed</span>
+                    <span class="method-stats">4 methods, 2 failed,   2 passed</span>
                   </li>
                   <li>
                     <span class="method-list-title failed">Failed methods</span>
@@ -105,6 +105,11 @@
                       <span>
                         <img src="failed.png" width="3%"/>
                         <a href="#" panel-name="suite-Default_suite" title="com.dinamic.v3.test.tescases.OrdersTestCase" class="method navigator-link" hash-for-method="ordersEntry">ordersEntry</a> <!-- method navigator-link -->
+                      </span>
+                      <br/>
+                      <span>
+                        <img src="failed.png" width="3%"/>
+                        <a href="#" panel-name="suite-Default_suite" title="com.dinamic.v3.test.tescases.OrdersTestCase" class="method navigator-link" hash-for-method="withoutItemDiscountPrice">withoutItemDiscountPrice</a> <!-- method navigator-link -->
                       </span>
                       <br/>
                     </div> <!-- method-list-content failed suite-Default_suite -->
@@ -123,7 +128,7 @@
                       <br/>
                       <span>
                         <img src="passed.png" width="3%"/>
-                        <a href="#" panel-name="suite-Default_suite" title="com.dinamic.v3.test.tescases.OrdersTestCase" class="method navigator-link" hash-for-method="logout">logout</a> <!-- method navigator-link -->
+                        <a href="#" panel-name="suite-Default_suite" title="com.dinamic.v3.test.tescases.OrdersTestCase" class="method navigator-link" hash-for-method="withItemDiscount">withItemDiscount</a> <!-- method navigator-link -->
                       </span>
                       <br/>
                     </div> <!-- method-list-content passed suite-Default_suite -->
@@ -149,15 +154,15 @@
                   <a name="ordersEntry">
                   </a> <!-- ordersEntry -->
                   <span class="method-name">ordersEntry</span>
-                  <div class="stack-trace">org.openqa.selenium.NoSuchElementException: no such element: Unable to locate element: {&quot;method&quot;:&quot;xpath&quot;,&quot;selector&quot;:&quot;(//button[@class=&apos;btn btn-view start-btn w-100 ng-star-inserted&apos;][normalize-space()=&apos;start&apos;])[1]&quot;}
+                  <div class="stack-trace">org.openqa.selenium.NoSuchElementException: no such element: Unable to locate element: {&quot;method&quot;:&quot;xpath&quot;,&quot;selector&quot;:&quot;//a[@class=&apos;d-flex align-items-center ng-star-inserted&apos;]&quot;}
   (Session info: chrome=108.0.5359.71)
 For documentation on this error, please visit: https://selenium.dev/exceptions/#no_such_element
 Build info: version: &apos;4.1.4&apos;, revision: &apos;535d840ee2&apos;
 System info: host: &apos;DESKTOP-E21T489&apos;, ip: &apos;172.16.1.31&apos;, os.name: &apos;Windows 10&apos;, os.arch: &apos;amd64&apos;, os.version: &apos;10.0&apos;, java.version: &apos;17.0.2&apos;
 Driver info: org.openqa.selenium.chrome.ChromeDriver
-Command: [c63805c1400c9142b956968396e35172, findElement {using=xpath, value=(//button[@class=&apos;btn btn-view start-btn w-100 ng-star-inserted&apos;][normalize-space()=&apos;start&apos;])[1]}]
-Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 108.0.5359.71, chrome: {chromedriverVersion: 107.0.5304.62 (1eec40d3a576..., userDataDir: C:\Users\white\AppData\Loca...}, goog:chromeOptions: {debuggerAddress: localhost:57687}, javascriptEnabled: true, networkConnectionEnabled: false, pageLoadStrategy: normal, platform: WINDOWS, platformName: WINDOWS, proxy: Proxy(), se:cdp: ws://localhost:57687/devtoo..., se:cdpVersion: 108.0.5359.71, setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:extension:credBlob: true, webauthn:extension:largeBlob: true, webauthn:virtualAuthenticators: true}
-Session ID: c63805c1400c9142b956968396e35172
+Command: [358d0185499529031a6b380f2518257a, findElement {using=xpath, value=//a[@class=&apos;d-flex align-items-center ng-star-inserted&apos;]}]
+Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 108.0.5359.71, chrome: {chromedriverVersion: 107.0.5304.62 (1eec40d3a576..., userDataDir: C:\Users\white\AppData\Loca...}, goog:chromeOptions: {debuggerAddress: localhost:63706}, javascriptEnabled: true, networkConnectionEnabled: false, pageLoadStrategy: normal, platform: WINDOWS, platformName: WINDOWS, proxy: Proxy(), se:cdp: ws://localhost:63706/devtoo..., se:cdpVersion: 108.0.5359.71, setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:extension:credBlob: true, webauthn:extension:largeBlob: true, webauthn:virtualAuthenticators: true}
+Session ID: 358d0185499529031a6b380f2518257a
 	at java.base/jdk.internal.reflect.NativeConstructorAccessorImpl.newInstance0(Native Method)
 	at java.base/jdk.internal.reflect.NativeConstructorAccessorImpl.newInstance(NativeConstructorAccessorImpl.java:77)
 	at java.base/jdk.internal.reflect.DelegatingConstructorAccessorImpl.newInstance(DelegatingConstructorAccessorImpl.java:45)
@@ -174,8 +179,53 @@ Session ID: c63805c1400c9142b956968396e35172
 	at org.openqa.selenium.remote.ElementLocation.findElement(ElementLocation.java:60)
 	at org.openqa.selenium.remote.RemoteWebDriver.findElement(RemoteWebDriver.java:385)
 	at org.openqa.selenium.remote.RemoteWebDriver.findElement(RemoteWebDriver.java:377)
-	at com.dinamic.v3.test.pages.OMSPage.ordering(OMSPage.java:121)
+	at com.dinamic.v3.test.pages.OMSPage.ordering(OMSPage.java:133)
 	at com.dinamic.v3.test.tescases.OrdersTestCase.ordersEntry(OrdersTestCase.java:45)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:568)
+	at org.testng.internal.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:133)
+	at org.testng.internal.TestInvoker.invokeMethod(TestInvoker.java:598)
+	at org.testng.internal.TestInvoker.invokeTestMethod(TestInvoker.java:173)
+	at org.testng.internal.MethodRunner.runInSequence(MethodRunner.java:46)
+	at org.testng.internal.TestInvoker$MethodInvocationAgent.invoke(TestInvoker.java:824)
+	at org.testng.internal.TestInvoker.invokeTestMethods(TestInvoker.java:146)
+	at org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:146)
+	at org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:128)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1511)
+	at org.testng.TestRunner.privateRun(TestRunner.java:794)
+	at org.testng.TestRunner.run(TestRunner.java:596)
+	at org.testng.SuiteRunner.runTest(SuiteRunner.java:377)
+	at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:371)
+	at org.testng.SuiteRunner.privateRun(SuiteRunner.java:332)
+	at org.testng.SuiteRunner.run(SuiteRunner.java:276)
+	at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:53)
+	at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:96)
+	at org.testng.TestNG.runSuitesSequentially(TestNG.java:1212)
+	at org.testng.TestNG.runSuitesLocally(TestNG.java:1134)
+	at org.testng.TestNG.runSuites(TestNG.java:1063)
+	at org.testng.TestNG.run(TestNG.java:1031)
+	at org.testng.remote.AbstractRemoteTestNG.run(AbstractRemoteTestNG.java:115)
+	at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:251)
+	at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:77)
+
+</div> <!-- stack-trace -->
+                </div> <!-- method-content -->
+              </div> <!-- method -->
+              <div class="method">
+                <div class="method-content">
+                  <a name="withoutItemDiscountPrice">
+                  </a> <!-- withoutItemDiscountPrice -->
+                  <span class="method-name">withoutItemDiscountPrice</span>
+                  <div class="stack-trace">org.openqa.selenium.TimeoutException: Expected condition failed: waiting for visibility of element located by By.xpath: //div[@class=&apos;mb-2 clearfix no-margin ft-11 ng-star-inserted&apos;] //div[@class=&apos;text-right&apos;] //span (tried for 10 second(s) with 2000 milliseconds interval)
+Build info: version: &apos;4.1.4&apos;, revision: &apos;535d840ee2&apos;
+System info: host: &apos;DESKTOP-E21T489&apos;, ip: &apos;172.16.1.31&apos;, os.name: &apos;Windows 10&apos;, os.arch: &apos;amd64&apos;, os.version: &apos;10.0&apos;, java.version: &apos;17.0.2&apos;
+Driver info: driver.version: unknown
+	at org.openqa.selenium.support.ui.FluentWait.timeoutException(FluentWait.java:263)
+	at org.openqa.selenium.support.ui.FluentWait.until(FluentWait.java:231)
+	at com.dinamic.v3.test.pages.OMSPage.orderCalculation(OMSPage.java:203)
+	at com.dinamic.v3.test.tescases.OrdersTestCase.withoutItemDiscountPrice(OrdersTestCase.java:56)
 	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
 	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77)
 	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
@@ -225,9 +275,9 @@ Session ID: c63805c1400c9142b956968396e35172
               </div> <!-- method -->
               <div class="method">
                 <div class="method-content">
-                  <a name="logout">
-                  </a> <!-- logout -->
-                  <span class="method-name">logout</span>
+                  <a name="withItemDiscount">
+                  </a> <!-- withItemDiscount -->
+                  <span class="method-name">withItemDiscount</span>
                 </div> <!-- method-content -->
               </div> <!-- method -->
             </div> <!-- main-panel-content rounded-window-bottom -->
@@ -235,7 +285,7 @@ Session ID: c63805c1400c9142b956968396e35172
         </div> <!-- panel Default_suite -->
         <div panel-name="test-xml-Default_suite" class="panel">
           <div class="main-panel-header rounded-window-top">
-            <span class="header-content">C:\Users\white\AppData\Local\Temp\testng-eclipse--748117415\testng-customsuite.xml</span>
+            <span class="header-content">C:\Users\white\AppData\Local\Temp\testng-eclipse--2022397541\testng-customsuite.xml</span>
           </div> <!-- main-panel-header rounded-window-top -->
           <div class="main-panel-content rounded-window-bottom">
             <pre>
@@ -284,24 +334,28 @@ data.addColumn('number', 'Number');
 data.addColumn('string', 'Method');
 data.addColumn('string', 'Class');
 data.addColumn('number', 'Time (ms)');
-data.addRows(3);
+data.addRows(4);
 data.setCell(0, 0, 0)
-data.setCell(0, 1, 'ordersEntry')
+data.setCell(0, 1, 'withItemDiscount')
 data.setCell(0, 2, 'com.dinamic.v3.test.tescases.OrdersTestCase')
-data.setCell(0, 3, 12073);
+data.setCell(0, 3, 22524);
 data.setCell(1, 0, 1)
-data.setCell(1, 1, 'logout')
+data.setCell(1, 1, 'withoutItemDiscountPrice')
 data.setCell(1, 2, 'com.dinamic.v3.test.tescases.OrdersTestCase')
-data.setCell(1, 3, 2467);
+data.setCell(1, 3, 18204);
 data.setCell(2, 0, 2)
-data.setCell(2, 1, 'log')
+data.setCell(2, 1, 'ordersEntry')
 data.setCell(2, 2, 'com.dinamic.v3.test.tescases.OrdersTestCase')
-data.setCell(2, 3, 320);
+data.setCell(2, 3, 15747);
+data.setCell(3, 0, 3)
+data.setCell(3, 1, 'log')
+data.setCell(3, 2, 'com.dinamic.v3.test.tescases.OrdersTestCase')
+data.setCell(3, 3, 378);
 window.suiteTableData['Default_suite']= { tableData: data, tableDiv: 'times-div-Default_suite'}
 return data;
 }
               </script>
-              <span class="suite-total-time">Total running time: 14 seconds</span>
+              <span class="suite-total-time">Total running time: 56 seconds</span>
               <div id="times-div-Default_suite">
               </div> <!-- times-div-Default_suite -->
             </div> <!-- times-div -->
@@ -316,15 +370,13 @@ return data;
         </div> <!-- panel -->
         <div panel-name="ignored-methods-Default_suite" class="panel">
           <div class="main-panel-header rounded-window-top">
-            <span class="header-content">2 ignored methods</span>
+            <span class="header-content">1 ignored method</span>
           </div> <!-- main-panel-header rounded-window-top -->
           <div class="main-panel-content rounded-window-bottom">
             <div class="ignored-class-div">
               <span class="ignored-class-name">com.dinamic.v3.test.tescases.OrdersTestCase</span>
               <div class="ignored-methods-div">
-                <span class="ignored-method-name">withItemDiscount</span>
-                <br/>
-                <span class="ignored-method-name">withoutItemDiscountPrice</span>
+                <span class="ignored-method-name">logout</span>
                 <br/>
               </div> <!-- ignored-methods-div -->
             </div> <!-- ignored-class-div -->
@@ -343,21 +395,27 @@ return data;
               </div> <!-- configuration-test before -->
               <div class="test-method">
                 <span class="method-name">log</span>
-                <span class="method-start">4185 ms</span>
+                <span class="method-start">4458 ms</span>
               </div> <!-- test-method -->
               <div class="test-method">
                 <img src="failed.png">
                 </img>
                 <span class="method-name">ordersEntry</span>
-                <span class="method-start">4515 ms</span>
+                <span class="method-start">4851 ms</span>
               </div> <!-- test-method -->
               <div class="test-method">
-                <span class="method-name">logout</span>
-                <span class="method-start">16599 ms</span>
+                <img src="failed.png">
+                </img>
+                <span class="method-name">withoutItemDiscountPrice</span>
+                <span class="method-start">20611 ms</span>
+              </div> <!-- test-method -->
+              <div class="test-method">
+                <span class="method-name">withItemDiscount</span>
+                <span class="method-start">38821 ms</span>
               </div> <!-- test-method -->
               <div class="configuration-test after">
                 <span class="method-name">close</span>
-                <span class="method-start">19067 ms</span>
+                <span class="method-start">61347 ms</span>
               </div> <!-- configuration-test after -->
           </div> <!-- main-panel-content rounded-window-bottom -->
         </div> <!-- panel -->

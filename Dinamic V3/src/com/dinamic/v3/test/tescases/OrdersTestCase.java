@@ -26,6 +26,7 @@ public class OrdersTestCase {
 		driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
 		driver.get(loginPageURL);
 		driver.manage().window().maximize();
+		driver.manage().deleteAllCookies();
 	}
 //
 	@Test(enabled = true, priority = 0)
@@ -42,18 +43,20 @@ public class OrdersTestCase {
 		OMSPage oPage = new OMSPage(driver);
 		oPage.order();
 		oPage.ordering();
-		oPage.orderingItems();
+		
 	}
 	
 	
-	@Test(testName = "No Discount",priority = 2,enabled = false)
+	@Test(testName = "No Discount",priority = 2,enabled = true)
 	public void withoutItemDiscountPrice() {
 		OMSPage oPage = new OMSPage(driver);
+		
+		oPage.orderingItems();
+		System.out.println("Called");
 		oPage.orderCalculation();
-
 	}
 	
-	@Test(testName = "with item discount",priority = 3,enabled = false)
+	@Test(testName = "with item discount",priority = 3,enabled = true)
 	public void withItemDiscount() {
 		OMSPage oPage = new OMSPage(driver);
 		oPage.orderCalculationwithItemDiscount();
@@ -62,7 +65,7 @@ public class OrdersTestCase {
 	@Test(testName = "logout",priority = 4,enabled = false)
 	public void logout() {
 		OMSPage oPage = new OMSPage(driver);
-//		oPage.logout();
+
 
 	}
 	
