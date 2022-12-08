@@ -41,7 +41,6 @@ public class OrdersTestCase {
 	public void ordersEntry() {
 		OMSPage oPage = new OMSPage(driver);
 		oPage.order();
-
 		oPage.ordering();
 		oPage.orderingItems();
 	}
@@ -63,7 +62,7 @@ public class OrdersTestCase {
 	@Test(testName = "logout",priority = 4,enabled = false)
 	public void logout() {
 		OMSPage oPage = new OMSPage(driver);
-		oPage.logout();
+//		oPage.logout();
 
 	}
 	
