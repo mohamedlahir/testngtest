@@ -20,13 +20,13 @@ public class Registration {
 	
 
 	String url = "https://posv3.dinamic.io/register";
-	String email = "taj@taj.wwq";
+	String email = "taj@taj.wwy";
 	String password = "Lahir@123";
 
 	List<String> categoryNames = new ArrayList<>();
 	List<Integer> categoryRanks = new ArrayList<>();
 
-	@Test(enabled = false)
+	@Test(enabled = true,priority = 5)
 	public void registration() throws InterruptedException {
 
 		System.setProperty("webdriver.chrome.driver",

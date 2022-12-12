@@ -26,7 +26,7 @@ public class ServiceCharge {
 	
 	
 
-	@Test(enabled=false)
+	@Test(enabled=true,priority = 6)
 	public void enableServiceCharge() {
 		// a[normalize-space()='SERVICE CHARGE']
 

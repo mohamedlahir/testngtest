@@ -9,18 +9,18 @@
 <table>
 <tr><th>Test</th><th># Passed</th><th># Skipped</th><th># Retried</th><th># Failed</th><th>Time (ms)</th><th>Included Groups</th><th>Excluded Groups</th></tr>
 <tr><th colspan="8">Default suite</th></tr>
-<tr><td><a href="#t0">Default test</a></td><td class="num">2</td><td class="num">0</td><td class="num">0</td><td class="num attn">1</td><td class="num">40,783</td><td></td><td></td></tr>
+<tr><td><a href="#t0">Default test</a></td><td class="num">4</td><td class="num">0</td><td class="num">0</td><td class="num attn">1</td><td class="num">92,610</td><td></td><td></td></tr>
 </table>
-<table id='summary'><thead><tr><th>Class</th><th>Method</th><th>Start</th><th>Time (ms)</th></tr></thead><tbody><tr><th colspan="4">Default suite</th></tr></tbody><tbody id="t0"><tr><th colspan="4">Default test &#8212; failed</th></tr><tr class="failedeven"><td rowspan="1">com.dinamic.v3.test.tescases.OrdersTestCase</td><td><a href="#m0">withoutItemDiscountPrice</a></td><td rowspan="1">1670499968466</td><td rowspan="1">22128</td></tr><tr><th colspan="4">Default test &#8212; passed</th></tr><tr class="passedeven"><td rowspan="2">com.dinamic.v3.test.tescases.OrdersTestCase</td><td><a href="#m1">log</a></td><td rowspan="1">1670499957011</td><td rowspan="1">491</td></tr><tr class="passedeven"><td><a href="#m2">ordersEntry</a></td><td rowspan="1">1670499957511</td><td rowspan="1">10952</td></tr></tbody>
+<table id='summary'><thead><tr><th>Class</th><th>Method</th><th>Start</th><th>Time (ms)</th></tr></thead><tbody><tr><th colspan="4">Default suite</th></tr></tbody><tbody id="t0"><tr><th colspan="4">Default test &#8212; failed</th></tr><tr class="failedeven"><td rowspan="1">com.dinamic.v3.test.tescases.OrdersTestCase</td><td><a href="#m0">logout</a></td><td rowspan="1">1670839741715</td><td rowspan="1">10425</td></tr><tr><th colspan="4">Default test &#8212; passed</th></tr><tr class="passedeven"><td rowspan="4">com.dinamic.v3.test.tescases.OrdersTestCase</td><td><a href="#m1">log</a></td><td rowspan="1">1670839666151</td><td rowspan="1">468</td></tr><tr class="passedeven"><td><a href="#m2">ordersEntry</a></td><td rowspan="1">1670839666627</td><td rowspan="1">8032</td></tr><tr class="passedeven"><td><a href="#m3">withItemDiscount</a></td><td rowspan="1">1670839693902</td><td rowspan="1">47810</td></tr><tr class="passedeven"><td><a href="#m4">withoutItemDiscountPrice</a></td><td rowspan="1">1670839674663</td><td rowspan="1">19236</td></tr></tbody>
 </table>
-<h2>Default test</h2><h3 id="m0">com.dinamic.v3.test.tescases.OrdersTestCase#withoutItemDiscountPrice</h3><table class="result"><tr><th>Exception</th></tr><tr><td><div class="stacktrace">org.openqa.selenium.TimeoutException: Expected condition failed: waiting for visibility of element located by By.cssSelector: /html[1]/body[1]/app-root[1]/app-half-layout-navbar[1]/main[1]/div[1]/section[1]/div[1]/div[2]/app-order-summary[1]/div[1]/div[1]/div[4]/div[2]/div[2]/div[1]/div[1]/div[4]/div[2]/div[1]/span[1] (tried for 10 second(s) with 2000 milliseconds interval)
+<h2>Default test</h2><h3 id="m0">com.dinamic.v3.test.tescases.OrdersTestCase#logout</h3><table class="result"><tr><th>Exception</th></tr><tr><td><div class="stacktrace">org.openqa.selenium.TimeoutException: Expected condition failed: waiting for element to be clickable: By.xpath: //a[normalize-space()=&apos;Logout&apos;] (tried for 10 second(s) with 2000 milliseconds interval)
 Build info: version: &apos;4.1.4&apos;, revision: &apos;535d840ee2&apos;
 System info: host: &apos;DESKTOP-E21T489&apos;, ip: &apos;172.16.1.31&apos;, os.name: &apos;Windows 10&apos;, os.arch: &apos;amd64&apos;, os.version: &apos;10.0&apos;, java.version: &apos;17.0.2&apos;
 Driver info: driver.version: unknown
 	at org.openqa.selenium.support.ui.FluentWait.timeoutException(FluentWait.java:263)
 	at org.openqa.selenium.support.ui.FluentWait.until(FluentWait.java:231)
-	at com.dinamic.v3.test.pages.OMSPage.orderCalculation(OMSPage.java:204)
-	at com.dinamic.v3.test.tescases.OrdersTestCase.withoutItemDiscountPrice(OrdersTestCase.java:56)
+	at com.dinamic.v3.test.pages.OMSPage.logout(OMSPage.java:325)
+	at com.dinamic.v3.test.tescases.OrdersTestCase.logout(OrdersTestCase.java:68)
 	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
 	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77)
 	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
@@ -52,5 +52,7 @@ Driver info: driver.version: unknown
 </div></td></tr></table><p class="totop"><a href="#summary">back to summary</a></p>
 <h3 id="m1">com.dinamic.v3.test.tescases.OrdersTestCase#log</h3><table class="result"><tr><th class="invisible"/></tr></table><p class="totop"><a href="#summary">back to summary</a></p>
 <h3 id="m2">com.dinamic.v3.test.tescases.OrdersTestCase#ordersEntry</h3><table class="result"><tr><th class="invisible"/></tr></table><p class="totop"><a href="#summary">back to summary</a></p>
+<h3 id="m3">com.dinamic.v3.test.tescases.OrdersTestCase#withItemDiscount</h3><table class="result"><tr><th class="invisible"/></tr></table><p class="totop"><a href="#summary">back to summary</a></p>
+<h3 id="m4">com.dinamic.v3.test.tescases.OrdersTestCase#withoutItemDiscountPrice</h3><table class="result"><tr><th class="invisible"/></tr></table><p class="totop"><a href="#summary">back to summary</a></p>
 </body>
 </html>

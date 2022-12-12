@@ -53,8 +53,7 @@ public class OMSPage {
 	By orderNumber = By.cssSelector("span[class='d-flex align-items-center w-100'] span:nth-child(2)");
 	By confirmaKOT = By.xpath("//span[normalize-space()='Confirm KOT']");
 
-	By itemPrice = By.cssSelector(
-			"/html[1]/body[1]/app-root[1]/app-half-layout-navbar[1]/main[1]/div[1]/section[1]/div[1]/div[2]/app-order-summary[1]/div[1]/div[1]/div[4]/div[2]/div[2]/div[1]/div[1]/div[4]/div[2]/div[1]/span[1]");
+	By itemPrice1 = By.cssSelector("div[class='mb-2 clearfix no-margin ft-11'] div div[class='text-right'] span");
 	By grandTotal = By.xpath("//span[@class='order-foot-total ft-15']");
 
 	By priceOutput = By.xpath("//span[@class='order-foot-total ft-15']");
@@ -70,7 +69,7 @@ public class OMSPage {
 
 	By logout = By.id("navbarDropdownMenuLink_2");
 
-	By logout2 = By.xpath("(//a[normalize-space()='Logout'])[1]");
+	By logout2 = By.xpath("//a[normalize-space()='Logout']");
 	double calculatedAmount;
 
 	public OMSPage(WebDriver driver) {
@@ -130,9 +129,9 @@ public class OMSPage {
 		driver.findElement(startButton).click();
 
 		String floor = driver.findElement(floorName).getText();
-//		String tableNumber[] = driver.findElement(tableName).getText().split("chevron_right");
+		String tableNumber[] = driver.findElement(tableName).getText().split("chevron_right");
 		System.out.println("Floor Name : " + floor);
-//		System.out.println("Table Number : " + tableNumber[1]);
+		System.out.println("Table Number : " + tableNumber[1]);
 	}
 
 	// Only Ordering Items not settling the bill.
@@ -143,7 +142,7 @@ public class OMSPage {
 		List<WebElement> allItemsCards = driver.findElements(itemCards);
 		Actions action = new Actions(driver);
 
-		for (int j = 0; j < 5; j++) {
+		for (int j = 0; j < 10; j++) {
 			wait.until(ExpectedConditions.visibilityOfAllElementsLocatedBy(itemCards));
 			action.click(allItemsCards.get(j)).build().perform();
 //			allItemsCards.get(j).click();
@@ -199,15 +198,40 @@ public class OMSPage {
 		Wait<WebDriver> wait = new FluentWait<WebDriver>(driver).withTimeout(Duration.ofSeconds(10))
 				.pollingEvery(Duration.ofSeconds(2)).ignoring(NoSuchElementException.class);
 		Actions action = new Actions(driver);
-//		driver.findElement(expand).click();
 
-		wait.until(ExpectedConditions.visibilityOfElementLocated(itemPrice));
-		String totalItemPrice[] = driver.findElement(itemPrice).getText().split(" ");
-		String grandTotal1 = driver.findElement(grandTotal).getText();
-		String numbers = totalItemPrice[1].replaceAll(",", "");
+		List<Integer> amount = new ArrayList();
+		int calculatedAmount = 0;
+		List<WebElement> orderItemsPriceList = driver.findElements(orderedItemsPrice);
+		for (int k = 0; k < orderItemsPriceList.size(); k++) {
+			String orderd = orderItemsPriceList.get(k).getText();// .split("change_history");
+
+			Integer amountOnItems = Integer.parseInt(orderItemsPriceList.get(k).getText());
+			amount.add(amountOnItems);
+			calculatedAmount = calculatedAmount + amount.get(k);
+
+		}
+
+		System.out.println("Total Item Amount : " + calculatedAmount);
+
+		try {
+			Thread.sleep(3000);
+		} catch (InterruptedException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		String totalItemPrice[] = driver.findElement(By.xpath("//span[normalize-space()='INR 2,197.00']")).getText()
+				.split(" ");
+		String dummy = totalItemPrice[1].substring(0, 5);
+		String numbers = dummy.replaceAll(",", "");
 		Double totalItemAmount = Double.parseDouble(numbers);
-//		itemPriceFinal= Integer.parseInt(numbers);
-		Double itemAmount = totalItemAmount;
+		itemPriceFinal = Integer.parseInt(numbers);
+		System.out.println("Total Item Price : " + itemPriceFinal);
+
+		String grandTotal1 = driver.findElement(grandTotal).getText();
+
+		System.out.println("Grand Total On Screen : " + grandTotal1);
+
+		Double itemAmount = Double.parseDouble(numbers);
 		Double gstAmount;
 		Double serviceTax = 0.00;
 		System.out.println("Total Amount : " + itemAmount);

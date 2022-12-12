@@ -51,7 +51,7 @@
               <ul>
                 <li>
                   <a href="#" panel-name="test-xml-Default_suite" class="navigator-link ">
-                    <span>C:\Users\white\AppData\Local\Temp\testng-eclipse--1084685682\testng-customsuite.xml</span>
+                    <span>C:\Users\white\AppData\Local\Temp\testng-eclipse-247172587\testng-customsuite.xml</span>
                   </a> <!-- navigator-link  -->
                 </li>
                 <li>
@@ -93,7 +93,7 @@
               <div class="suite-section-content">
                 <ul>
                   <li>
-                    <span class="method-stats">3 methods, 1 failed,   2 passed</span>
+                    <span class="method-stats">5 methods, 1 failed,   4 passed</span>
                   </li>
                   <li>
                     <span class="method-list-title failed">Failed methods</span>
@@ -104,7 +104,7 @@
                     <div class="method-list-content failed suite-Default_suite">
                       <span>
                         <img src="failed.png" width="3%"/>
-                        <a href="#" panel-name="suite-Default_suite" title="com.dinamic.v3.test.tescases.OrdersTestCase" class="method navigator-link" hash-for-method="withoutItemDiscountPrice">withoutItemDiscountPrice</a> <!-- method navigator-link -->
+                        <a href="#" panel-name="suite-Default_suite" title="com.dinamic.v3.test.tescases.OrdersTestCase" class="method navigator-link" hash-for-method="logout">logout</a> <!-- method navigator-link -->
                       </span>
                       <br/>
                     </div> <!-- method-list-content failed suite-Default_suite -->
@@ -124,6 +124,16 @@
                       <span>
                         <img src="passed.png" width="3%"/>
                         <a href="#" panel-name="suite-Default_suite" title="com.dinamic.v3.test.tescases.OrdersTestCase" class="method navigator-link" hash-for-method="ordersEntry">ordersEntry</a> <!-- method navigator-link -->
+                      </span>
+                      <br/>
+                      <span>
+                        <img src="passed.png" width="3%"/>
+                        <a href="#" panel-name="suite-Default_suite" title="com.dinamic.v3.test.tescases.OrdersTestCase" class="method navigator-link" hash-for-method="withItemDiscount">withItemDiscount</a> <!-- method navigator-link -->
+                      </span>
+                      <br/>
+                      <span>
+                        <img src="passed.png" width="3%"/>
+                        <a href="#" panel-name="suite-Default_suite" title="com.dinamic.v3.test.tescases.OrdersTestCase" class="method navigator-link" hash-for-method="withoutItemDiscountPrice">withoutItemDiscountPrice</a> <!-- method navigator-link -->
                       </span>
                       <br/>
                     </div> <!-- method-list-content passed suite-Default_suite -->
@@ -146,17 +156,17 @@
             <div class="main-panel-content rounded-window-bottom">
               <div class="method">
                 <div class="method-content">
-                  <a name="withoutItemDiscountPrice">
-                  </a> <!-- withoutItemDiscountPrice -->
-                  <span class="method-name">withoutItemDiscountPrice</span>
-                  <div class="stack-trace">org.openqa.selenium.TimeoutException: Expected condition failed: waiting for visibility of element located by By.cssSelector: /html[1]/body[1]/app-root[1]/app-half-layout-navbar[1]/main[1]/div[1]/section[1]/div[1]/div[2]/app-order-summary[1]/div[1]/div[1]/div[4]/div[2]/div[2]/div[1]/div[1]/div[4]/div[2]/div[1]/span[1] (tried for 10 second(s) with 2000 milliseconds interval)
+                  <a name="logout">
+                  </a> <!-- logout -->
+                  <span class="method-name">logout</span>
+                  <div class="stack-trace">org.openqa.selenium.TimeoutException: Expected condition failed: waiting for element to be clickable: By.xpath: //a[normalize-space()=&apos;Logout&apos;] (tried for 10 second(s) with 2000 milliseconds interval)
 Build info: version: &apos;4.1.4&apos;, revision: &apos;535d840ee2&apos;
 System info: host: &apos;DESKTOP-E21T489&apos;, ip: &apos;172.16.1.31&apos;, os.name: &apos;Windows 10&apos;, os.arch: &apos;amd64&apos;, os.version: &apos;10.0&apos;, java.version: &apos;17.0.2&apos;
 Driver info: driver.version: unknown
 	at org.openqa.selenium.support.ui.FluentWait.timeoutException(FluentWait.java:263)
 	at org.openqa.selenium.support.ui.FluentWait.until(FluentWait.java:231)
-	at com.dinamic.v3.test.pages.OMSPage.orderCalculation(OMSPage.java:204)
-	at com.dinamic.v3.test.tescases.OrdersTestCase.withoutItemDiscountPrice(OrdersTestCase.java:56)
+	at com.dinamic.v3.test.pages.OMSPage.logout(OMSPage.java:325)
+	at com.dinamic.v3.test.tescases.OrdersTestCase.logout(OrdersTestCase.java:68)
 	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
 	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77)
 	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
@@ -211,12 +221,26 @@ Driver info: driver.version: unknown
                   <span class="method-name">ordersEntry</span>
                 </div> <!-- method-content -->
               </div> <!-- method -->
+              <div class="method">
+                <div class="method-content">
+                  <a name="withItemDiscount">
+                  </a> <!-- withItemDiscount -->
+                  <span class="method-name">withItemDiscount</span>
+                </div> <!-- method-content -->
+              </div> <!-- method -->
+              <div class="method">
+                <div class="method-content">
+                  <a name="withoutItemDiscountPrice">
+                  </a> <!-- withoutItemDiscountPrice -->
+                  <span class="method-name">withoutItemDiscountPrice</span>
+                </div> <!-- method-content -->
+              </div> <!-- method -->
             </div> <!-- main-panel-content rounded-window-bottom -->
           </div> <!-- suite-Default_suite-class-passed -->
         </div> <!-- panel Default_suite -->
         <div panel-name="test-xml-Default_suite" class="panel">
           <div class="main-panel-header rounded-window-top">
-            <span class="header-content">C:\Users\white\AppData\Local\Temp\testng-eclipse--1084685682\testng-customsuite.xml</span>
+            <span class="header-content">C:\Users\white\AppData\Local\Temp\testng-eclipse-247172587\testng-customsuite.xml</span>
           </div> <!-- main-panel-header rounded-window-top -->
           <div class="main-panel-content rounded-window-bottom">
             <pre>
@@ -265,24 +289,32 @@ data.addColumn('number', 'Number');
 data.addColumn('string', 'Method');
 data.addColumn('string', 'Class');
 data.addColumn('number', 'Time (ms)');
-data.addRows(3);
+data.addRows(5);
 data.setCell(0, 0, 0)
-data.setCell(0, 1, 'withoutItemDiscountPrice')
+data.setCell(0, 1, 'withItemDiscount')
 data.setCell(0, 2, 'com.dinamic.v3.test.tescases.OrdersTestCase')
-data.setCell(0, 3, 22128);
+data.setCell(0, 3, 47810);
 data.setCell(1, 0, 1)
-data.setCell(1, 1, 'ordersEntry')
+data.setCell(1, 1, 'withoutItemDiscountPrice')
 data.setCell(1, 2, 'com.dinamic.v3.test.tescases.OrdersTestCase')
-data.setCell(1, 3, 10952);
+data.setCell(1, 3, 19236);
 data.setCell(2, 0, 2)
-data.setCell(2, 1, 'log')
+data.setCell(2, 1, 'logout')
 data.setCell(2, 2, 'com.dinamic.v3.test.tescases.OrdersTestCase')
-data.setCell(2, 3, 491);
+data.setCell(2, 3, 10425);
+data.setCell(3, 0, 3)
+data.setCell(3, 1, 'ordersEntry')
+data.setCell(3, 2, 'com.dinamic.v3.test.tescases.OrdersTestCase')
+data.setCell(3, 3, 8032);
+data.setCell(4, 0, 4)
+data.setCell(4, 1, 'log')
+data.setCell(4, 2, 'com.dinamic.v3.test.tescases.OrdersTestCase')
+data.setCell(4, 3, 468);
 window.suiteTableData['Default_suite']= { tableData: data, tableDiv: 'times-div-Default_suite'}
 return data;
 }
               </script>
-              <span class="suite-total-time">Total running time: 33 seconds</span>
+              <span class="suite-total-time">Total running time: 1 minutes</span>
               <div id="times-div-Default_suite">
               </div> <!-- times-div-Default_suite -->
             </div> <!-- times-div -->
@@ -297,18 +329,9 @@ return data;
         </div> <!-- panel -->
         <div panel-name="ignored-methods-Default_suite" class="panel">
           <div class="main-panel-header rounded-window-top">
-            <span class="header-content">2 ignored methods</span>
+            <span class="header-content">0 ignored methods</span>
           </div> <!-- main-panel-header rounded-window-top -->
           <div class="main-panel-content rounded-window-bottom">
-            <div class="ignored-class-div">
-              <span class="ignored-class-name">com.dinamic.v3.test.tescases.OrdersTestCase</span>
-              <div class="ignored-methods-div">
-                <span class="ignored-method-name">withItemDiscount</span>
-                <br/>
-                <span class="ignored-method-name">logout</span>
-                <br/>
-              </div> <!-- ignored-methods-div -->
-            </div> <!-- ignored-class-div -->
           </div> <!-- main-panel-content rounded-window-bottom -->
         </div> <!-- panel -->
         <div panel-name="chronological-Default_suite" class="panel">
@@ -324,21 +347,29 @@ return data;
               </div> <!-- configuration-test before -->
               <div class="test-method">
                 <span class="method-name">log</span>
-                <span class="method-start">6502 ms</span>
+                <span class="method-start">6104 ms</span>
               </div> <!-- test-method -->
               <div class="test-method">
                 <span class="method-name">ordersEntry</span>
-                <span class="method-start">7002 ms</span>
+                <span class="method-start">6580 ms</span>
+              </div> <!-- test-method -->
+              <div class="test-method">
+                <span class="method-name">withoutItemDiscountPrice</span>
+                <span class="method-start">14616 ms</span>
+              </div> <!-- test-method -->
+              <div class="test-method">
+                <span class="method-name">withItemDiscount</span>
+                <span class="method-start">33855 ms</span>
               </div> <!-- test-method -->
               <div class="test-method">
                 <img src="failed.png">
                 </img>
-                <span class="method-name">withoutItemDiscountPrice</span>
-                <span class="method-start">17957 ms</span>
+                <span class="method-name">logout</span>
+                <span class="method-start">81668 ms</span>
               </div> <!-- test-method -->
               <div class="configuration-test after">
                 <span class="method-name">close</span>
-                <span class="method-start">40100 ms</span>
+                <span class="method-start">92116 ms</span>
               </div> <!-- configuration-test after -->
           </div> <!-- main-panel-content rounded-window-bottom -->
         </div> <!-- panel -->
