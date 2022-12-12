@@ -62,7 +62,7 @@ public class OrdersTestCase {
 		oPage.orderCalculationwithItemDiscount();
 	}
 
-	@Test(testName = "logout", priority = 4, enabled = false)
+	@Test(testName = "logout", priority = 4, enabled = true)
 	public void logout() {
 		OMSPage oPage = new OMSPage(driver);
 		oPage.logout();

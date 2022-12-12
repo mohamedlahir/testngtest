@@ -69,7 +69,7 @@ public class OMSPage {
 
 	By logout = By.id("navbarDropdownMenuLink_2");
 
-	By logout2 = By.xpath("//a[normalize-space()='Logout']");
+	By logout2 = By.xpath("//div //a[normalize-space()='Logout'][1]");
 	double calculatedAmount;
 
 	public OMSPage(WebDriver driver) {
@@ -208,9 +208,7 @@ public class OMSPage {
 			Integer amountOnItems = Integer.parseInt(orderItemsPriceList.get(k).getText());
 			amount.add(amountOnItems);
 			calculatedAmount = calculatedAmount + amount.get(k);
-
 		}
-
 		System.out.println("Total Item Amount : " + calculatedAmount);
 
 		try {
@@ -319,10 +317,17 @@ public class OMSPage {
 		Wait<WebDriver> wait = new FluentWait<WebDriver>(driver).withTimeout(Duration.ofSeconds(10))
 				.pollingEvery(Duration.ofSeconds(2)).ignoring(NoSuchElementException.class);
 		Actions action = new Actions(driver);
+		try {
+			Thread.sleep(3000);
+		} catch (InterruptedException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 		WebElement logoutButton = driver.findElement(logout);
 		action.click(logoutButton).build().perform();
 		WebElement logoutButton2 = driver.findElement(logout2);
 		wait.until(ExpectedConditions.elementToBeClickable(logout2));
 		action.click(logoutButton2).build().perform();
+		System.err.println("Logged out");
 	}
 }
