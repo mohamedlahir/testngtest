@@ -66,7 +66,6 @@ public class OrdersTestCase {
 	public void logout() {
 		OMSPage oPage = new OMSPage(driver);
 		oPage.logout();
-
 	}
 
 	@AfterTest

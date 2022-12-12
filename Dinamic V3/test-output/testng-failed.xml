@@ -3,13 +3,13 @@
 <suite name="Failed suite [Default suite]" guice-stage="DEVELOPMENT">
   <test thread-count="5" name="Default test(failed)">
     <classes>
-      <class name="com.dinamic.v3.test.tescases.OrdersTestCase">
+      <class name="com.dinamic.v3.test.tescases.Registration">
         <methods>
-          <include name="browserConfiguration"/>
-          <include name="logout"/>
           <include name="close"/>
+          <include name="registration"/>
+          <include name="start"/>
         </methods>
-      </class> <!-- com.dinamic.v3.test.tescases.OrdersTestCase -->
+      </class> <!-- com.dinamic.v3.test.tescases.Registration -->
     </classes>
   </test> <!-- Default test(failed) -->
 </suite> <!-- Failed suite [Default suite] -->
