@@ -25,8 +25,7 @@ public class ServiceCharge {
 	String serviceCharge = "10";
 	
 	
-
-	@Test(enabled=true,priority = 6)
+	@Test(enabled=true,priority = 7)
 	public void enableServiceCharge() {
 		// a[normalize-space()='SERVICE CHARGE']
 

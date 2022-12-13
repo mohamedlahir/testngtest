@@ -31,7 +31,7 @@ public class OrdersTestCase {
 
 //
 	@Test(enabled = true, priority = 0)
-	public void log() {
+	public void login() {
 		OMSPage oPage = new OMSPage(driver);
 		oPage.enterUsername(emailAddress);
 		oPage.enterPassword(password);
@@ -62,7 +62,19 @@ public class OrdersTestCase {
 		oPage.orderCalculationwithItemDiscount();
 	}
 
-	@Test(testName = "logout", priority = 4, enabled = true)
+	@Test(priority = 4, enabled = true)
+	public void orderDiscount() {
+		OMSPage oPage = new OMSPage(driver);
+		oPage.orderDiscount();
+	}
+	@Test(priority = 5, enabled = true)
+	public void tableName() {
+		OMSPage oPage = new OMSPage(driver);
+		oPage.tableCount();
+	}
+	
+
+	@Test(testName = "logout", priority = 6, enabled = true)
 	public void logout() {
 		OMSPage oPage = new OMSPage(driver);
 		oPage.logout();

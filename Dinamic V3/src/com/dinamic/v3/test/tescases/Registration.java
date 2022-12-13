@@ -27,7 +27,7 @@ public class Registration {
 	List<String> categoryNames = new ArrayList<>();
 	List<Integer> categoryRanks = new ArrayList<>();
 
-	@Test(enabled = false, priority = 5)
+	@Test(enabled = false, priority = 6)
 	public void registration() throws InterruptedException {
 		System.setProperty("webdriver.chrome.driver",
 				"C:\\Users\\white\\Downloads\\chromedriver_win32 (4)\\chromedriver.exe");
