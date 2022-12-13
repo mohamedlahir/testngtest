@@ -21,7 +21,7 @@ import org.testng.annotations.Test;
 public class Registration {
 
 	String url = "https://posv3.dinamic.io/register";
-	String email = "taj@taj.tr";
+	String email = "taj@jio.in";
 	String password = "Lahir@123";
 
 	List<String> categoryNames = new ArrayList<>();
