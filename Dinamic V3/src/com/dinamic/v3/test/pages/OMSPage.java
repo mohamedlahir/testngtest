@@ -74,6 +74,8 @@ public class OMSPage {
 
 	By orderDiscountButton = By
 			.cssSelector("button[class='btn btn-block btn-yellow p-lg-4 p-3 mr-3 ng-star-inserted']");
+	
+	By myAccountButtonMain =By.cssSelector("div[class='d-flex align-items-center push-48-t push-48-b msvg'] div span[class='h4 d-block pl-2 mb-0']");
 	double calculatedAmount;
 
 	public OMSPage(WebDriver driver) {
@@ -114,6 +116,14 @@ public class OMSPage {
 			e.printStackTrace();
 		}
 		System.out.println("======================================================================================");
+	}
+	
+	public void enteringPinForMyAccount() {
+		driver.findElement(myAccountButtonMain).click();
+		driver.findElement(pin1).click();
+		driver.findElement(pin2).click();
+		driver.findElement(pin3).click();
+		driver.findElement(pin4).click();
 	}
 
 	public void ordering() {
@@ -380,29 +390,7 @@ public class OMSPage {
 		System.err.println("Total Price : " + price);
 		Assert.assertEquals(price, billAmount);
 
-//		String grandTotal1 = driver.findElement(grandTotal).getText();
-//
-//		System.out.println("Grand Total On Screen : " + grandTotal1);
-//
-//		Double itemAmount = Double.parseDouble(numbers);
-//		Double gstAmount;
-//		Double serviceTax = 0.00;
-//		System.out.println("Total Amount : " + itemAmount);
-//		gstAmount = itemAmount * gst / 100;
-//		System.out.println("GST Amount : " + gstAmount);
-//		Double amountWithAddedGST = itemAmount + gstAmount;
-//		System.out.println("Amount with added GST :" + "(" + gst + ")" + amountWithAddedGST);
-//		Double serviceChargeAmount = itemAmount * serviceCharge / 100;
-//		System.out.println("Service Charge Amount " + serviceChargeAmount);
-//		Double afterAddingdServiceCharge = serviceChargeAmount + itemAmount;
-//		Double serviceTaxAmount = serviceChargeAmount * serviceTax / 100;
-//		Double totalPrice = itemAmount + gstAmount + serviceChargeAmount + serviceTaxAmount;
-//		int price = (int) Math.round(totalPrice);
-//		System.out.println("Total Price : " + price);
-//		String priceOnScreen[] = driver.findElement(priceOutput).getText().split(" ");
-//		String billValue = priceOnScreen[1].replace(",", "");
-//		int billAmount = Integer.parseInt(billValue);
-//		Assert.assertEquals(price, billAmount);
+
 		System.out.println("======================================================================================");
 	}
 

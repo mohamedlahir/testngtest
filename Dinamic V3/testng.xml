@@ -8,6 +8,7 @@
        <class name="com.dinamic.v3.test.tescases.Registration"/> 
        <class name="com.dinamic.v3.test.tescases.ServiceCharge"/>
        <class name="com.dinamic.v3.test.tescases.OrdersTestCase"/> 
+       <class name="com.dinamic.v3.test.tescases.MyAcountTestCase"/> 
            
     <!-- <class name="com.dinamic.v3.test.tescases.OMSPageOrderCalculation"/> -->
 </classes>

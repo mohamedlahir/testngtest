@@ -1,49 +1,29 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testng-results ignored="0" total="7" passed="7" failed="0" skipped="0">
+<testng-results ignored="0" total="2" passed="2" failed="0" skipped="0">
   <reporter-output>
   </reporter-output>
-  <suite started-at="2022-12-13T12:52:24 IST" name="Default suite" finished-at="2022-12-13T12:53:46 IST" duration-ms="81958">
+  <suite started-at="2022-12-19T11:01:49 IST" name="Default suite" finished-at="2022-12-19T11:01:59 IST" duration-ms="9321">
     <groups>
     </groups>
-    <test started-at="2022-12-13T12:52:24 IST" name="Default test" finished-at="2022-12-13T12:53:46 IST" duration-ms="81958">
-      <class name="com.dinamic.v3.test.tescases.OrdersTestCase">
-        <test-method is-config="true" signature="browserConfiguration()[pri:0, instance:com.dinamic.v3.test.tescases.OrdersTestCase@1b2abca6]" started-at="2022-12-13T12:52:24 IST" name="browserConfiguration" finished-at="2022-12-13T12:52:29 IST" duration-ms="4733" status="PASS">
+    <test started-at="2022-12-19T11:01:49 IST" name="Default test" finished-at="2022-12-19T11:01:59 IST" duration-ms="9321">
+      <class name="com.dinamic.v3.test.tescases.MyAcountTestCase">
+        <test-method is-config="true" signature="browserConfiguration()[pri:0, instance:com.dinamic.v3.test.tescases.MyAcountTestCase@6fd83fc1]" started-at="2022-12-19T11:01:49 IST" name="browserConfiguration" finished-at="2022-12-19T11:01:54 IST" duration-ms="4761" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- browserConfiguration -->
-        <test-method signature="login()[pri:0, instance:com.dinamic.v3.test.tescases.OrdersTestCase@1b2abca6]" started-at="2022-12-13T12:52:29 IST" name="login" finished-at="2022-12-13T12:52:29 IST" duration-ms="332" status="PASS">
+        <test-method signature="login()[pri:7, instance:com.dinamic.v3.test.tescases.MyAcountTestCase@6fd83fc1]" started-at="2022-12-19T11:01:54 IST" name="login" finished-at="2022-12-19T11:01:55 IST" duration-ms="317" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- login -->
-        <test-method signature="ordersEntry()[pri:1, instance:com.dinamic.v3.test.tescases.OrdersTestCase@1b2abca6]" started-at="2022-12-13T12:52:29 IST" name="ordersEntry" finished-at="2022-12-13T12:52:35 IST" duration-ms="5805" status="PASS">
+        <test-method signature="enterPin()[pri:8, instance:com.dinamic.v3.test.tescases.MyAcountTestCase@6fd83fc1]" started-at="2022-12-19T11:01:55 IST" name="enterPin" finished-at="2022-12-19T11:01:59 IST" duration-ms="3943" status="PASS">
           <reporter-output>
           </reporter-output>
-        </test-method> <!-- ordersEntry -->
-        <test-method signature="withoutItemDiscountPrice()[pri:2, instance:com.dinamic.v3.test.tescases.OrdersTestCase@1b2abca6]" started-at="2022-12-13T12:52:35 IST" name="withoutItemDiscountPrice" finished-at="2022-12-13T12:52:51 IST" duration-ms="16029" status="PASS">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- withoutItemDiscountPrice -->
-        <test-method signature="withItemDiscount()[pri:3, instance:com.dinamic.v3.test.tescases.OrdersTestCase@1b2abca6]" started-at="2022-12-13T12:52:51 IST" name="withItemDiscount" finished-at="2022-12-13T12:53:35 IST" duration-ms="44347" status="PASS">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- withItemDiscount -->
-        <test-method signature="orderDiscount()[pri:4, instance:com.dinamic.v3.test.tescases.OrdersTestCase@1b2abca6]" started-at="2022-12-13T12:53:35 IST" name="orderDiscount" finished-at="2022-12-13T12:53:40 IST" duration-ms="4486" status="PASS">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- orderDiscount -->
-        <test-method signature="tableName()[pri:5, instance:com.dinamic.v3.test.tescases.OrdersTestCase@1b2abca6]" started-at="2022-12-13T12:53:40 IST" name="tableName" finished-at="2022-12-13T12:53:42 IST" duration-ms="2450" status="PASS">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- tableName -->
-        <test-method signature="logout()[pri:6, instance:com.dinamic.v3.test.tescases.OrdersTestCase@1b2abca6]" started-at="2022-12-13T12:53:42 IST" name="logout" finished-at="2022-12-13T12:53:46 IST" duration-ms="3378" status="PASS">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- logout -->
-        <test-method is-config="true" signature="close()[pri:0, instance:com.dinamic.v3.test.tescases.OrdersTestCase@1b2abca6]" started-at="2022-12-13T12:53:46 IST" name="close" finished-at="2022-12-13T12:53:46 IST" duration-ms="330" status="PASS">
+        </test-method> <!-- enterPin -->
+        <test-method is-config="true" signature="close()[pri:0, instance:com.dinamic.v3.test.tescases.MyAcountTestCase@6fd83fc1]" started-at="2022-12-19T11:01:59 IST" name="close" finished-at="2022-12-19T11:01:59 IST" duration-ms="246" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- close -->
-      </class> <!-- com.dinamic.v3.test.tescases.OrdersTestCase -->
+      </class> <!-- com.dinamic.v3.test.tescases.MyAcountTestCase -->
     </test> <!-- Default test -->
   </suite> <!-- Default suite -->
 </testng-results>
