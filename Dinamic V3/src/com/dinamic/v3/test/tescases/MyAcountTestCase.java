@@ -55,6 +55,20 @@ public class MyAcountTestCase {
 
 	}
 
+	@Test(enabled = true, priority = 11)
+	public void addPositions() {
+
+		MyAccountPage myAccountPage = new MyAccountPage(driver);
+		myAccountPage.addPositions();
+	}
+
+	@Test(enabled = true, priority = 12)
+	public void gettingStaff() {
+		OMSPage oPage = new OMSPage(driver);
+		MyAccountPage myAccountPage = new MyAccountPage(driver);
+		myAccountPage.getMembers();
+	}
+
 	@AfterTest
 	public void close() {
 		driver.quit();

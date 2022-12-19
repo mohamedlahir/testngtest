@@ -438,7 +438,6 @@ public class OMSPage {
 			WebElement floorName = driver.findElement(floor);
 			String name[] = floorName.getText().split("deck");
 			System.out.println("Available Floors : " + name[1]);
-
 		}
 
 		System.out.println("======================================================================================");

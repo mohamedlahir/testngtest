@@ -77,7 +77,7 @@ public class OrdersTestCase {
 		oPage.cancelOrder();
 	}
 	
-	@Test(priority = 6, enabled = true)
+	@Test(priority = 6, enabled = false)
 	public void tableName() {
 		OMSPage oPage = new OMSPage(driver);
 		oPage.tableCount();
