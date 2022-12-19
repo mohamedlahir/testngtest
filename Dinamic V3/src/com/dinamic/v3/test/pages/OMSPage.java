@@ -369,6 +369,7 @@ public class OMSPage {
 			e.printStackTrace();
 		}
 
+		wait.until(ExpectedConditions.visibilityOfElementLocated(ownersFriend));
 		WebElement ownerFirendButton = driver.findElement(ownersFriend);
 		ownerFirendButton.click();
 		driver.findElement(discountConfirmation).click();
