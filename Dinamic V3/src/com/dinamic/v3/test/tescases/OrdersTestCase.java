@@ -70,7 +70,7 @@ public class OrdersTestCase {
 	}
 	
 	
-	@Test(priority =5,enabled = true)
+	@Test(priority = 5,enabled = true)
 	public void cancelOrder() {
 		
 		OMSPage oPage = new OMSPage(driver);

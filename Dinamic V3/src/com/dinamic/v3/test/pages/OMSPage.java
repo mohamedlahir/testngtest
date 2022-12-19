@@ -429,6 +429,7 @@ public class OMSPage {
 		Wait<WebDriver> wait = new FluentWait<WebDriver>(driver).withTimeout(Duration.ofSeconds(10))
 				.pollingEvery(Duration.ofSeconds(2)).ignoring(NoSuchElementException.class);
 		Actions action = new Actions(driver);
+		wait.until(ExpectedConditions.elementToBeClickable(dinamicLogo));
 		driver.findElement(dinamicLogo).click();
 		int number = driver.findElements(tableCount).size();
 		System.out.println("number of tables in this floor : " + number);
