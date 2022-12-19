@@ -68,14 +68,22 @@ public class OrdersTestCase {
 		OMSPage oPage = new OMSPage(driver);
 		oPage.orderDiscount();
 	}
-	@Test(priority = 5, enabled = true)
+	
+	
+	@Test(priority =5,enabled = true)
+	public void cancelOrder() {
+		
+		OMSPage oPage = new OMSPage(driver);
+		oPage.cancelOrder();
+	}
+	
+	@Test(priority = 6, enabled = true)
 	public void tableName() {
 		OMSPage oPage = new OMSPage(driver);
 		oPage.tableCount();
 	}
-	
 
-	@Test(testName = "logout", priority = 6, enabled = true)
+	@Test(testName = "logout", priority = 7, enabled = true)
 	public void logout() {
 		OMSPage oPage = new OMSPage(driver);
 		oPage.logout();

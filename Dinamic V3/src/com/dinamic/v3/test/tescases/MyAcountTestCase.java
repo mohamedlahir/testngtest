@@ -8,6 +8,7 @@ import org.testng.annotations.AfterTest;
 import org.testng.annotations.BeforeTest;
 import org.testng.annotations.Test;
 
+import com.dinamic.v3.test.pages.MyAccountPage;
 import com.dinamic.v3.test.pages.OMSPage;
 
 public class MyAcountTestCase {
@@ -30,7 +31,7 @@ public class MyAcountTestCase {
 //		driver.manage().deleteAllCookies();
 	}
 
-	@Test(enabled = true, priority = 7)
+	@Test(enabled = true, priority = 8)
 	public void login() {
 		OMSPage oPage = new OMSPage(driver);
 		oPage.enterUsername(emailAddress);
@@ -39,10 +40,18 @@ public class MyAcountTestCase {
 
 	}
 
-	@Test(enabled = true, priority = 8)
+	@Test(enabled = true, priority = 9)
 	public void enterPin() {
 		OMSPage oPage = new OMSPage(driver);
 		oPage.enteringPinForMyAccount();
+
+	}
+
+	@Test(enabled = true, priority = 10)
+	public void gettingAvailablePosition() {
+		OMSPage oPage = new OMSPage(driver);
+		MyAccountPage myAccountPage = new MyAccountPage(driver);
+		myAccountPage.getAvailablePositions();
 
 	}
 

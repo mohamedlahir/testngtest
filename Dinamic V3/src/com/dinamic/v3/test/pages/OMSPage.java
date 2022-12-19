@@ -74,8 +74,16 @@ public class OMSPage {
 
 	By orderDiscountButton = By
 			.cssSelector("button[class='btn btn-block btn-yellow p-lg-4 p-3 mr-3 ng-star-inserted']");
-	
-	By myAccountButtonMain =By.cssSelector("div[class='d-flex align-items-center push-48-t push-48-b msvg'] div span[class='h4 d-block pl-2 mb-0']");
+
+	By myAccountButtonMain = By.cssSelector(
+			"div[class='d-flex align-items-center push-48-t push-48-b msvg'] div span[class='h4 d-block pl-2 mb-0']");
+
+	By cancelOrderButton = By.xpath(
+			"//button[@class='btn btn-red-text p-0 d-flex align-items-center justify-content-center ng-star-inserted']");
+
+	By orderDeleteButton = By.cssSelector(
+			"button[class='btn btn-red mr-3 d-flex align-items-center justify-content-center'] span[class='ng-star-inserted']");
+
 	double calculatedAmount;
 
 	public OMSPage(WebDriver driver) {
@@ -117,7 +125,7 @@ public class OMSPage {
 		}
 		System.out.println("======================================================================================");
 	}
-	
+
 	public void enteringPinForMyAccount() {
 		driver.findElement(myAccountButtonMain).click();
 		driver.findElement(pin1).click();
@@ -274,7 +282,7 @@ public class OMSPage {
 			WebElement addDiscount1 = driver.findElement(addDiscount);
 			addDiscount1.click();
 			try {
-				Thread.sleep(2000);
+				Thread.sleep(4000);
 			} catch (InterruptedException e) {
 				e.printStackTrace();
 			}
@@ -390,7 +398,6 @@ public class OMSPage {
 		System.err.println("Total Price : " + price);
 		Assert.assertEquals(price, billAmount);
 
-
 		System.out.println("======================================================================================");
 	}
 
@@ -402,6 +409,20 @@ public class OMSPage {
 	String floor1 = "First Floor";
 	String floor2 = "Second Floor";
 	String floor3 = "Third Floor";
+
+	public void cancelOrder() {
+
+		try {
+			Thread.sleep(3000);
+		} catch (InterruptedException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+
+		driver.findElement(cancelOrderButton).click();
+		driver.findElement(orderDeleteButton).click();
+
+	}
 
 	public void tableCount() {
 		System.out.println("======================================================================================");
@@ -427,7 +448,7 @@ public class OMSPage {
 				.pollingEvery(Duration.ofSeconds(2)).ignoring(NoSuchElementException.class);
 		Actions action = new Actions(driver);
 		try {
-			
+
 			Thread.sleep(3000);
 		} catch (InterruptedException e) {
 			// TODO Auto-generated catch block
