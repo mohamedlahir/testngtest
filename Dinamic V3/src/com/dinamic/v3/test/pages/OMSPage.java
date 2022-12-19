@@ -232,10 +232,15 @@ public class OMSPage {
 		}
 		String totalItemPrice[] = driver.findElement(By.xpath("//span[normalize-space()='INR 2,197.00']")).getText()
 				.split(" ");
+		
 		String dummy = totalItemPrice[1].substring(0, 5);
+		
 		String numbers = dummy.replaceAll(",", "");
+		
 		Double totalItemAmount = Double.parseDouble(numbers);
+		
 		itemPriceFinal = Integer.parseInt(numbers);
+		
 		System.out.println("Total Item Price : " + itemPriceFinal);
 
 		String grandTotal1 = driver.findElement(grandTotal).getText();
@@ -243,27 +248,49 @@ public class OMSPage {
 		System.out.println("Grand Total On Screen : " + grandTotal1);
 
 		Double itemAmount = Double.parseDouble(numbers);
+		
+		
 		Double gstAmount;
+		
 		Double serviceTax = 0.00;
+		
 		System.out.println("Total Amount : " + itemAmount);
+		
 		gstAmount = itemAmount * gst / 100;
+		
 		System.out.println("GST Amount : " + gstAmount);
+		
 		Double amountWithAddedGST = itemAmount + gstAmount;
+		
 		System.out.println("Amount with added GST :" + "(" + gst + ")" + amountWithAddedGST);
+		
 		Double serviceChargeAmount = itemAmount * serviceCharge / 100;
+		
 		System.out.println("Service Charge Amount " + serviceChargeAmount);
+		
 		Double afterAddingdServiceCharge = serviceChargeAmount + itemAmount;
+		
 		Double serviceTaxAmount = serviceChargeAmount * serviceTax / 100;
+		
 		Double totalPrice = itemAmount + gstAmount + serviceChargeAmount + serviceTaxAmount;
+		
 		int price = (int) Math.round(totalPrice);
+		
 		System.out.println("Total Price : " + price);
+		
 		String priceOnScreen[] = driver.findElement(priceOutput).getText().split(" ");
+		
 		String billValue = priceOnScreen[1].replace(",", "");
+		
 		int billAmount = Integer.parseInt(billValue);
+		
 		Assert.assertEquals(price, billAmount);
+		
 		System.out.println("======================================================================================");
 	}
+	
 
+	
 	public void orderCalculationwithItemDiscount() {
 		System.out.println("======================================================================================");
 		System.out.println("Testing Calculation with Item Discount, 20% discount applied on all items ordered");
