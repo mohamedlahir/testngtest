@@ -18,7 +18,7 @@ public class MyAcountTestCase {
 	String loginPageURL = "https://posv3.dinamic.io/login";
 
 	WebDriver driver;
-//
+////
 	@BeforeTest
 	public void browserConfiguration() {
 
