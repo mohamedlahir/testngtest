@@ -17,49 +17,86 @@ import org.testng.Assert;
 public class OMSPage {
 
 	int count = 0;
+
 	List a = new ArrayList();
+
 	String orderNumberStr;
+
 	String kotNumber1;
+
 	String orderedItemprice[];
+
 	int itemTotal;
+
 	int gSTValue = 5;
+
 	int itemPriceFinal;
+
 	double init = 0;
+
 	Double gst = 5.00;
+
 	int itemCountParsed;
+
 	private WebDriver driver;
+
 	double itemOwnerDiscount = 20.00;
+
 	Double serviceCharge = 10.00;
+
 	double orederDiscount = 20.00;
+
 	By start = By.xpath("(//button[@data-toggle='modal'][normalize-space()='start'])[1]");
+
 	By kOTNumber = By.xpath("//span[@class='ft-8']");
+
 	By pin1 = By.xpath("//button[normalize-space()='1']");
+
 	By pin2 = By.xpath("//button[normalize-space()='2']");
+
 	By pin3 = By.xpath("//button[normalize-space()='3']");
+
 	By pin4 = By.xpath("//button[normalize-space()='4']");
+
 	By numberOfPeople = By.xpath("(//input[@id='people_count'])[3]");
+
 	By emailField = By.id("email");
+
 	By passwordField = By.id("password");
+
 	By loginButton = By.xpath("//div[@class='pos-rel']");
+
 	By orders = By.xpath("//span[normalize-space()='Orders']");
+
 	By startButton = By.xpath("//span[normalize-space()='Start']");
+
 	By floorName = By.xpath("//span[@class='text-primary cursor']");
+
 	By tableName = By.xpath("//a[@class='d-flex align-items-center ng-star-inserted']");
+
 	By itemCards = By.xpath("//div[@class='oms-container-category__container__content__body__card p-2 card-ripple']");
+
 	By orderedItem = By.xpath("//div[@class='d-flex align-items-center']");
+
 	By orderedItemsPrice = By.xpath("//div[@class='ft-10 prtxt-right text-right doNotPrint']");
+
 	By expand = By.xpath("//i[normalize-space()='expand_more']");
+
 	By itemCountElement = By.cssSelector(
+
 			"body > app-root:nth-child(1) > app-half-layout-navbar:nth-child(2) > main:nth-child(1) > div:nth-child(2) > section:nth-child(1) > div:nth-child(1) > div:nth-child(2) > app-order-summary:nth-child(1) > div:nth-child(1) > div:nth-child(1) > div:nth-child(4) > div:nth-child(2) > div:nth-child(3) > div:nth-child(1) > div:nth-child(1) > div:nth-child(2) > div:nth-child(2) > div:nth-child(1) > span:nth-child(1)");
 	By orderNumber = By.cssSelector("span[class='d-flex align-items-center w-100'] span:nth-child(2)");
+
 	By confirmaKOT = By.xpath("//span[normalize-space()='Confirm KOT']");
 
 	By itemPrice1 = By.cssSelector("div[class='mb-2 clearfix no-margin ft-11'] div div[class='text-right'] span");
+
 	By grandTotal = By.xpath("//span[@class='order-foot-total ft-15']");
 
 	By priceOutput = By.xpath("//span[@class='order-foot-total ft-15']");
 
 	By addDiscount = By.xpath("(//button[@type='button'][normalize-space()='Add Discount'])[1]");
+
 	By ownersFriend = By.xpath("//li[1]//div[1]//h6[1]");
 
 	By discountConfirmation = By.xpath("//button[normalize-space()='Confirm']");
@@ -93,6 +130,7 @@ public class OMSPage {
 	}
 
 	public void enterUsername(String user) {
+
 		driver.findElement(emailField).sendKeys(user);
 	}
 
@@ -118,8 +156,11 @@ public class OMSPage {
 		driver.findElement(pin4).click();
 
 		try {
+
 			Thread.sleep(1000);
+
 		} catch (InterruptedException e) {
+
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
@@ -127,45 +168,65 @@ public class OMSPage {
 	}
 
 	public void enteringPinForMyAccount() {
+
 		driver.findElement(myAccountButtonMain).click();
+
 		driver.findElement(pin1).click();
+
 		driver.findElement(pin2).click();
+
 		driver.findElement(pin3).click();
+
 		driver.findElement(pin4).click();
 	}
 
 	public void ordering() {
+
 		System.out.println("======================================================================================");
+
 		Wait<WebDriver> wait = new FluentWait<WebDriver>(driver).withTimeout(Duration.ofSeconds(10))
+
 				.pollingEvery(Duration.ofSeconds(2)).ignoring(NoSuchElementException.class);
 
 		wait.until(ExpectedConditions.visibilityOfAllElementsLocatedBy(start));
+
 		driver.findElement(start).click();
+
 		System.out.println("Table is started");
 
 		driver.findElement(numberOfPeople).click();
+
 		driver.findElement(numberOfPeople).sendKeys("3");
 
 		driver.findElement(startButton).click();
 
 		String floor = driver.findElement(floorName).getText();
+
 		String tableNumber[] = driver.findElement(tableName).getText().split("chevron_right");
+
 		System.out.println("Floor Name : " + floor);
+
 		System.out.println("Table Number : " + tableNumber[1]);
 	}
 
 	// Only Ordering Items not settling the bill.
 
 	public void orderingItems() {
+
 		Wait<WebDriver> wait = new FluentWait<WebDriver>(driver).withTimeout(Duration.ofSeconds(60))
 				.pollingEvery(Duration.ofSeconds(2)).ignoring(NoSuchElementException.class);
+
 		List<WebElement> allItemsCards = driver.findElements(itemCards);
+
 		Actions action = new Actions(driver);
 
 		for (int j = 0; j < 10; j++) {
+
 			wait.until(ExpectedConditions.visibilityOfAllElementsLocatedBy(itemCards));
+
 			action.click(allItemsCards.get(j)).build().perform();
 //			allItemsCards.get(j).click();
+
 		}
 
 		driver.findElement(confirmaKOT).click();
@@ -190,14 +251,21 @@ public class OMSPage {
 		String itemCount;
 
 		wait.until(ExpectedConditions.visibilityOfElementLocated(itemCountElement));
+
 		itemCount = driver.findElement(itemCountElement).getText();
+
 		System.out.println("itemCount" + itemCount);
+
 		int itemCountParsed;
+
 		itemCountParsed = Integer.parseInt(itemCount);
+
 		System.out.println("itemCountParsed : " + itemCountParsed);
+
 		Assert.assertEquals(count, itemCountParsed);
 
 		orderNumberStr = driver.findElement(orderNumber).getText();
+
 		System.out.println("OrderNumber : " + orderNumberStr);
 
 		kotNumber1 = driver.findElement(kOTNumber).getText();
@@ -207,21 +275,31 @@ public class OMSPage {
 
 	public void orderCalculation() {
 		System.out.println("======================================================================================");
+
 		System.out.println("Testing Order Calculation without any discount");
+
 		Wait<WebDriver> wait = new FluentWait<WebDriver>(driver).withTimeout(Duration.ofSeconds(10))
 				.pollingEvery(Duration.ofSeconds(2)).ignoring(NoSuchElementException.class);
+
 		Actions action = new Actions(driver);
 
 		List<Integer> amount = new ArrayList();
+
 		int calculatedAmount = 0;
+
 		List<WebElement> orderItemsPriceList = driver.findElements(orderedItemsPrice);
+
 		for (int k = 0; k < orderItemsPriceList.size(); k++) {
+
 			String orderd = orderItemsPriceList.get(k).getText();// .split("change_history");
 
 			Integer amountOnItems = Integer.parseInt(orderItemsPriceList.get(k).getText());
+
 			amount.add(amountOnItems);
+
 			calculatedAmount = calculatedAmount + amount.get(k);
 		}
+
 		System.out.println("Total Item Amount : " + calculatedAmount);
 
 		try {
@@ -232,15 +310,15 @@ public class OMSPage {
 		}
 		String totalItemPrice[] = driver.findElement(By.xpath("//span[normalize-space()='INR 2,197.00']")).getText()
 				.split(" ");
-		
+
 		String dummy = totalItemPrice[1].substring(0, 5);
-		
+
 		String numbers = dummy.replaceAll(",", "");
-		
+
 		Double totalItemAmount = Double.parseDouble(numbers);
-		
+
 		itemPriceFinal = Integer.parseInt(numbers);
-		
+
 		System.out.println("Total Item Price : " + itemPriceFinal);
 
 		String grandTotal1 = driver.findElement(grandTotal).getText();
@@ -248,49 +326,46 @@ public class OMSPage {
 		System.out.println("Grand Total On Screen : " + grandTotal1);
 
 		Double itemAmount = Double.parseDouble(numbers);
-		
-		
+
 		Double gstAmount;
-		
+
 		Double serviceTax = 0.00;
-		
+
 		System.out.println("Total Amount : " + itemAmount);
-		
+
 		gstAmount = itemAmount * gst / 100;
-		
+
 		System.out.println("GST Amount : " + gstAmount);
-		
+
 		Double amountWithAddedGST = itemAmount + gstAmount;
-		
+
 		System.out.println("Amount with added GST :" + "(" + gst + ")" + amountWithAddedGST);
-		
+
 		Double serviceChargeAmount = itemAmount * serviceCharge / 100;
-		
+
 		System.out.println("Service Charge Amount " + serviceChargeAmount);
-		
+
 		Double afterAddingdServiceCharge = serviceChargeAmount + itemAmount;
-		
+
 		Double serviceTaxAmount = serviceChargeAmount * serviceTax / 100;
-		
+
 		Double totalPrice = itemAmount + gstAmount + serviceChargeAmount + serviceTaxAmount;
-		
+
 		int price = (int) Math.round(totalPrice);
-		
+
 		System.out.println("Total Price : " + price);
-		
+
 		String priceOnScreen[] = driver.findElement(priceOutput).getText().split(" ");
-		
+
 		String billValue = priceOnScreen[1].replace(",", "");
-		
+
 		int billAmount = Integer.parseInt(billValue);
-		
+
 		Assert.assertEquals(price, billAmount);
-		
+
 		System.out.println("======================================================================================");
 	}
-	
 
-	
 	public void orderCalculationwithItemDiscount() {
 		System.out.println("======================================================================================");
 		System.out.println("Testing Calculation with Item Discount, 20% discount applied on all items ordered");
@@ -467,7 +542,6 @@ public class OMSPage {
 			String name[] = floorName.getText().split("deck");
 			System.out.println("Available Floors : " + name[1]);
 		}
-
 		System.out.println("======================================================================================");
 	}
 
