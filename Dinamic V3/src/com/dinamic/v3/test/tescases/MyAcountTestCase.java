@@ -18,7 +18,7 @@ public class MyAcountTestCase {
 	String loginPageURL = "https://posv3.dinamic.io/login";
 
 	WebDriver driver;
-
+//
 	@BeforeTest
 	public void browserConfiguration() {
 
@@ -30,7 +30,7 @@ public class MyAcountTestCase {
 		driver.manage().window().maximize();
 //		driver.manage().deleteAllCookies();
 	}
-
+//
 	@Test(enabled = true, priority = 8)
 	public void login() {
 		OMSPage oPage = new OMSPage(driver);
