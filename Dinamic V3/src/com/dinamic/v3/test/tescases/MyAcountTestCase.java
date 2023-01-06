@@ -21,7 +21,7 @@ public class MyAcountTestCase {
 ////
 	@BeforeTest
 	public void browserConfiguration() {
-
+//
 		System.setProperty("webdriver.chrome.driver",
 				"C:\\Users\\white\\Downloads\\chromedriver_win32 (4)\\chromedriver.exe");
 		driver = new ChromeDriver();
