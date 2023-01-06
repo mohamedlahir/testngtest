@@ -39,7 +39,7 @@ public class MyAcountTestCase {
 		oPage.clicklogin();
 //
 	}
-
+////
 	@Test(enabled = true, priority = 9)
 	public void enterPin() {
 		OMSPage oPage = new OMSPage(driver);
