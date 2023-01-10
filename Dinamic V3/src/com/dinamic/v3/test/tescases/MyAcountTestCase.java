@@ -54,7 +54,7 @@ public class MyAcountTestCase {
 		myAccountPage.getAvailablePositions();
 
 	}
-
+//
 	@Test(enabled = true, priority = 11)
 	public void addPositions() {
 
