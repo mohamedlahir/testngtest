@@ -68,7 +68,7 @@ public class MyAcountTestCase {
 		MyAccountPage myAccountPage = new MyAccountPage(driver);
 		myAccountPage.getMembers();
 	}
-
+//
 	@AfterTest
 	public void close() {
 		driver.quit();
