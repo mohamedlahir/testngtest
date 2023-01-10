@@ -46,7 +46,7 @@ public class MyAcountTestCase {
 		oPage.enteringPinForMyAccount();
 
 	}
-
+////
 	@Test(enabled = true, priority = 10)
 	public void gettingAvailablePosition() {
 		OMSPage oPage = new OMSPage(driver);
