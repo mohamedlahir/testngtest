@@ -25,7 +25,7 @@ public class EditingCompanyDetails {
 	public void deletingCategory() {
 
 		System.setProperty("webdriver.chrome.driver",
-				"C:\\Users\\white\\Downloads\\chromedriver_win32 (4)\\chromedriver.exe");
+				"C:\\Users\\white\\Downloads\\Drivers\\chromedriver.exe");
 		WebDriver driver = new ChromeDriver();
 		driver.get(url);
 		driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));

@@ -5,12 +5,14 @@ import java.util.ArrayList;
 import java.util.List;
 
 import org.openqa.selenium.By;
+import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.NoSuchElementException;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.FluentWait;
+import org.openqa.selenium.support.ui.Select;
 import org.openqa.selenium.support.ui.Wait;
 import org.testng.Assert;
 
@@ -74,7 +76,8 @@ public class OMSPage {
 
 	By tableName = By.xpath("//a[@class='d-flex align-items-center ng-star-inserted']");
 
-	By itemCards = By.xpath("//div[@class='oms-container-category__container__content__body__card p-2 card-ripple']");
+	By itemCards = By
+			.xpath("//div[@class=\"oms-container-category__container__content__body__card w-100 p-2 card-ripple\"]");
 
 	By orderedItem = By.xpath("//div[@class='d-flex align-items-center']");
 
@@ -121,6 +124,14 @@ public class OMSPage {
 	By orderDeleteButton = By.cssSelector(
 			"button[class='btn btn-red mr-3 d-flex align-items-center justify-content-center'] span[class='ng-star-inserted']");
 
+	By tableCounts = By.xpath("//div[@class='reserve-card ng-star-inserted']");
+
+	By settleBill = By.cssSelector("button[class='btn btn-block btn-green p-lg-4 p-3 mr-3 ng-star-inserted']");
+
+	By viewButtonCount = By.cssSelector(".btn.btn-green.w-100");
+
+	By thridFloor = By.xpath("//span[normalize-space()='Third Floor']");
+
 	double calculatedAmount;
 
 	public OMSPage(WebDriver driver) {
@@ -151,9 +162,13 @@ public class OMSPage {
 		driver.findElement(orders).click();
 
 		driver.findElement(pin1).click();
-		driver.findElement(pin2).click();
-		driver.findElement(pin3).click();
-		driver.findElement(pin4).click();
+		driver.findElement(pin1).click();
+		driver.findElement(pin1).click();
+		driver.findElement(pin1).click();
+
+//		driver.findElement(pin2).click();
+//		driver.findElement(pin3).click();
+//		driver.findElement(pin4).click();
 
 		try {
 
@@ -180,97 +195,106 @@ public class OMSPage {
 		driver.findElement(pin4).click();
 	}
 
-	public void ordering() {
-
-		System.out.println("======================================================================================");
-
-		Wait<WebDriver> wait = new FluentWait<WebDriver>(driver).withTimeout(Duration.ofSeconds(10))
-
-				.pollingEvery(Duration.ofSeconds(2)).ignoring(NoSuchElementException.class);
-
-		wait.until(ExpectedConditions.visibilityOfAllElementsLocatedBy(start));
-
-		driver.findElement(start).click();
-
-		System.out.println("Table is started");
-
-		driver.findElement(numberOfPeople).click();
-
-		driver.findElement(numberOfPeople).sendKeys("3");
-
-		driver.findElement(startButton).click();
-
-		String floor = driver.findElement(floorName).getText();
-
-		String tableNumber[] = driver.findElement(tableName).getText().split("chevron_right");
-
-		System.out.println("Floor Name : " + floor);
-
-		System.out.println("Table Number : " + tableNumber[1]);
-	}
-
-	// Only Ordering Items not settling the bill.
-
-	public void orderingItems() {
-
-		Wait<WebDriver> wait = new FluentWait<WebDriver>(driver).withTimeout(Duration.ofSeconds(60))
-				.pollingEvery(Duration.ofSeconds(2)).ignoring(NoSuchElementException.class);
-
-		List<WebElement> allItemsCards = driver.findElements(itemCards);
+	public void ordering() throws InterruptedException {
 
 		Actions action = new Actions(driver);
 
-		for (int j = 0; j < 10; j++) {
+		System.out.println("Ordering Method Called");
+		
 
-			wait.until(ExpectedConditions.visibilityOfAllElementsLocatedBy(itemCards));
+		Wait<WebDriver> wait = new FluentWait<WebDriver>(driver).withTimeout(Duration.ofSeconds(120))
 
-			action.click(allItemsCards.get(j)).build().perform();
-//			allItemsCards.get(j).click();
+				.pollingEvery(Duration.ofSeconds(2)).ignoring(NoSuchElementException.class);
 
+		WebElement printer = driver.findElement(By.xpath("//span[normalize-space()='Disconnected']")); //printer state
+
+		if(printer.getText()=="Disconnected") {
+			
+			wait.until(ExpectedConditions.visibilityOfAllElementsLocatedBy(By.xpath("//span[normalize-space()='Disconnected']")));
+			
 		}
 
-		driver.findElement(confirmaKOT).click();
+//		JavascriptExecutor js = (JavascriptExecutor) driver;
+//
+//		js.executeScript("window.scrollBy(0,1000)");
 
-		wait.until(ExpectedConditions.visibilityOfElementLocated(orderedItem));
+		for (int i = 0; i < 20; i++) {
 
-		List<WebElement> orderedItems = driver.findElements(orderedItem);
+			Thread.sleep(3000);
 
-		List<WebElement> orderItemsPriceList = driver.findElements(orderedItemsPrice);
-		for (int k = 0; k < orderedItems.size(); k++) {
-			String orderd = orderedItems.get(k).getText();// .split("change_history");
-			count++;
+//			driver.findElement(By.xpath("//a[@id='/orders/table-list/63984410af6ce08dcc3a5567']"));
 
-			System.out.println("Ordered Items : " + orderd);
-			System.out.println("Rs : " + orderItemsPriceList.get(k).getText());
+			driver.findElement(By.xpath("//a[@id='/orders/table-list/all']")).click();
+
+
+			wait.until(ExpectedConditions.visibilityOfAllElementsLocatedBy(start));
+
+			driver.findElement(start).click();
+
+			System.out.println("Table is started");
+
+			driver.findElement(numberOfPeople).click();
+
+			driver.findElement(numberOfPeople).sendKeys("3");
+
+			driver.findElement(startButton).click();
+
+			String floor = driver.findElement(floorName).getText();
+
+			String tableNumber[] = driver.findElement(tableName).getText().split("chevron_right");
+
+			System.out.println("Floor Name : " + floor);
+
+			System.out.println("Table Number : " + tableNumber[1]);
+
+			List<WebElement> allItemsCards = driver.findElements(itemCards);
+
+			for (int j = 0; j < 5; j++) {
+
+				wait.until(ExpectedConditions.visibilityOfAllElementsLocatedBy(itemCards));
+
+				action.click(allItemsCards.get(j)).build().perform();
+
+			}
+
+			
+			
+			driver.findElement(confirmaKOT).click();
+			
+			Thread.sleep(4000);
+
+			driver.findElement(By.xpath("//img[@alt='logo']")).click();
+
 		}
-		System.err.println("Number of items orderd : " + count);
+	}
 
-		WebElement expandButton = driver.findElement(expand);
-		expandButton.click();
+	public void confirmKOT() {
 
-		String itemCount;
+		Wait<WebDriver> wait = new FluentWait<WebDriver>(driver).withTimeout(Duration.ofSeconds(10))
+				.pollingEvery(Duration.ofSeconds(2)).ignoring(NoSuchElementException.class);
 
-		wait.until(ExpectedConditions.visibilityOfElementLocated(itemCountElement));
+		Actions action = new Actions(driver);
 
-		itemCount = driver.findElement(itemCountElement).getText();
+		Select tableSelect = new Select(driver.findElement(By.xpath("//select[@name='tableFilter']")));
 
-		System.out.println("itemCount" + itemCount);
+		tableSelect.selectByIndex(3);
 
-		int itemCountParsed;
+		List<WebElement> listRed = driver
+				.findElements(By.xpath("//button[@class='btn btn-red blink text-limit w-100 ng-star-inserted']"));
 
-		itemCountParsed = Integer.parseInt(itemCount);
+		System.out.println("Table Count : " + listRed.size());
 
-		System.out.println("itemCountParsed : " + itemCountParsed);
+		for (int i = 0; i < listRed.size(); i++) {
 
-		Assert.assertEquals(count, itemCountParsed);
+			driver.findElement(By.xpath(
+					"(//button[@class='btn btn-red blink text-limit w-100 ng-star-inserted'][normalize-space()='New Order'])[1]"))
+					.click();
 
-		orderNumberStr = driver.findElement(orderNumber).getText();
+			driver.findElement(
+					By.xpath("//button[@class='btn btn-purple p-lg-4 p-3 d-flex align-items-center ng-star-inserted']"))
+					.click();
+		}
 
-		System.out.println("OrderNumber : " + orderNumberStr);
-
-		kotNumber1 = driver.findElement(kOTNumber).getText();
-		System.out.println("KOT Number : " + kotNumber1);
-		System.out.println("======================================================================================");
 	}
 
 	public void orderCalculation() {
@@ -364,6 +388,7 @@ public class OMSPage {
 		Assert.assertEquals(price, billAmount);
 
 		System.out.println("======================================================================================");
+
 	}
 
 	public void orderCalculationwithItemDiscount() {
@@ -492,13 +517,16 @@ public class OMSPage {
 
 		Double totalPrice = afterDiscount + gstAmount + serviceCharge1;
 
-//		System.err.println("Total Price : "+totalPrice); //1617
-
 		int price = (int) Math.round(totalPrice);
+
 		String priceOnScreen[] = driver.findElement(priceOutput).getText().split(" ");
+
 		String billValue = priceOnScreen[1].replace(",", "");
+
 		int billAmount = Integer.parseInt(billValue);
+
 		System.err.println("Total Price : " + price);
+
 		Assert.assertEquals(price, billAmount);
 
 		System.out.println("======================================================================================");
@@ -507,15 +535,19 @@ public class OMSPage {
 	// +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 
 	By tableCount = By.xpath("//div[@class='reserve-card ng-star-inserted']");
+
 	By dinamicLogo = By.xpath("//img[@alt='logo']");
 
 	String floor1 = "First Floor";
+
 	String floor2 = "Second Floor";
+
 	String floor3 = "Third Floor";
 
 	public void cancelOrder() {
 
 		try {
+
 			Thread.sleep(3000);
 		} catch (InterruptedException e) {
 			// TODO Auto-generated catch block
@@ -545,6 +577,126 @@ public class OMSPage {
 		System.out.println("======================================================================================");
 	}
 
+	public void settleBill() {
+
+	}
+
+	public void printerCheck() throws InterruptedException {
+
+//		List<WebElement> button = driver.findElements(viewButtonCount);
+//	
+//
+//		System.out.println("View Buttonl Size : " + button.size());
+//		
+		Actions action = new Actions(driver);
+
+		for (int b = 0; b < 3; b++)
+
+		{
+
+			List<WebElement> lahir = driver.findElements(viewButtonCount);
+
+			Thread.sleep(3000);
+
+			action.click(lahir.get(b)).build().perform();
+
+			Thread.sleep(3000);
+
+			driver.findElement(By.xpath("//span[normalize-space()='Print Bill']")).click();
+
+			driver.findElement(By.xpath("//span[@class='text-primary cursor']")).click();
+
+//			Thread.sleep(4000);
+
+		}
+
+	}
+
+	public void CareCheckThirdFloor() throws InterruptedException {
+		List<WebElement> viewElement = driver.findElements(By.xpath("//button[contains(text(),'view')]"));
+
+		int numbers = viewElement.size();
+
+		System.out.println("View Button :" + numbers);
+
+		for (int j = 0; j < numbers; j++) {
+
+			Thread.sleep(3000);
+
+//			driver.findElement(By.xpath("//a[@id='/orders/table-list/all']")).click();
+
+			Select tableSelect = new Select(driver.findElement(By.xpath("//select[@name='tableFilter']")));
+
+			tableSelect.selectByIndex(1);
+
+			driver.findElement(By.xpath("(//button[contains(text(),'view')])[1]")).click();
+
+//			driver.findElement(By.xpath("//button[normalize-space()='New Order']")).click();
+
+//			driver.findElement(By.xpath("//span[normalize-space()='Confirm KOT']")).click();
+
+			Thread.sleep(4000);
+
+			driver.findElement(By.xpath("//button[normalize-space()='Settle Bill']")).click();
+
+			Thread.sleep(4000);
+
+			driver.findElement(By.xpath("//h6[normalize-space()='Total']")).click();
+
+			Thread.sleep(4000);
+
+			driver.findElement(By.xpath("//button[normalize-space()='pay']")).click();
+
+			Thread.sleep(4000);
+
+			driver.findElement(By.xpath("//button[normalize-space()='Confirm']")).click();
+
+			Thread.sleep(4000);
+
+			driver.findElement(By.xpath("//button[normalize-space()='Checkout']")).click();
+
+		}
+
+	}
+
+	public void checkout() throws InterruptedException {
+
+		Actions action = new Actions(driver);
+
+		Wait<WebDriver> wait = new FluentWait<WebDriver>(driver).withTimeout(Duration.ofSeconds(10))
+				.pollingEvery(Duration.ofSeconds(2)).ignoring(NoSuchElementException.class);
+
+		Select tableSelect = new Select(driver.findElement(By.xpath("//select[@name='tableFilter']")));
+
+		tableSelect.selectByIndex(1);
+
+		List<WebElement> count = driver.findElements(By.xpath("//button[contains(text(),'view')]"));
+
+		int counts = count.size();
+
+		for (int i = 0; i < counts; i++) {
+
+			wait.until(ExpectedConditions.visibilityOfAllElementsLocatedBy(By.xpath("//button[@id='dropdownMenu1']")));
+
+			List<WebElement> view = driver.findElements(By.xpath("//button[@id='dropdownMenu1']"));
+
+			action.click(view.get(0)).build().perform();
+
+			List<WebElement> quickCheckout = driver
+					.findElements(By.xpath("//a[@class='dropdown-item'][normalize-space()='Quick Checkout']"));
+
+			System.out.println("Quick Checkout : " + quickCheckout.size());
+
+			quickCheckout.get(0).click();
+
+			driver.findElement(By.xpath("//div[@id='quick_check_out']//span[contains(text(),'Confirm')]")).click();
+
+			Thread.sleep(5000);
+
+		}
+
+	}
+
 	public void logout() {
 		Wait<WebDriver> wait = new FluentWait<WebDriver>(driver).withTimeout(Duration.ofSeconds(10))
 				.pollingEvery(Duration.ofSeconds(2)).ignoring(NoSuchElementException.class);
@@ -563,4 +715,5 @@ public class OMSPage {
 		action.click(logoutButton2).build().perform();
 		System.err.println("Logged out");
 	}
+
 }

@@ -29,8 +29,7 @@ public class Registration {
 
 	@Test(enabled = false, priority = 6)
 	public void registration() throws InterruptedException {
-		System.setProperty("webdriver.chrome.driver",
-				"C:\\Users\\white\\Downloads\\chromedriver_win32 (4)\\chromedriver.exe");
+		System.setProperty("webdriver.chrome.driver", "C:\\Users\\white\\Downloads\\Drivers\\chromedriver.exe");
 		WebDriver driver = new ChromeDriver();
 		driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
 		driver.manage().window().maximize();
