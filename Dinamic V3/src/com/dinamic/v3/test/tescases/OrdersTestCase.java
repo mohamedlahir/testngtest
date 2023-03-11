@@ -13,7 +13,7 @@ import com.dinamic.v3.test.pages.OMSPage;
 public class OrdersTestCase {
 	String emailAddress = "admin@dinamic.in";
 	String password = "Majeed@123";
-	String loginPageURL = "https://dev.dinamic.io/login";
+	String loginPageURL = "https://posv3.dinamic.io/login";
 
 	WebDriver driver;
 
@@ -55,7 +55,10 @@ public class OrdersTestCase {
 
 		oPage.order();
 		oPage.ordering();
-		oPage.checkout();
+//		oPage.checkout();
+
+		oPage.viewButtonOrdering();
+
 //		oPage.ordering();
 //		oPage.CareCheckThirdFloor();
 //		oPage.confirmKOT();

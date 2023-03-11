@@ -200,32 +200,24 @@ public class OMSPage {
 		Actions action = new Actions(driver);
 
 		System.out.println("Ordering Method Called");
-		
 
 		Wait<WebDriver> wait = new FluentWait<WebDriver>(driver).withTimeout(Duration.ofSeconds(120))
 
 				.pollingEvery(Duration.ofSeconds(2)).ignoring(NoSuchElementException.class);
+		WebElement printer = driver.findElement(By.xpath("//span[normalize-space()='Disconnected']")); // printer state
+		System.out.println("Printer is in Disconnected State : " + printer.getText());
 
-		WebElement printer = driver.findElement(By.xpath("//span[normalize-space()='Disconnected']")); //printer state
-
-		if(printer.getText()=="Disconnected") {
-			
-			wait.until(ExpectedConditions.visibilityOfAllElementsLocatedBy(By.xpath("//span[normalize-space()='Disconnected']")));
-			
-		}
-
-//		JavascriptExecutor js = (JavascriptExecutor) driver;
-//
-//		js.executeScript("window.scrollBy(0,1000)");
+		wait.until(
+				ExpectedConditions.visibilityOfAllElementsLocatedBy(By.xpath("//span[normalize-space()='Connected']")));
 
 		for (int i = 0; i < 20; i++) {
 
-			Thread.sleep(3000);
+			Thread.sleep(2000);
 
-//			driver.findElement(By.xpath("//a[@id='/orders/table-list/63984410af6ce08dcc3a5567']"));
+			// ALL FLOOR BUTTON
+//			driver.findElement(By.xpath("//a[@id='/orders/table-list/all']")).click();
 
-			driver.findElement(By.xpath("//a[@id='/orders/table-list/all']")).click();
-
+			driver.findElement(By.xpath("//span[normalize-space()='First Floor']")).click();
 
 			wait.until(ExpectedConditions.visibilityOfAllElementsLocatedBy(start));
 
@@ -257,14 +249,66 @@ public class OMSPage {
 
 			}
 
-			
-			
 			driver.findElement(confirmaKOT).click();
-			
+
 			Thread.sleep(4000);
 
 			driver.findElement(By.xpath("//img[@alt='logo']")).click();
+		}
+	}
 
+	public void viewButtonOrdering() throws InterruptedException {
+
+		for (int loop = 0; loop < 20; loop++) {
+
+			Actions action = new Actions(driver);
+
+			System.out.println("Ordering Method Called");
+
+			Wait<WebDriver> wait = new FluentWait<WebDriver>(driver).withTimeout(Duration.ofSeconds(120))
+
+					.pollingEvery(Duration.ofSeconds(2)).ignoring(NoSuchElementException.class);
+//		WebElement printer = driver.findElement(By.xpath("//span[normalize-space()='Disconnected']")); //printer state
+//		System.out.println("Printer is in Disconnected State : "+ printer.getText());
+
+			// wait.until(ExpectedConditions.visibilityOfAllElementsLocatedBy(By.xpath("//span[normalize-space()='Connected']")));
+
+			for (int i = 0; i < 20; i++) {
+
+				Thread.sleep(2000);
+
+				Select tableSelect = new Select(driver.findElement(By.xpath("//select[@name='tableFilter']")));
+
+				tableSelect.selectByIndex(1);
+
+				List<WebElement> viewButton = driver.findElements(By.xpath("//button[contains(text(),'view')]"));
+
+				viewButton.get(i).click();
+
+				String floor = driver.findElement(floorName).getText();
+
+				String tableNumber[] = driver.findElement(tableName).getText().split("chevron_right");
+
+				System.out.println("Floor Name : " + floor);
+
+				System.out.println("Table Number : " + tableNumber[1]);
+
+				List<WebElement> allItemsCards = driver.findElements(itemCards);
+
+				for (int j = 0; j < 5; j++) {
+
+					wait.until(ExpectedConditions.visibilityOfAllElementsLocatedBy(itemCards));
+
+					action.click(allItemsCards.get(j)).build().perform();
+
+				}
+
+				driver.findElement(confirmaKOT).click();
+
+				Thread.sleep(4000);
+
+				driver.findElement(By.xpath("//img[@alt='logo']")).click();
+			}
 		}
 	}
 
