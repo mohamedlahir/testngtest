@@ -5,7 +5,10 @@ import java.time.Duration;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
+import org.openqa.selenium.html5.LocalStorage;
+import org.openqa.selenium.html5.WebStorage;
 import org.openqa.selenium.remote.DesiredCapabilities;
+import org.testng.annotations.AfterTest;
 import org.testng.annotations.BeforeTest;
 import org.testng.annotations.Test;
 
@@ -24,21 +27,24 @@ public class CareTestCases {
 
 		ChromeOptions options = new ChromeOptions();
 		options.addArguments("incognito");
-		System.setProperty("webdriver.chrome.driver", "C:\\Users\\white\\Downloads\\Drivers\\chromedriver.exe");
+		System.setProperty("webdriver.chrome.driver",
+				"C:\\Users\\white\\Downloads\\Drivers\\chromedriver.exe");
 		driver = new ChromeDriver(options);
+		LocalStorage local = ((WebStorage) driver).getLocalStorage();
+		local.setItem("scannedQR", "265-^zlNpeu");
 		driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
 		driver.get(loginPageURL[0]);
 		driver.manage().window().maximize();
 		driver.manage().deleteAllCookies();
 	}
 
-	@Test(enabled = true, priority = 0)
-	public void login() throws InterruptedException {
-		CarePage carePage = new CarePage(driver);
-		carePage.placeOrder1();
-
-	}
-
+//	@Test(enabled = true, priority = 0)
+//	public void login() throws InterruptedException {
+//		CarePage carePage = new CarePage(driver);
+//		carePage.placeOrder1();
+//
+//	}
+//
 //	@Test(enabled = true, priority = 1)
 //	public void order2() throws InterruptedException {
 //		CarePage carePage = new CarePage(driver);

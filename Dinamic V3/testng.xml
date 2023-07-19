@@ -11,7 +11,7 @@
 			<class name="com.dinamic.v3.test.tescases.MyAcountTestCase" /> -->
 
 			<!-- class name="com.dinamic.v3.test.tescases.CareTestCases" /> -->
-			<class name="com.dinamic.v3.test.tescases.OrdersTestCase" /> 
+			<class name="com.dinamic.v3.test.tescases.OrdersTestCase" />
 
 			<!-- <class name="com.dinamic.v3.test.tescases.OMSPageOrderCalculation"/> -->
 		</classes>

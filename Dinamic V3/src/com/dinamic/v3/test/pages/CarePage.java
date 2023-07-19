@@ -1,7 +1,7 @@
+
 package com.dinamic.v3.test.pages;
 
 import java.time.Duration;
-
 import java.util.List;
 
 import org.openqa.selenium.By;
@@ -10,6 +10,8 @@ import org.openqa.selenium.NoSuchElementException;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.WindowType;
+import org.openqa.selenium.html5.LocalStorage;
+import org.openqa.selenium.html5.WebStorage;
 import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.FluentWait;
@@ -24,6 +26,8 @@ public class CarePage {
 	String phoneNumber = "9444409275";
 
 	public CarePage(WebDriver driver) {
+		
+		
 
 		this.driver = driver;
 
@@ -50,60 +54,61 @@ public class CarePage {
 	By submitButton = By.xpath("//button[normalize-space()='Submit']");
 
 	OMSPage oPage = new OMSPage(driver);
-	
-	String loginPageURL[] = { "https://carev3.dinamic.io/#/q/22-TshTCgo", "https://carev3.dinamic.io/#/q/22-2Pg1M*Z",
-			"https://carev3.dinamic.io/#/q/22-p4VPLEr", "https://carev3.dinamic.io/#/q/22-TRN4isn" };
 
-	public void placeOrder1() throws InterruptedException {
+	String loginPageURL[] = { "https://carev3.dinamic.io/#/q/265-^zlNpeu", "https://carev3.dinamic.io/#/q/226-7c9*tCu",
+			"https://carev3.dinamic.io/#/q/226-zNapGez", "https://carev3.dinamic.io/#/q/226-9bu0QvD" };
 
-		for (int i = 0; i < 4; i++) {
-
-			List<WebElement> category = driver.findElements(categories);
-
-			Actions action = new Actions(driver);
-
-			Wait<WebDriver> wait = new FluentWait<WebDriver>(driver).withTimeout(Duration.ofSeconds(10))
-					.pollingEvery(Duration.ofSeconds(2)).ignoring(NoSuchElementException.class);
-
-			action.click(category.get(0)).build().perform();
-
-			System.out.println(addButton1);
-
-			wait.until(ExpectedConditions.elementToBeClickable(addButton1));
-
-			driver.findElement(addButton1).click();
-
-			driver.findElement(addButton2).click();
-
-			driver.findElement(addButton3).click();
-
-			driver.findElement(placeOrder).click();
-
-			driver.findElement(confirmOrder).click();
-
-			driver.findElement(phoneNumberEntry).sendKeys(phoneNumber);
-
-			wait.until(ExpectedConditions.elementToBeClickable(continueButton));
-
-			driver.findElement(continueButton).click();
-
-			WebElement submit = driver.findElement(submitButton);
-
-			Thread.sleep(4000);
-
-			action.click(submit).build().perform();
-
-			Thread.sleep(5000);
-
-			js.executeScript(String.format("window.localStorage.clear();"));
-
-			driver.switchTo().newWindow(WindowType.WINDOW);
-
-			driver.get(loginPageURL[i]);
-		}
-
-	}
-
+//	public void placeOrder1() throws InterruptedException {
+//
+//		for (int i = 0; i < 4; i++) {
+//
+//			
+//			List<WebElement> category = driver.findElements(categories);
+//
+//			Actions action = new Actions(driver);
+//
+//			Wait<WebDriver> wait = new FluentWait<WebDriver>(driver).withTimeout(Duration.ofSeconds(10))
+//					.pollingEvery(Duration.ofSeconds(2)).ignoring(NoSuchElementException.class);
+//
+//			action.click(category.get(0)).build().perform();
+//
+//			System.out.println(addButton1);
+//
+//			wait.until(ExpectedConditions.elementToBeClickable(addButton1));
+//
+//			driver.findElement(addButton1).click();
+//
+//			driver.findElement(addButton2).click();
+//
+//			driver.findElement(addButton3).click();
+//
+//			driver.findElement(placeOrder).click();
+//
+//			driver.findElement(confirmOrder).click();
+//
+//			driver.findElement(phoneNumberEntry).sendKeys(phoneNumber);
+//
+//			wait.until(ExpectedConditions.elementToBeClickable(continueButton));
+//
+//			driver.findElement(continueButton).click();
+//
+//			WebElement submit = driver.findElement(submitButton);
+//
+//			Thread.sleep(4000);
+//
+//			action.click(submit).build().perform();
+//
+//			Thread.sleep(5000);
+//
+//			js.executeScript(String.format("window.localStorage.clear();"));
+//
+//			driver.switchTo().newWindow(WindowType.WINDOW);
+//
+//			driver.get(loginPageURL[i]);
+//		}
+//
+//	}
+//
 //	public void placeOrder2() throws InterruptedException {
 //
 //		driver.get(loginPageURL[0]);
@@ -146,6 +151,7 @@ public class CarePage {
 //
 //	}
 //
+////
 //	public void placeOrder3() throws InterruptedException {
 //
 //		driver.get(loginPageURL[1]);
@@ -188,6 +194,7 @@ public class CarePage {
 //
 //	}
 //
+////
 //	public void placeOrder4() throws InterruptedException {
 //
 //		driver.get(loginPageURL[3]);
@@ -229,6 +236,5 @@ public class CarePage {
 //		Thread.sleep(5000);
 //
 //	}
-	
 
 }

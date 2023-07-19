@@ -4,6 +4,7 @@ import java.time.Duration;
 
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.chrome.ChromeOptions;
 import org.testng.annotations.AfterTest;
 import org.testng.annotations.BeforeTest;
 import org.testng.annotations.Test;
@@ -11,9 +12,9 @@ import org.testng.annotations.Test;
 import com.dinamic.v3.test.pages.OMSPage;
 
 public class OrdersTestCase {
-	String emailAddress = "admin@dinamic.in";
-	String password = "Majeed@123";
-	String loginPageURL = "https://posv3.dinamic.io/login";
+	String emailAddress = "admin@burger.com";
+	String password = "Lahir@123";
+	String loginPageURL = "https://dev.dinamic.io/login";
 
 	WebDriver driver;
 
@@ -21,7 +22,12 @@ public class OrdersTestCase {
 	public void browserConfiguration() {
 
 		System.setProperty("webdriver.chrome.driver", "C:\\Users\\white\\Downloads\\Drivers\\chromedriver.exe");
-		driver = new ChromeDriver();
+
+		ChromeOptions options = new ChromeOptions();
+		options.addArguments("--remote-allow-origins=*");
+		driver = new ChromeDriver(options);
+
+//				driver = new ChromeDriver();
 		driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
 		driver.get(loginPageURL);
 		driver.manage().window().maximize();
@@ -54,37 +60,41 @@ public class OrdersTestCase {
 		OMSPage oPage = new OMSPage(driver);
 
 		oPage.order();
+
 		oPage.ordering();
-//		oPage.checkout();
 
-		oPage.viewButtonOrdering();
+		oPage.checkout();
 
+//		oPage.viewButtonOrdering();
+//
 //		oPage.ordering();
+//
 //		oPage.CareCheckThirdFloor();
+//
 //		oPage.confirmKOT();
 	}
 
-	@Test(testName = "No Discount", priority = 2, enabled = false)
+	@Test(testName = "No Discount", priority = 3, enabled = false)
 	public void withoutItemDiscountPrice() throws InterruptedException {
 		OMSPage oPage = new OMSPage(driver);
 
-//		oPage.orderingItems();
+		oPage.ordering();
 		oPage.orderCalculation();
 	}
 
-	@Test(testName = "with item discount", priority = 3, enabled = false)
+	@Test(testName = "with item discount", priority = 4, enabled = false)
 	public void withItemDiscount() {
 		OMSPage oPage = new OMSPage(driver);
 		oPage.orderCalculationwithItemDiscount();
 	}
 
-	@Test(priority = 4, enabled = false)
+	@Test(priority = 5, testName = "Order Discount", enabled = false)
 	public void orderDiscount() {
 		OMSPage oPage = new OMSPage(driver);
 		oPage.orderDiscount();
 	}
 
-	@Test(priority = 5, enabled = false)
+	@Test(priority = 5, testName = "Cancell Order", enabled = false)
 	public void cancelOrder() {
 
 		OMSPage oPage = new OMSPage(driver);
@@ -106,6 +116,7 @@ public class OrdersTestCase {
 		OMSPage oPage = new OMSPage(driver);
 
 		oPage.tableCount();
+
 	}
 
 	@Test(testName = "logout", priority = 7, enabled = false)

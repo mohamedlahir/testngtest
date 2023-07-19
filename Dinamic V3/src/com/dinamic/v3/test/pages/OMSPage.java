@@ -5,7 +5,6 @@ import java.util.ArrayList;
 import java.util.List;
 
 import org.openqa.selenium.By;
-import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.NoSuchElementException;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
@@ -54,11 +53,11 @@ public class OMSPage {
 
 	By pin1 = By.xpath("//button[normalize-space()='1']");
 
-	By pin2 = By.xpath("//button[normalize-space()='2']");
+	By pin2 = By.xpath("//button[normalize-space()='1']");
 
-	By pin3 = By.xpath("//button[normalize-space()='3']");
+	By pin3 = By.xpath("//button[normalize-space()='1']");
 
-	By pin4 = By.xpath("//button[normalize-space()='4']");
+	By pin4 = By.xpath("//button[normalize-space()='1']");
 
 	By numberOfPeople = By.xpath("(//input[@id='people_count'])[3]");
 
@@ -210,14 +209,14 @@ public class OMSPage {
 		wait.until(
 				ExpectedConditions.visibilityOfAllElementsLocatedBy(By.xpath("//span[normalize-space()='Connected']")));
 
-		for (int i = 0; i < 20; i++) {
+		for (int i = 0; i < 1; i++) {
 
 			Thread.sleep(2000);
 
 			// ALL FLOOR BUTTON
 //			driver.findElement(By.xpath("//a[@id='/orders/table-list/all']")).click();
 
-			driver.findElement(By.xpath("//span[normalize-space()='First Floor']")).click();
+			driver.findElement(By.xpath("//span[normalize-space()='Floor 1']")).click();
 
 			wait.until(ExpectedConditions.visibilityOfAllElementsLocatedBy(start));
 
@@ -251,6 +250,13 @@ public class OMSPage {
 
 			driver.findElement(confirmaKOT).click();
 
+			System.out.println(driver.getCurrentUrl());
+
+			Thread.sleep(5000);
+			String orderID = driver
+					.findElement(By.cssSelector("span[class='d-flex align-items-center w-100'] span:nth-child(2)"))
+					.getText();
+			System.out.println(orderID);
 			Thread.sleep(4000);
 
 			driver.findElement(By.xpath("//img[@alt='logo']")).click();
@@ -259,7 +265,7 @@ public class OMSPage {
 
 	public void viewButtonOrdering() throws InterruptedException {
 
-		for (int loop = 0; loop < 20; loop++) {
+		for (int loop = 0; loop < 1; loop++) {
 
 			Actions action = new Actions(driver);
 
@@ -268,12 +274,14 @@ public class OMSPage {
 			Wait<WebDriver> wait = new FluentWait<WebDriver>(driver).withTimeout(Duration.ofSeconds(120))
 
 					.pollingEvery(Duration.ofSeconds(2)).ignoring(NoSuchElementException.class);
-//		WebElement printer = driver.findElement(By.xpath("//span[normalize-space()='Disconnected']")); //printer state
-//		System.out.println("Printer is in Disconnected State : "+ printer.getText());
+			WebElement printer = driver.findElement(By.xpath("//span[normalize-space()='Disconnected']")); // printer
+																											// state
+			System.out.println("Printer is in Disconnected State : " + printer.getText());
 
-			// wait.until(ExpectedConditions.visibilityOfAllElementsLocatedBy(By.xpath("//span[normalize-space()='Connected']")));
+			wait.until(ExpectedConditions
+					.visibilityOfAllElementsLocatedBy(By.xpath("//span[normalize-space()='Connected']")));
 
-			for (int i = 0; i < 20; i++) {
+			for (int i = 0; i < 1; i++) {
 
 				Thread.sleep(2000);
 
